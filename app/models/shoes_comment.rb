@@ -1,0 +1,2 @@
+class ShoesComment < ApplicationRecord
+end

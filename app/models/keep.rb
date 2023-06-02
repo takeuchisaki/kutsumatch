@@ -1,0 +1,2 @@
+class Keep < ApplicationRecord
+end
