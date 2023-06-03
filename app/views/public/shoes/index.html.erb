@@ -1,2 +1,14 @@
-<h1>Public::Shoes#index</h1>
-<p>Find me in app/views/public/shoes/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>靴一覧</h1>
+      <% @shoes.each do |shoe| %>
+        <%= shoe.customer.name %>
+        <%= shoe.shoes_image %>
+        <%= shoe.name %>
+        <%= shoe.size %>
+        <%= shoe.match_rate %>
+      <% end %>
+    </div>
+  </div>
+</div>

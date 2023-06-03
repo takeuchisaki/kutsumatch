@@ -1,2 +1,10 @@
-<h1>Public::Customers#new</h1>
-<p>Find me in app/views/public/customers/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Foot情報</h1>
+      <%= fild_with model: @customer do |f| %>
+        <div class="form-group">
+          <label for="foot_size">足のサイズ</label><br>
+          <%= f.text_ :title, autofocus: true %>
+        </div>
+      <% end %>

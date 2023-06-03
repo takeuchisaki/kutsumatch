@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 2023_06_02_075911) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name", null: false
+    t.string "foot_size"
+    t.integer "foot_width", default: 0
+    t.integer "foot_types", default: 0
+    t.integer "sex", default: 0
+    t.text "Introduction"
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -65,26 +72,43 @@ ActiveRecord::Schema.define(version: 2023_06_02_075911) do
   end
 
   create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "keeps", force: :cascade do |t|
+    t.integer "shoes_id", null: false
+    t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "shoes", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "name", null: false
+    t.text "body", null: false
+    t.string "maker"
+    t.integer "genre_id", null: false
+    t.string "sports_name"
+    t.string "shoes_size", null: false
+    t.integer "price"
+    t.string "match_rate", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "shoes_comments", force: :cascade do |t|
+    t.integer "shoes_id", null: false
+    t.integer "customer_id", null: false
+    t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

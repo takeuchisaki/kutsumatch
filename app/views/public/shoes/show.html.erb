@@ -1,2 +1,16 @@
-<h1>Public::Shoes#show</h1>
-<p>Find me in app/views/public/shoes/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>靴</h1>
+      <%= @shoe.shoes_image %>
+      <%= @shoe.name %>
+      <%= @shoe.body %>
+      <%= @shoe.maker %>
+      <%= @shoe.genre_id %>
+      <%= @shoe.sports_name %>
+      <%= @shoe.shoes_size %>
+      <%= @shoe.price %>
+      <%= @shoe.match_rate %>
+    </div>
+  </div>
+</div>
