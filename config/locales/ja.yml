@@ -1,0 +1,15 @@
+  ja:
+    enums:
+      customer:
+        foot_width:
+          narrow:     "狭い"
+          standard:   "標準"
+          wide:       "広い"
+          not_clear:  "わからない"
+        foot_type:
+          egypt_type:   "エジプト型"
+          greek_type:   "ギリシャ型"
+          square_type:  "スクエア型"
+        sex:
+          man:    "男性"
+          woman:  "女性"

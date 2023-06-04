@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     resources :costomers, only: [:index, :show, :edit, :update]
   end
 
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'
+  end
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
