@@ -36,8 +36,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string  :foot_size
       t.integer :foot_width,  default: 0
       t.integer :foot_types,  default: 0
-      t.integer :sex,         default: 0
-      t.text    :Introduction
+      t.integer :gender,      default: 0
+      t.text    :introduction
       t.boolean :is_deleted,  default: false
 
       t.timestamps null: false

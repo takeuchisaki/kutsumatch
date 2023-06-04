@@ -10,6 +10,6 @@
           egypt_type:   "エジプト型"
           greek_type:   "ギリシャ型"
           square_type:  "スクエア型"
-        sex:
+        gender:
           man:    "男性"
           woman:  "女性"

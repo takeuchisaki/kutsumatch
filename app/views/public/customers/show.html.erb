@@ -1,2 +1,46 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <%= image_tag @customer.get_profile_image(100,100) %>
+      <table class="table">
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th>name</th>
+            <th><%= @customer.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= @customer.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>User 投稿</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>画像</th>
+            <th>商品名</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @shoes.each do |shoe| %>
+            <tr>
+              <td>
+                <%= image_tag shoe.get_shoes_image(100,100) %>
+              </td>
+              <td>
+                <%= shoe.name %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

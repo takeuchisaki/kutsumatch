@@ -42,7 +42,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :gender, :foot_size, :foot_width, :foot_type])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -52,12 +52,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    new_customer_path
+    shoes_path
   end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  
+
 end

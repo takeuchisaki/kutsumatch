@@ -12,14 +12,14 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
-    resources :customers, only: [:new, :create, :show, :index, :edit, :update]
     get 'customers/confirm' => 'customers#confirm', as: 'customer_confirm'
     patch 'customers/withdraw' => 'customers#withdraw', as: 'customer_withdraw'
+    resources :customers, only: [:new, :create, :show, :index, :edit, :update]
     resources :shoes, only: [:new, :create, :show, :index, :edit, :update, :destroy]
   end
 
   namespace :admin do
-    root to: 'home#top'
+    root to: 'homes#top'
     resources :shoes,     only: [:index, :show, :destroy]
     resources :genres,    only: [:index, :create, :edit, :update]
     resources :costomers, only: [:index, :show, :edit, :update]

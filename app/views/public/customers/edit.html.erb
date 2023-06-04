@@ -1,2 +1,43 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>My情報</h1>
+      <%= form_with model: @customer, url: customer_path(@customer), method: :patch, local: true do |f| %>
+        <div class="form-group">
+          <label for="shoes_image">プロフィール画像</label><br>
+          <%= f.file_field :profile_image, accept: "image/*" %>
+        <div class="form-group">
+          <label for="shoes_name">ユーザー名</label><br>
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+        <div class="form-group">
+          <label for="foot_size">足のサイズ</label><br>
+          <%= f.text_field :foot_size %> cm
+        </div>
+        <div class="form-group">
+          <label for="foot_width">足幅</label><br>
+          <%= f.select :foot_width, Customer.foot_widths.keys.map { |k| [t("enums.customer.foot_width.#{k}"), k] } %>
+        </div>
+        <div class="form-group">
+          <label for="foot_type">足タイプ</label><br>
+          <%= f.select :foot_type, Customer.foot_types.keys.map { |k| [t("enums.customer.foot_type.#{k}"), k] } %>
+        </div>
+        <div class="form-group">
+          <label for="gender">性別</label><br>
+          <%= f.select :gender, Customer.genders.keys.map { |k| [t("enums.customer.gender.#{k}"), k] } %>
+        </div>
+        <div class="form-group">
+          <label for="foot_size">紹介文</label><br>
+          <%= f.text_area :introduction %>
+        </div>
+        </div>
+        <div class="form-group">
+          <%= f.submit '変更',class:'btn btn-success' %>
+        </div>
+      <% end %>
+      <div>
+        <%= link_to '退会する', customer_confirm_path %>
+      </div>
+    </div>
+  </div>
+</div>
