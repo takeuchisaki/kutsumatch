@@ -1,2 +1,9 @@
-<h1>Admin::Genres#edit</h1>
-<p>Find me in app/views/admin/genres/edit.html.erb</p>
+<div class="container w-50">
+  <h5 class="d-inline ighlight">ジャンル編集</h5>
+  <div class="my-4">
+    <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
+      <%= f.text_field :name, autofocus: true %>
+      <%= f.submit '保存' %>
+    <% end %>
+  </div>
+</div>
