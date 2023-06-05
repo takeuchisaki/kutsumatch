@@ -2,15 +2,25 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>靴</h1>
-      <%= @shoe.shoes_image %>
-      <%= @shoe.name %>
-      <%= @shoe.body %>
-      <%= @shoe.maker %>
-      <%= @shoe.genre_id %>
-      <%= @shoe.sports_name %>
-      <%= @shoe.shoes_size %>
-      <%= @shoe.price %>
-      <%= @shoe.match_rate %>
+      <div>
+        <%= image_tag @shoe.get_shoes_image(100,100) %>
+      </div>
+      <div><%= @shoe.name %></div>
+      <div><%= @shoe.body %></div>
+      <div><%= @shoe.maker %></div>
+      <div><%= @shoe.genre.name %></div>
+      <div><%= @shoe.sports_name %></div>
+      <div><%= @shoe.shoes_size %></div>
+      <div><%= @shoe.price %></div>
+      <div><%= @shoe.match_rate %></div>
     </div>
+    <% if @shoe.customer == current_customer %>
+      <div>
+        <%= link_to '編集', edit_shoe_path(@shoe) %>
+      </div>
+      <div>
+        <%= link_to '削除', shoe_path(@shoe), method: :delete %>
+      </div>
+    <% end %>
   </div>
 </div>

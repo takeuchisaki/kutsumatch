@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  devise_for :customers,skip: [:passwords], controllers: {
+    registrations: "public/registrations",
+    sessions:       'public/sessions'
+  }
+
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+    sessions: "admin/sessions"
+  }
+
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
@@ -16,14 +25,6 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
   end
 
-  devise_for :customers,skip: [:passwords], controllers: {
-    registrations: "public/registrations",
-    sessions:       'public/sessions'
-  }
-
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-    sessions: "admin/sessions"
-  }
 
   devise_scope :customer do
     post 'customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'

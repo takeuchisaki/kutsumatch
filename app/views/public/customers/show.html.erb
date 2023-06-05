@@ -32,7 +32,9 @@
           <% @shoes.each do |shoe| %>
             <tr>
               <td>
-                <%= image_tag shoe.get_shoes_image(100,100) %>
+                <%= link_to shoe_path(shoe) do %>
+                  <%= image_tag shoe.get_shoes_image(100,100) %>
+                <% end %>
               </td>
               <td>
                 <%= shoe.name %>

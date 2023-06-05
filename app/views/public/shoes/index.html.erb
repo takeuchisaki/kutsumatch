@@ -4,9 +4,11 @@
       <h1>靴一覧</h1>
       <% @shoes.each do |shoe| %>
         <%= shoe.customer.name %>
-        <%= shoe.shoes_image %>
+        <%= link_to shoe_path(shoe) do %>
+          <%= image_tag shoe.get_shoes_image(50,50) %>
+        <% end %>
         <%= shoe.name %>
-        <%= shoe.size %>
+        <%= shoe.shoes_size %>
         <%= shoe.match_rate %>
       <% end %>
     </div>

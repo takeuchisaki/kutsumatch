@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2023_06_02_075911) do
     t.string "name", null: false
     t.string "foot_size"
     t.integer "foot_width", default: 0
-    t.integer "foot_types", default: 0
+    t.integer "foot_type", default: 0
     t.integer "gender", default: 0
     t.text "introduction"
     t.boolean "is_deleted", default: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2023_06_02_075911) do
   end
 
   create_table "keeps", force: :cascade do |t|
-    t.integer "shoes_id", null: false
+    t.integer "shoe_id", null: false
     t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2023_06_02_075911) do
   end
 
   create_table "shoes_comments", force: :cascade do |t|
-    t.integer "shoes_id", null: false
+    t.integer "shoe_id", null: false
     t.integer "customer_id", null: false
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
