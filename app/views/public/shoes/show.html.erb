@@ -23,4 +23,23 @@
       </div>
     <% end %>
   </div>
+  <div>
+    <p>
+      コメント数：<%= @shoe.shoe_comments.count %>
+    </p>
+    <% @shoe.shoe_comments.each do |shoe_comment| %>
+      <%= image_tag shoe_comment.customer.get_profile_image(50,50) %>
+      <%= shoe_comment.customer.name %>
+      <%= shoe_comment.comment %>
+      <% if shoe_comment.customer == current_customer %>
+        <%= link_to '削除', shoe_shoe_comment_path(shoe_comment.shoe, shoe_comment), method: :delete %>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <%= form_with model: [@shoe, @shoe_comment] do |f| %>
+      <%= f.text_area :comment %>
+      <%= f.submit '送信する' %>
+    <% end %>
+  </div>
 </div>

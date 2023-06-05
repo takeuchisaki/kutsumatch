@@ -15,6 +15,7 @@ class Public::ShoesController < ApplicationController
 
   def show
     @shoe = Shoe.find(params[:id])
+    @shoe_comment = ShoeComment.new
   end
 
   def index
@@ -41,7 +42,8 @@ class Public::ShoesController < ApplicationController
   end
 
   private
-    def shoe_params
-      params.require(:shoe).permit(:name, :body, :maker, :sports_name, :shoes_size, :price, :match_rate, :genre_id)
-    end
+
+  def shoe_params
+    params.require(:shoe).permit(:name, :body, :maker, :sports_name, :shoes_size, :price, :match_rate, :genre_id)
+  end
 end

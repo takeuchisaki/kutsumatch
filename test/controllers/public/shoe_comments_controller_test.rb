@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ShoesCommentTest < ActiveSupport::TestCase
+class Public::ShoeCommentsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

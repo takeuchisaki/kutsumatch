@@ -1,6 +1,6 @@
-class ShoesComment < ApplicationRecord
-  
+class ShoeComment < ApplicationRecord
+
   belongs_to :customer
   belongs_to :shoe
-  
+
 end

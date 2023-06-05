@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_02_075911) do
+ActiveRecord::Schema.define(version: 2023_06_05_091135) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -91,6 +91,14 @@ ActiveRecord::Schema.define(version: 2023_06_02_075911) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "shoe_comments", force: :cascade do |t|
+    t.integer "shoe_id", null: false
+    t.integer "customer_id", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "shoes", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.string "name", null: false
@@ -101,14 +109,6 @@ ActiveRecord::Schema.define(version: 2023_06_02_075911) do
     t.string "shoes_size", null: false
     t.integer "price"
     t.string "match_rate", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "shoes_comments", force: :cascade do |t|
-    t.integer "shoe_id", null: false
-    t.integer "customer_id", null: false
-    t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

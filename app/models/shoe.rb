@@ -5,7 +5,7 @@ class Shoe < ApplicationRecord
   belongs_to :customer
   belongs_to :genre
   has_many   :keeps,           dependent: :destroy
-  has_many   :shoes_comments,  dependent: :destroy
+  has_many   :shoe_comments,  dependent: :destroy
   
   def get_shoes_image(width, height)
     unless shoes_image.attached?
