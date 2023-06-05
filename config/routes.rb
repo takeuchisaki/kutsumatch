@@ -11,12 +11,13 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
-    get 'about' => 'homes#about', as: 'about'
-    get 'customers/confirm' => 'customers#confirm', as: 'customer_confirm'
-    patch 'customers/withdraw' => 'customers#withdraw', as: 'customer_withdraw'
+    get   'about'               => 'homes#about',         as: 'about'
+    get   'customers/confirm'   => 'customers#confirm',   as: 'customer_confirm'
+    patch 'customers/withdraw'  => 'customers#withdraw',  as: 'customer_withdraw'
     resources :customers, only: [:new, :create, :show, :index, :edit, :update]
-    resources :shoes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
+    resources :shoes,     only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       resources :shoe_comments, only: [:create, :destroy]
+      resource  :keeps,         only: [:create, :destroy]
     end
   end
 

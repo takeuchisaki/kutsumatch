@@ -24,6 +24,17 @@
     <% end %>
   </div>
   <div>
+    <% if @shoe.keeped_by?(current_customer) %>
+      <%= link_to shoe_keeps_path(@shoe), method: :delete do %>
+        <i class="fas fa-bookmark"></i>
+      <% end %>
+    <% else %>
+      <%= link_to shoe_keeps_path(@shoe), method: :post do %>
+        <i class="far fa-bookmark"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
     <p>
       コメント数：<%= @shoe.shoe_comments.count %>
     </p>
