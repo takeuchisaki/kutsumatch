@@ -4,8 +4,8 @@
       <h1>靴情報</h1>
       <%= form_with model: @shoe, url: shoe_path, method: :patch, local: true do |f| %>
         <div class="form-group">
-          <label for="shoes_image">商品画像</label><br>
-          <%= f.file_field :shoes_image, accept: "image/*" %>
+          <label for="shoe_image">商品画像</label><br>
+          <%= f.file_field :shoe_image, accept: "image/*" %>
         <div class="form-group">
           <label for="shoes_name">商品名</label><br>
           <%= f.text_field :name, autofocus: true %>

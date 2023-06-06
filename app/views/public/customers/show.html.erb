@@ -1,21 +1,7 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <h2>User info</h2>
-      <%= image_tag @customer.get_profile_image(100,100) %>
-      <table class="table">
-        <tbody>
-          <tr></tr>
-          <tr>
-            <th>name</th>
-            <th><%= @customer.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th><%= @customer.introduction %></th>
-          </tr>
-        </tbody>
-      </table>
+      <%= render 'info', customer: @customer %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>User 投稿</h2>
@@ -33,7 +19,7 @@
             <tr>
               <td>
                 <%= link_to shoe_path(shoe) do %>
-                  <%= image_tag shoe.get_shoes_image(100,100) %>
+                  <%= image_tag shoe.get_shoe_image(100,100) %>
                 <% end %>
               </td>
               <td>

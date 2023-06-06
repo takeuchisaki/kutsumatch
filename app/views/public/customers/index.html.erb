@@ -14,7 +14,9 @@
           <% @customers.each do |customer| %>
             <tr>
               <td>
-                <%= image_tag customer.get_profile_image(50,50) %>
+                <%= link_to customer_path(customer) do %>
+                  <%= image_tag customer.get_profile_image(50,50) %>
+                <% end %>
               </td>
               <td>
                 <%= customer.name %>

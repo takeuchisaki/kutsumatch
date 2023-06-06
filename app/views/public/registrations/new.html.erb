@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <label for="foot_width">足幅</label><br>
-    <%= f.radio_button :foot_width, Customer.foot_widths.key(0) %>
+    <%= f.radio_button :foot_width, Customer.foot_widths.key(0), checked: false %>
     <%= f.label :foot_width_narrow, Customer.foot_widths_i18n[:narrow] %>
     <%= f.radio_button :foot_width, Customer.foot_widths.key(1) %>
     <%= f.label :foot_width_standard, Customer.foot_widths_i18n[:standard] %>
@@ -30,8 +30,10 @@
   </div>
 
   <div class="form-group">
-    <label for="foot_type">足タイプ</label><br>
-    <%= f.radio_button :foot_type, Customer.foot_types.key(0) %>
+    <label for="foot_type">足タイプ</label>
+    
+    <i class="fa-solid fa-circle-question"></i><br>
+    <%= f.radio_button :foot_type, Customer.foot_types.key(0), checked: false %>
     <%= f.label :foot_type_egypt_type, Customer.foot_types_i18n[:egypt_type] %>
     <%= f.radio_button :foot_type, Customer.foot_types.key(1) %>
     <%= f.label :foot_type_greek_type, Customer.foot_types_i18n[:greek_type] %>
@@ -41,7 +43,7 @@
 
   <div class="form-group">
     <label for="gender">性別</label><br>
-    <%= f.radio_button :gender, Customer.genders.key(0) %>
+    <%= f.radio_button :gender, Customer.genders.key(0), checked: false %>
     <%= f.label :gender_man, Customer.genders_i18n[:man] %>
     <%= f.radio_button :gender, Customer.genders.key(1) %>
     <%= f.label :gender_woman, Customer.genders_i18n[:woman] %>

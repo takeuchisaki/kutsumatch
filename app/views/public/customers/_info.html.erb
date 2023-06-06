@@ -1,0 +1,37 @@
+<h2>User info</h2>
+<%= image_tag customer.get_profile_image(100,100) %>
+<table class="table">
+  <tbody>
+    <tr></tr>
+    <tr>
+      <th>名前</th>
+      <th><%= customer.name %></th>
+    </tr>
+    <tr>
+      <th>足サイズ</th>
+      <th><%= customer.foot_size %> cm </th> 
+    </tr>
+    <tr>
+      <th>足幅</th>
+      <th><%= t("enums.customer.foot_width.#{customer.foot_width}") %></th>
+    </tr>
+    <tr>
+      <th>足タイプ</th>
+      <th><%= t("enums.customer.foot_type.#{customer.foot_type}") %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= customer.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+<% if customer == current_customer %>
+  <div>
+    <%= link_to 'ブックマーク', keeps_customer_path(customer) %>
+  </div>
+  <div>
+    <%= link_to edit_customer_path(customer), class:"btn btn-outline-secondary btn-block" do %>
+     <i class="fas fa-user-cog"></i>
+    <% end %>
+  </div>
+<% end %>
