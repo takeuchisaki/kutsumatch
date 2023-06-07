@@ -4,10 +4,12 @@ class Public::ShoesController < ApplicationController
   end
 
   def create
-    shoe = Shoe.new(shoe_params)
-    shoe.customer_id = current_customer.id
-    if shoe.save
-      redirect_to shoe_path(shoe)
+    @shoe = Shoe.new(shoe_params)
+    @shoe.customer_id = current_customer.id
+    tag_list = params[:shoe][:tag_name].split("、")
+    if @shoe.save
+      @shoe.save_tag(tag_list)
+      redirect_to shoe_path(@shoe)
     else
       render :new
     end
@@ -17,10 +19,17 @@ class Public::ShoesController < ApplicationController
     @shoe = Shoe.find(params[:id])
     @shoe_comment = ShoeComment.new
     @customer = @shoe.customer
+    @shoe_tags = @shoe.tags
   end
 
   def index
-    @shoes = Shoe.all
+    if params[:tag_id].present?
+      @tag = Tag.find(params[:tag_id])
+      @shoes = @tag.shoes
+    else
+      @shoes = Shoe.all
+    end
+    @tag_lists = Tag.all
   end
 
   def edit
@@ -29,7 +38,9 @@ class Public::ShoesController < ApplicationController
 
   def update
     @shoe = Shoe.find(params[:id])
+    tag_list = params[:shoe][:tag_name].split("、")
     if @shoe.update(shoe_params)
+      @shoe.save_tag(tag_list)
       redirect_to shoe_path(@shoe)
     else
       render :edit
@@ -42,9 +53,15 @@ class Public::ShoesController < ApplicationController
     redirect_to customer_path(current_customer)
   end
 
+  # def search_tag
+  #   @tag_lists = Tag.all
+  #   @tag = Tag.find(params[:tag_id])
+  #   @shoes = @tag.shoes
+  # end
+
   private
 
   def shoe_params
-    params.require(:shoe).permit(:name, :body, :maker, :sports_name, :shoes_size, :price, :match_rate, :genre_id, :shoe_image)
+    params.require(:shoe).permit(:shoe_name, :body, :shoe_size, :price, :match_rate, :shoe_image, :tag_name)
   end
 end

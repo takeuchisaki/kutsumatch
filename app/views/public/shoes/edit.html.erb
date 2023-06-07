@@ -7,28 +7,24 @@
           <label for="shoe_image">商品画像</label><br>
           <%= f.file_field :shoe_image, accept: "image/*" %>
         <div class="form-group">
-          <label for="shoes_name">商品名</label><br>
-          <%= f.text_field :name, autofocus: true %>
+          <label for="shoe_name">商品名</label><br>
+          <%= f.text_field :shoe_name, autofocus: true %>
         </div>
         <div class="form-group">
-          <label for="shoes_opinion">感想</label><br>
+          <label for="shoe_opinion">感想</label><br>
           <%= f.text_area :body %>
         </div>
         <div class="form-group">
-          <label for="shoes_size">靴サイズ</label><br>
-          <%= f.select :shoes_size, options_for_select((20..35).step(0.5), @shoe.shoes_size), include_blank: true %> cm
+          <label for="shoe_size">靴サイズ</label><br>
+          <%= f.select :shoe_size, options_for_select((20..35).step(0.5), @shoe.shoe_size), include_blank: true %>cm
         </div>
         <div class="form-group">
           <label for="match_rate">マッチ度</label><br>
           <%= f.text_field :match_rate %> ％
         </div>
         <div class="form-group">
-          <label for="maker">メーカー名</label><br>
-          <%= f.text_field :maker %>
-        </div>
-        <div class="form-group">
-          <label for="genre">靴ジャンル</label><br>
-          <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name, @shoe.genre_id), include_blank: true %>
+          <label for="tag_name">タグ付け</label><br>
+          <%= f.text_area :tag_name %>
         </div>
         <div class="form-group">
           <label for="price">値段</label><br>

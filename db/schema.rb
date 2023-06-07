@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_05_091135) do
+ActiveRecord::Schema.define(version: 2023_06_07_070255) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,12 +71,6 @@ ActiveRecord::Schema.define(version: 2023_06_05_091135) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-  create_table "genres", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "keeps", force: :cascade do |t|
     t.integer "shoe_id", null: false
     t.integer "customer_id", null: false
@@ -99,16 +93,28 @@ ActiveRecord::Schema.define(version: 2023_06_05_091135) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "shoe_tags", force: :cascade do |t|
+    t.integer "shoe_id"
+    t.integer "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shoe_id", "tag_id"], name: "index_shoe_tags_on_shoe_id_and_tag_id", unique: true
+  end
+
   create_table "shoes", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.string "name", null: false
+    t.string "shoe_name", null: false
     t.text "body", null: false
-    t.string "maker"
-    t.integer "genre_id", null: false
-    t.string "sports_name"
-    t.string "shoes_size", null: false
+    t.string "shoe_size", null: false
     t.integer "price"
     t.string "match_rate", null: false
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

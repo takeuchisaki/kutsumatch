@@ -7,10 +7,15 @@
         <%= link_to shoe_path(shoe) do %>
           <%= image_tag shoe.get_shoe_image(50,50) %>
         <% end %>
-        <%= shoe.name %>
-        <%= shoe.shoes_size %>
+        <%= shoe.shoe_name %>
+        <%= shoe.shoe_size %>
         <%= shoe.match_rate %>
       <% end %>
     </div>
+    <!--<div>-->
+    <!--  < @tag_lists.each do |list| %>-->
+    <!--    <= link_to list.tag_name, shoes_path(tag_id: list.id) %>-->
+    <!--  < end %>-->
+    <!--</div>-->
   </div>
 </div>

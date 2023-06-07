@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         get :keeps
       end
     end
-    resources :shoes,     only: [:new, :create, :show, :index, :edit, :update, :destroy] do
+    resources :shoes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       resources :shoe_comments, only: [:create, :destroy]
       resource  :keeps,         only: [:create, :destroy]
     end

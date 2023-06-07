@@ -8,31 +8,29 @@
       <table class="table">
         <tbody>
           <tr><%= image_tag @shoe.get_shoe_image(100,100) %></tr>
-          <th><%= @shoe.name %></th>
+          <th><%= @shoe.shoe_name %></th>
           </tr>
           <tr>
             <th>足サイズ</th>
             <th><%= @shoe.body %></th>
           </tr>
           <tr>
-            <th>足幅</th>
-            <th><%= @shoe.maker %></th>
-          </tr>
-          <tr>
-            <th>足タイプ</th>
-            <th><%= @shoe.genre.name %><%= @shoe.sports_name %></th>
-          </tr>
-          <tr>
             <th>introduction</th>
-            <th><%= @shoe.shoes_size %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th><%= @shoe.price %></th>
+            <th><%= @shoe.shoe_size %></th>
           </tr>
           <tr>
             <th>フット感</th>
             <th><%= @shoe.match_rate %></th>
+          </tr>
+          <tr>
+            <th>タグ付け</th>
+            <th>
+              <% @shoe_tags.each do |tag| %>
+                <%= link_to shoes_path(tag_id: tag.id) do %>
+                  #<%= tag.tag_name %>
+                <% end %>
+              <% end %>
+            </th>
           </tr>
         </tbody>
       </table>
