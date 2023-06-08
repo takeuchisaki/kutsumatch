@@ -1,2 +1,16 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>靴一覧</h1>
+      <% @shoes.each do |shoe| %>
+        <%= shoe.customer.name %>
+        <%= link_to admin_shoe_path(shoe) do %>
+          <%= image_tag shoe.get_shoe_image(50,50) %>
+        <% end %>
+        <%= shoe.name %>
+        <%= shoe.shoe_size %>
+        <%= shoe.match_rate %>
+      <% end %>
+    </div>
+</div>
+

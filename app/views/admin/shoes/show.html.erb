@@ -1,2 +1,46 @@
-<h1>Admin::Shoes#show</h1>
-<p>Find me in app/views/admin/shoes/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'public/customers/info', customer: @customer %>
+    </div>
+   <div class="col-md-8 offset-md-1">
+      <h1>靴</h1>
+      <table class="table">
+        <tbody>
+          <tr><%= image_tag @shoe.get_shoe_image(100,100) %></tr>
+          <th><%= @shoe.name %></th>
+          </tr>
+          <tr>
+            <th>足サイズ</th>
+            <th><%= @shoe.body %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= @shoe.shoe_size %></th>
+          </tr>
+          <tr>
+            <th>フット感</th>
+            <th><%= @shoe.match_rate %></th>
+          </tr>
+          <tr>
+            <th>タグ付け</th>
+            <th>
+              <% @shoe_tags.each do |tag| %>
+                #<%= tag.name %>
+              <% end %>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <%= link_to '削除', admin_shoe_path(@shoe), method: :delete %>
+      </div>
+      <div>
+        <%= link_to admin_shoe_comments_path(shoe_id: @shoe.id) do %>
+          コメント数：<%= @shoe.shoe_comments.count %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

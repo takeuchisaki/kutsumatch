@@ -27,9 +27,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
-    resources :shoes,     only: [:index, :show, :destroy]
-    resources :genres,    only: [:index, :create, :edit, :update, :destroy]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :shoes,         only: [:index, :show, :destroy]
+    resources :customers,     only: [:index, :show, :edit, :update]
+    resources :shoe_comments, only: [:index, :show, :destroy]
   end
 
 

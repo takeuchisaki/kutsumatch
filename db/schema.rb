@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2023_06_07_070255) do
 
   create_table "shoes", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.string "shoe_name", null: false
+    t.string "name", null: false
     t.text "body", null: false
     t.string "shoe_size", null: false
     t.integer "price"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 2023_06_07_070255) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "tag_name"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

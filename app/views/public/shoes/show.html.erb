@@ -8,7 +8,7 @@
       <table class="table">
         <tbody>
           <tr><%= image_tag @shoe.get_shoe_image(100,100) %></tr>
-          <th><%= @shoe.shoe_name %></th>
+          <th><%= @shoe.name %></th>
           </tr>
           <tr>
             <th>足サイズ</th>
@@ -27,7 +27,7 @@
             <th>
               <% @shoe_tags.each do |tag| %>
                 <%= link_to shoes_path(tag_id: tag.id) do %>
-                  #<%= tag.tag_name %>
+                  #<%= tag.name %>
                 <% end %>
               <% end %>
             </th>

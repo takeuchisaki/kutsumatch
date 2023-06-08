@@ -21,19 +21,22 @@ class Shoe < ApplicationRecord
   end
 
   def save_tag(sent_tags)
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
+    # 現在のタグリスト
+    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+    # 現在のタグリスト内で、sent_tagsに含まれていないタグを特定
     old_tags = current_tags - sent_tags
+    # 現在のタグリストに無い、sent_tagsに含まれる新しいタグを特定
     new_tags = sent_tags - current_tags
 
-    # 現在のタグリスト内で、sent_tagsには含まれていないタグを削除
+    #sent_tagsには含まれていないタグを削除
     old_tags.each do |old|
-      self.tags.delete Tag.find_by(tag_name: old)
+      self.tags.delete Tag.find_by(name: old)
     end
 
-    # 現在のタグリスト内にない、sent_tagsに含まれる新しいタグを追加
+    # sent_tagsに含まれる新しいタグを追加
     new_tags.each do |new|
-      new_shoe_tag = Tag.find_or_create_by(tag_name: new)
-      self.tags << new_shoe_tag
+      new_tag = Tag.find_or_create_by(name: new)
+      self.tags << new_tag
     end
   end
 
