@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :shoe_comments, only: [:create, :destroy]
       resource  :keeps,         only: [:create, :destroy]
     end
+    get "search" => "searches#search"
   end
 
   namespace :admin do

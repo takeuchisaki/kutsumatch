@@ -39,5 +39,9 @@ class Shoe < ApplicationRecord
       self.tags << new_tag
     end
   end
+  
+  def self.search(word)
+    where("name LIKE? OR body LIKE?", "%#{word}%", "%#{word}%")
+  end
 
 end

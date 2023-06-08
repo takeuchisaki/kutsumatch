@@ -46,4 +46,9 @@ class Customer < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  def self.search(word)
+    where("name LIKE?", "%#{word}")
+  end
+  
 end
