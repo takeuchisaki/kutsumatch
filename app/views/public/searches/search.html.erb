@@ -1,2 +1,105 @@
-<h1>Public::Searches#search</h1>
-<p>Find me in app/views/public/searches/search.html.erb</p>
+<%= form_with url: search_path, local: true, method: :get do |f| %>
+  <%= f.text_field :word %>
+  <%= f.select :range, options_for_select([['Shoe'],['Tag'],['User']]), include_blank: true %>
+  <%= f.submit "検索" %>
+<% end %>
+
+<table class="table table-hover table-inverse">
+  <% if @range == "Shoe" %>
+    <h2>Users search for"<%= @word %>"</h2>
+    <thead>
+      <tr>
+        <th></th>
+        <th>name</th>
+        <th></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shoes.each do |shoe| %>
+        <tr>
+          <td>
+            <%= link_to shoe_path(shoe) do %>
+              <%= image_tag shoe.get_shoe_image(50,50) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to shoe.name, shoe_path(shoe) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% elsif @range == "Tag" %>
+    <h2>Users search for"<%= @word %>"</h2>
+    <thead>
+      <tr>
+        <th></th>
+        <th>name</th>
+        <th></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tags.each do |tag| %>
+        <tr>
+          <td>
+            <%= link_to shoe_path(tag.shoe) do %>
+              <%= image_tag tag.shoe.get_shoe_image(50,50) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to tag.shoe_name, shoe_path(tag.shoe) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% elsif @range == "User" %>
+    <h2>Users search for"<%= @word %>"</h2>
+    <thead>
+      <tr>
+        <th></th>
+        <th>name</th>
+        <th></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td>
+            <%= link_to customer_path(customer) do %>
+              <%= image_tag customer.get_profile_image(50,50) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to customer.name, customer_path(customer) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <h2>Users search for"<%= @word %>"</h2>
+    <thead>
+      <tr>
+        <th></th>
+        <th>name</th>
+        <th></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shoes.each do |shoe| %>
+        <tr>
+          <td>
+            <%= link_to shoe_path(shoe) do %>
+              <%= image_tag shoe.get_shoe_image(50,50) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to shoe.name, shoe_path(shoe) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

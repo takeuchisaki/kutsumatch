@@ -21,6 +21,11 @@ class Public::ShoesController < ApplicationController
     @customer = @shoe.customer
     @shoe_tags = @shoe.tags
   end
+  
+  # def index
+  #   @q = Shoe.ransack(params[:q])
+  #   @shoes = @q.result(distinct: true)
+  # end
 
   def index
     if params[:tag_id].present?
