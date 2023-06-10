@@ -45,7 +45,64 @@ class Shoe < ApplicationRecord
   # end
 
   def self.search(word)
-    where("name LIKE? OR body LIKE?", "%#{word}%", "%#{word}%")
+    where("name LIKE ? OR body LIKE ? OR tag_name LIKE ?" , "%#{word}%", "%#{word}%", "%#{word}%")
+  end
+
+  def self.search_by_shoe_size(min_shoe_size, max_shoe_size)
+    if min_shoe_size.present? && max_shoe_size.present?
+      where("shoe_size >= ? AND shoe_size <= ?", min_shoe_size, max_shoe_size)
+    elsif min_shoe_size.present?
+      where("shoe_size >= ?", min_shoe_size)
+    elsif max_shoe_size.present?
+      where("shoe_size <= ?", max_shoe_size)
+    else
+      all
+    end
+  end
+
+  def self.search_by_match(min_match, max_match)
+    if min_match.present? && max_match.present?
+      where("match_rate >= ? AND match_rate <= ?", min_match, max_match)
+    elsif min_match.present?
+       where("match_rate >= ?", min_match)
+    elsif max_match.present?
+      where("match_rate <= ?", max_match)
+    else
+      all
+    end
+  end
+
+  def self.search_by_price(min_price, max_price)
+    if min_price.present? && max_price.present?
+      where("price >= ? AND price <= ?", min_price, max_price)
+    elsif min_price.present?
+       where("price >= ?", min_price)
+    elsif max_price.present?
+      where("price <= ?", max_price)
+    else
+      all
+    end
+  end
+
+  def self.search_by_filters(params)
+    shoes = all
+    # ワードによる絞り込み
+    if params[:word].present?
+      shoes = shoes.search(params[:word])
+    end
+    # 靴のサイズによる絞り込み
+    if params[:min_shoe_size].present? || params[:max_shoe_size].present?
+      shoes = shoes.search_by_shoe_size(params[:min_shoe_size], params[:max_shoe_size])
+    end
+    # マッチ度による絞り込み
+    if params[:min_match].present? || params[:max_match].present?
+      shoes = shoes.search_by_match(params[:min_match], params[:max_match])
+    end
+    # 価格による絞り込み
+    if params[:min_price].present? || params[:max_price].present?
+      shoes = shoes.search_by_price(params[:min_price], params[:max_price])
+    end
+    shoes
   end
 
 end

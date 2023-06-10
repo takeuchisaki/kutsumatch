@@ -26,16 +26,20 @@ class Public::ShoesController < ApplicationController
   #   @q = Shoe.ransack(params[:q])
   #   @shoes = @q.result(distinct: true)
   # end
-
+  
   def index
-    if params[:tag_id].present?
-      @tag = Tag.find(params[:tag_id])
-      @shoes = @tag.shoes
-    else
-      @shoes = Shoe.all
-    end
-    @tag_lists = Tag.all
+    @shoes = Shoe.search_by_filters(params)
+    @customers = Customer.search_by_filters(params)
   end
+  # def index
+  #   if params[:tag_id].present?
+  #     @tag = Tag.find(params[:tag_id])
+  #     @shoes = @tag.shoes
+  #   else
+  #     @shoes = Shoe.all
+  #   end
+  #   @tag_lists = Tag.all
+  # end
 
   def edit
     @shoe = Shoe.find(params[:id])

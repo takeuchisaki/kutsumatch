@@ -43,12 +43,7 @@
       <% @tags.each do |tag| %>
         <tr>
           <td>
-            <%= link_to shoe_path(tag.shoe) do %>
-              <%= image_tag tag.shoe.get_shoe_image(50,50) %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to tag.shoe_name, shoe_path(tag.shoe) %>
+            <%= link_to tag.name, shoes_path(tag_id: tag.id) %>
           </td>
         </tr>
       <% end %>

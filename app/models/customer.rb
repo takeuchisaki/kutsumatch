@@ -46,9 +46,30 @@ class Customer < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   def self.search(word)
-    where("name LIKE?", "%#{word}")
+    where("name LIKE ?", "%#{word}%")
   end
-  
+
+  def self.search_by_foot_size(foot_size)
+    where("foot_size LIKE ?", "%#{foot_size}%")
+  end
+
+  def self.search_by_filters(params)
+    customers = all
+    if params[:foot_size].present?
+      customers = customers.search_by_foot_size(params[:foot_size])
+    end
+    if params[:foot_width].present?
+      customers = customers.where(foot_width: params[:foot_width])
+    end
+    if params[:foot_type].present?
+      customers = customers.where(foot_type: params[:foot_type])
+    end
+    if params[:gender].present?
+      customers = customers.where(gender: params[:gender])
+    end
+    customers
+  end
+
 end

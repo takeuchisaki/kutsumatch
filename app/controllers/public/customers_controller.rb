@@ -7,7 +7,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.all
+    @customers = Customer.search_by_filters(params)
   end
 
   def edit
