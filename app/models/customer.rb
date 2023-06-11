@@ -32,13 +32,14 @@ class Customer < ApplicationRecord
     woman:  1,
   }
 
-
+  # ゲストユーザーについて
   def self.guest
     find_or_create_by!(name: 'guestcustomer', email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
     end
   end
 
+  # ユーザーの画像について
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join("app/assets/images/no_profile_image.jpg")
@@ -47,25 +48,33 @@ class Customer < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+# 検索・素掘り込みについて
+  # ワードによる検索条件
   def self.search(word)
     where("name LIKE ?", "%#{word}%")
   end
-
+  
+  # 足のサイズによる絞り込み条件
   def self.search_by_foot_size(foot_size)
     where("foot_size LIKE ?", "%#{foot_size}%")
   end
 
+  # 絞り込み結果をもとにしたユーザー
   def self.search_by_filters(params)
     customers = all
+    # 足サイズによる絞り込み
     if params[:foot_size].present?
       customers = customers.search_by_foot_size(params[:foot_size])
     end
+    # 足幅による絞り込み
     if params[:foot_width].present?
       customers = customers.where(foot_width: params[:foot_width])
     end
+    # 足タイプによる絞り込み
     if params[:foot_type].present?
       customers = customers.where(foot_type: params[:foot_type])
     end
+    # 性別による絞り込み
     if params[:gender].present?
       customers = customers.where(gender: params[:gender])
     end

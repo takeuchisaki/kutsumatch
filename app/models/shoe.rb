@@ -8,6 +8,7 @@ class Shoe < ApplicationRecord
   has_many   :shoe_tags,      dependent: :destroy
   has_many   :tags,           through: :shoe_tags
 
+  # 靴の画像について
   def get_shoe_image(width, height)
     unless shoe_image.attached?
       file_path = Rails.root.join('app/assets/images/no_shoes_image.jpg')
@@ -16,10 +17,12 @@ class Shoe < ApplicationRecord
     shoe_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  # 指定された顧客によって保存されているかどうか確認
   def keeped_by?(customer)
     keeps.exists?(customer_id: customer.id)
   end
 
+  # タグについて
   def save_tag(sent_tags)
     # 現在のタグリスト
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
@@ -30,7 +33,7 @@ class Shoe < ApplicationRecord
 
     #sent_tagsには含まれていないタグを削除
     old_tags.each do |old|
-      self.tags.delete Tag.find_by(name: old)
+      self.tags.destroy Tag.find_by(name: old)
     end
 
     # sent_tagsに含まれる新しいタグを追加
@@ -40,14 +43,13 @@ class Shoe < ApplicationRecord
     end
   end
 
-  # def self.ransackable_attributes(auth_object = nil)
-  #   ["name", "body", "tag_name"]
-  # end
-
+# 検索・素掘り込みについて
+  # ワードによる検索条件
   def self.search(word)
     where("name LIKE ? OR body LIKE ? OR tag_name LIKE ?" , "%#{word}%", "%#{word}%", "%#{word}%")
   end
 
+  # 靴のサイズによる絞り込み条件
   def self.search_by_shoe_size(min_shoe_size, max_shoe_size)
     if min_shoe_size.present? && max_shoe_size.present?
       where("shoe_size >= ? AND shoe_size <= ?", min_shoe_size, max_shoe_size)
@@ -60,6 +62,7 @@ class Shoe < ApplicationRecord
     end
   end
 
+  # マッチ度による絞り込み条件
   def self.search_by_match(min_match, max_match)
     if min_match.present? && max_match.present?
       where("match_rate >= ? AND match_rate <= ?", min_match, max_match)
@@ -72,6 +75,7 @@ class Shoe < ApplicationRecord
     end
   end
 
+  # 価格による絞り込み条件
   def self.search_by_price(min_price, max_price)
     if min_price.present? && max_price.present?
       where("price >= ? AND price <= ?", min_price, max_price)
@@ -84,6 +88,7 @@ class Shoe < ApplicationRecord
     end
   end
 
+  # 検索・絞り込み結果をもとにしたshoe投稿
   def self.search_by_filters(params)
     shoes = all
     # ワードによる絞り込み

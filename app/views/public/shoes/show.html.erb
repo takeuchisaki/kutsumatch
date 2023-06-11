@@ -26,7 +26,7 @@
             <th>タグ付け</th>
             <th>
               <% @shoe_tags.each do |tag| %>
-                <%= link_to shoes_path(tag_id: tag.id) do %>
+                <%= link_to search_path(tag_id: tag.id) do %>
                   #<%= tag.name %>
                 <% end %>
               <% end %>

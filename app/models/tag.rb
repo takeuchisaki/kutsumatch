@@ -4,7 +4,7 @@ class Tag < ApplicationRecord
   has_many   :shoes,      through: :shoe_tags
   
   def self.search(word)
-    where("name LIKE?", "%#{word}")
+    where("name LIKE?", "%#{word}%")
   end
   
 end

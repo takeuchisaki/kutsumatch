@@ -3,16 +3,24 @@ class Public::SearchesController < ApplicationController
   def search
     @range =  params[:range]
     @word = params[:word]
-    if @range == "shoe"
-      @shoes = Shoe.search(@word)
-    elsif @range == "Tag"
+    
+    # タグの検索
+    if @range == "Tag"
       @tags = Tag.search(@word)
-    elsif @range == "User"
+    # ユーザーの検索
+    elsif @range == "Customer"
       @customers = Customer.search(@word)
     else
-      @shoes = Shoe.search(@word)
+      # タグのIDが指定されている場合
+      if params[:tag_id].present?
+        @tag = Tag.find(params[:tag_id])
+        @shoes = @tag.shoes
+      else
+        # ワードで投稿を検索
+        @shoes = Shoe.search(@word)
+      end
     end
     render "public/searches/search"
   end
-  
+
 end
