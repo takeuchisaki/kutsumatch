@@ -15,9 +15,10 @@ Rails.application.routes.draw do
     get   'customers/confirm'   => 'customers#confirm',   as: 'customer_confirm'
     patch 'customers/withdraw'  => 'customers#withdraw',  as: 'customer_withdraw'
     resources :customers, only: [:new, :create, :show, :index, :edit, :update] do
-      member do
-        get :keeps
-      end
+      get :keeps, on: :collection
+      resource :relationships, only: [:create, :destroy]
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers"  => "relationships#followers",  as: "followers"
     end
     resources :shoes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       resources :shoe_comments, only: [:create, :destroy]

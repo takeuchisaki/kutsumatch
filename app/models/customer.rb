@@ -80,5 +80,19 @@ class Customer < ApplicationRecord
     end
     customers
   end
+  
+# フォロー・フォロワーについて
+  # フォローする際  
+  def follow(customer)
+    relationships.create(followed_id: customer.id)
+  end
+  # フォローを外す際
+  def unfollow(customer)
+    relationships.find_by(followed_id: customer.id).destroy
+  end
+  # フォローしているかの確認
+  def following?(customer)
+    followings.include?(customer)
+  end
 
 end

@@ -9,7 +9,7 @@
     </tr>
     <tr>
       <th>足サイズ</th>
-      <th><%= customer.foot_size %> cm </th> 
+      <th><%= customer.foot_size %> cm </th>
     </tr>
     <tr>
       <th>足幅</th>
@@ -27,7 +27,7 @@
 </table>
 <% if customer == current_customer %>
   <div>
-    <%= link_to 'ブックマーク', keeps_customer_path(customer) %>
+    <%= link_to 'ブックマーク', keeps_customers_path %>
   </div>
   <div>
     <%= link_to edit_customer_path(customer), class:"btn btn-outline-secondary btn-block" do %>

@@ -1,5 +1,4 @@
 class Public::CustomersController < ApplicationController
-  before_action :set_customer, only: [:keeps]
 
   def show
     @customer = Customer.find(params[:id])
@@ -34,7 +33,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def keeps
-    keeps = Keep.where(customer_id: @customer.id).pluck(:shoe_id)
+    keeps = current_customer.keeps.pluck(:shoe_id)
     @keep_shoes = Shoe.find(keeps)
   end
 
@@ -42,10 +41,6 @@ class Public::CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:foot_size, :foot_width, :foot_type, :gender, :introduction, :is_deleted, :profile_image)
-  end
-
-  def set_customer
-    @customer = Customer.find(params[:id])
   end
 
 end

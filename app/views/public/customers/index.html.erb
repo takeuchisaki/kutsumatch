@@ -65,6 +65,13 @@
               <td>
                 <%= customer.foot_size %>
               </td>
+              <td>
+                <% if current_customer.following?(customer) %>
+                  <%= link_to "フォロー外す", customer_relationships_path(customer), method: :delete %>
+                <% else %>
+                  <%= link_to "フォローする", customer_relationships_path(customer), method: :post %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
