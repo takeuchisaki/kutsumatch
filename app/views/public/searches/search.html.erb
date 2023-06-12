@@ -1,100 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-<%= form_with url: search_path, local: true, method: :get do |f| %>
-  <div class="form-group">
-  <%= f.text_field :word %>
+      <%= render 'search_form' %>
+    </div>
+    <div class="col-md-8">
+      <table class="table table-hover table-inverse">
+        <% if @range == "Tag" %>
+          <h2>Tags search for"<%= @word %>"</h2>
+          <%= render 'tag_index', tags: @tags %>
+        <% elsif @range == "Customer" %>
+          <h2>Customers search for"<%= @word %>"</h2>
+          <%= render 'public/customers/index_customer', customers: @customers %>
+        <% else %>
+          <h2>Users search for"<%= @word %>"</h2>
+          <%= render 'public/shoes/index_shoe', shoes: @shoes %>
+        <% end %>
+      </table>
+    </div>
   </div>
-  <div class="form-group">
-  <%= f.radio_button :range, "Shoe", checked: false %>
-  <%= f.label :range_shoe do %>
-    <i class="fas fa-shoe-prints"></i>
-  <% end %>
-  <%= f.radio_button :range, "Tag" %>
-  <%= f.label :range_tag do %>
-    <i class="fas fa-hashtag"></i>
-  <% end %>
-  <%= f.radio_button :range, "Customer" %>
-  <%= f.label :range_customer do %>
-    <i class="far fa-user"></i>
-  <% end %>
-  </div>
-  <div class="form-group">
-  <%= f.submit "検索" %>
-  </div>
-<% end %>
-</div>
-<div class="col-md-8">
-<table class="table table-hover table-inverse">
-  <% if @range == "Tag" %>
-    <h2>Tags search for"<%= @word %>"</h2>
-    <thead>
-      <tr>
-        <th></th>
-        <th>name</th>
-        <th></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @tags.each do |tag| %>
-        <tr>
-          <td>
-            <%= link_to tag.name, search_path(tag_id: tag.id) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% elsif @range == "Customer" %>
-    <h2>Customers search for"<%= @word %>"</h2>
-    <thead>
-      <tr>
-        <th></th>
-        <th>name</th>
-        <th></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @customers.each do |customer| %>
-        <tr>
-          <td>
-            <%= link_to customer_path(customer) do %>
-              <%= image_tag customer.get_profile_image(50,50) %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to customer.name, customer_path(customer) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% else %>
-    <h2>Users search for"<%= @word %>"</h2>
-    <thead>
-      <tr>
-        <th></th>
-        <th>name</th>
-        <th></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @shoes.each do |shoe| %>
-        <tr>
-          <td>
-            <%= link_to shoe_path(shoe) do %>
-              <%= image_tag shoe.get_shoe_image(50,50) %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to shoe.name, shoe_path(shoe) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% end %>
-</table>
-</div>
-</div>
 </div>

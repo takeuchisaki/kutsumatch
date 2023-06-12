@@ -14,7 +14,11 @@ class Customer < ApplicationRecord
   has_many :followings,               through: :relationships,            source: :followed
   has_many :followers,                through: :reverse_of_relationships, source: :follower
 
-    enum foot_width: {
+  validates :name,      presence: true
+  validates :foot_size, presence: true
+
+
+  enum foot_width: {
     narrow:     0,
     standard:   1,
     wide:       2,
@@ -53,7 +57,7 @@ class Customer < ApplicationRecord
   def self.search(word)
     where("name LIKE ?", "%#{word}%")
   end
-  
+
   # 足のサイズによる絞り込み条件
   def self.search_by_foot_size(foot_size)
     where("foot_size LIKE ?", "%#{foot_size}%")
@@ -80,9 +84,9 @@ class Customer < ApplicationRecord
     end
     customers
   end
-  
+
 # フォロー・フォロワーについて
-  # フォローする際  
+  # フォローする際
   def follow(customer)
     relationships.create(followed_id: customer.id)
   end

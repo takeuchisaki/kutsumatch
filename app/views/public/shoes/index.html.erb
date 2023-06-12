@@ -1,45 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= form_with url: shoes_path, local: true, method: :get do |f| %>
-        <div class="form-group">
-          <label for="word">タグ等</label><br>
-          <%= f.text_field :word %>
-        </div>
-        
-        <div class="form-group">
-          <label for="shoe_size">靴サイズ</label><br>
-          <%= f.select :min_shoe_size, options_for_select((20..35).step(0.5)), include_blank: true %> ~
-          <%= f.select :max_shoe_size, options_for_select((20..35).step(0.5)), include_blank: true %> cm
-        </div>
-
-        <div class="form-group">
-          <label for="match_rate">マッチ度</label><br>
-          <%= f.select :min_match, options_for_select(1..100), include_blank: true %> ~
-          <%= f.select :max_match, options_for_select(1..100), include_blank: true %>
-        </div>
-    
-        <div class="form-group">
-          <label for="price">金額</label><br>
-          <%= f.select :min_price, options_for_select((1000..50000).step(1000)), include_blank: true %> ~
-          <%= f.select :max_price, options_for_select((1000..50000).step(1000)), include_blank: true %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "検索" %>
-        </div>
-      <% end %>
+      <%= render 'search_shoe' %>
     </div>
     <div class="col-md-8">
-      <h1>靴一覧</h1>
-      <% @shoes.each do |shoe| %>
-        <%= shoe.customer.name %>
-        <%= link_to shoe_path(shoe) do %>
-          <%= image_tag shoe.get_shoe_image(50,50) %>
-        <% end %>
-        <%= shoe.name %>
-        <%= shoe.shoe_size %>
-        <%= shoe.match_rate %>
-      <% end %>
+      <%= render 'index_shoe', shoes: @shoes %>
     </div>
   </div>
 </div>

@@ -1,0 +1,9 @@
+<% shoes.each do |shoe| %>
+  <%= shoe.customer.name %>
+  <%= link_to shoe_path(shoe) do %>
+    <%= image_tag shoe.get_shoe_image(50,50) %>
+  <% end %>
+  <%= shoe.name %>
+  <%= shoe.shoe_size %>
+  <%= shoe.match_rate %>
+<% end %>

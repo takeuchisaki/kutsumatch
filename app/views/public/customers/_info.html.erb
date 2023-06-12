@@ -23,9 +23,27 @@
       <th>introduction</th>
       <th><%= customer.introduction %></th>
     </tr>
+    <tr>
+      <th>フォロー</th>
+      <th>
+        <%= link_to customer_followings_path(customer) do %>
+          <%= customer.followings.count %>
+        <% end %>
+      </th>
+    </tr>
+    <tr>
+      <th>フォロワー</th>
+      <th>
+        <%= link_to customer_followers_path(customer) do  %>
+          <%= customer.followers.count %>
+        <% end %>
+      </th>
+    </tr>
   </tbody>
 </table>
-<% if customer == current_customer %>
+<% if current_customer.name == "guestcustomer" %>
+  <div></div>
+<% elsif  customer == current_customer %>
   <div>
     <%= link_to 'ブックマーク', keeps_customers_path %>
   </div>
@@ -36,8 +54,6 @@
   </div>
 <% else %>
   <div>
-    <%= link_to edit_admin_customer_path(customer), class:"btn btn-outline-secondary btn-block" do %>
-      <i class="fas fa-user-cog"></i>
-    <% end %>
+    <%= render 'public/relationships/follow_btn', customer: customer %>
   </div>
 <% end %>

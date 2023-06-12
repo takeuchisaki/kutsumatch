@@ -3,7 +3,7 @@
     <div class="col-md-3">
       <%= render 'public/customers/info', customer: @customer %>
     </div>
-   <div class="col-md-8 offset-md-1">
+    <div class="col-md-8 offset-md-1">
       <h1>靴</h1>
       <table class="table">
         <tbody>
@@ -11,11 +11,11 @@
           <th><%= @shoe.name %></th>
           </tr>
           <tr>
-            <th>足サイズ</th>
+            <th>introduction</th>
             <th><%= @shoe.body %></th>
           </tr>
           <tr>
-            <th>introduction</th>
+            <th>足サイズ</th>
             <th><%= @shoe.shoe_size %></th>
           </tr>
           <tr>
@@ -27,7 +27,7 @@
             <th>
               <% @shoe_tags.each do |tag| %>
                 <%= link_to search_path(tag_id: tag.id) do %>
-                  #<%= tag.name %>
+                  <i class="fas fa-hashtag"></i><%= tag.name %>
                 <% end %>
               <% end %>
             </th>
@@ -39,37 +39,20 @@
           <%= link_to '編集', edit_shoe_path(@shoe) %>
         </div>
         <div>
-          <%= link_to '削除', shoe_path(@shoe), method: :delete %>
+          <%= link_to '削除', shoe_path(@shoe), method: :delete, "data-confirm" => "本当に削除しますか？" %>
         </div>
       <% end %>
       <div>
-        <% if @shoe.keeped_by?(current_customer) %>
-          <%= link_to shoe_keeps_path(@shoe), method: :delete do %>
-            <i class="fas fa-bookmark"></i>
-          <% end %>
-        <% else %>
-          <%= link_to shoe_keeps_path(@shoe), method: :post do %>
-            <i class="far fa-bookmark"></i>
-          <% end %>
+        <% unless current_customer.name == "guestcustomer" %>
+          <%= render 'keep', shoe: @shoe %>
         <% end %>
       </div>
       <div>
-        <p>
-          コメント数：<%= @shoe.shoe_comments.count %>
-        </p>
-        <% @shoe.shoe_comments.each do |shoe_comment| %>
-          <%= image_tag shoe_comment.customer.get_profile_image(50,50) %>
-          <%= shoe_comment.customer.name %>
-          <%= shoe_comment.comment %>
-          <% if shoe_comment.customer == current_customer %>
-            <%= link_to '削除', shoe_shoe_comment_path(shoe_comment.shoe, shoe_comment), method: :delete %>
-          <% end %>
-        <% end %>
+        <%= render 'public/shoe_comments/index_comment', shoe: @shoe %>
       </div>
       <div>
-        <%= form_with model: [@shoe, @shoe_comment] do |f| %>
-          <%= f.text_area :comment %>
-          <%= f.submit '送信する' %>
+        <% unless current_customer.name == "guestcustomer" %>
+          <%= render 'public/shoe_comments/new_comment', shoe: @shoe, shoe_comment: @shoe_comment %>
         <% end %>
       </div>
     </div>

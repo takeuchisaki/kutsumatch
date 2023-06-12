@@ -1,4 +1,8 @@
 class Public::ShoesController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :is_matching_login_customer, only: [:edit, :update, :destory]
+  # before_action :ensure_guest_customer,      only: [:new, :create]
+
   def new
     @shoe = Shoe.new
   end
@@ -9,6 +13,7 @@ class Public::ShoesController < ApplicationController
     tag_list = params[:shoe][:tag_name].split("、")
     if @shoe.save
       @shoe.save_tag(tag_list)
+      flash[:notice] = "投稿完了しました。"
       redirect_to shoe_path(@shoe)
     else
       render :new
@@ -31,10 +36,11 @@ class Public::ShoesController < ApplicationController
   end
 
   def update
-    shoe = Shoe.find(params[:id])
+    @shoe = Shoe.find(params[:id])
     tag_list = params[:shoe][:tag_name].split("、")
-    if shoe.update(shoe_params)
-      shoe.save_tag(tag_list)
+    if @shoe.update(shoe_params)
+      @shoe.save_tag(tag_list)
+      flash[:notice] = "更新が完了しました。"
       redirect_to shoe_path(shoe)
     else
       render :edit
@@ -52,4 +58,20 @@ class Public::ShoesController < ApplicationController
   def shoe_params
     params.require(:shoe).permit(:name, :body, :shoe_size, :price, :match_rate, :shoe_image, :tag_name)
   end
+
+  def is_matching_login_customer
+    shoe = Shoe.find(params[:id])
+    unless shoe.customer == current_customer
+      redirect_to shoes_path
+    end
+  end
+
+  # def ensure_guest_customer
+  #   customer = current_customer
+  #   if customer.name == "guestcustomer"
+  #     flash[:notice] = "投稿にはログインが必要です。"
+  #     redirect_to root_path
+  #   end
+  # end
+
 end

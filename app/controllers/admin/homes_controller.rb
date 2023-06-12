@@ -8,4 +8,5 @@ class Admin::HomesController < ApplicationController
       @shoes = Shoe.all
     end
   end
+  
 end

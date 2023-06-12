@@ -1,0 +1,17 @@
+<thead>
+  <tr>
+    <th></th>
+    <th>name</th>
+    <th></th>
+    <th colspan="3"></th>
+  </tr>
+</thead>
+<tbody>
+  <% tags.each do |tag| %>
+    <tr>
+      <td>
+        <%= link_to tag.name, search_path(tag_id: tag.id) %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

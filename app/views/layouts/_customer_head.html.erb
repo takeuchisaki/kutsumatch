@@ -1,0 +1,30 @@
+<li>
+  <%= link_to shoes_path, class:"nav-link text-light" do %>
+    <span><i class="fas fa-home"></i> Home</span>
+  <% end %>
+</li>
+<li>
+  <%= link_to search_path, class:"nav-link text-light" do %>
+    <i class="fas fa-search"></i>
+  <% end %>
+</li>
+<li>
+  <%= link_to new_shoe_path, class:"nav-link text-light" do %>
+    <span><i class="far fa-plus-square"></i> </span>
+  <% end %>
+</li>
+<li>
+  <%= link_to customers_path, class:"nav-link text-light" do %>
+    <span><i class="fas fa-users"></i> Users</span>
+  <% end %>
+</li>
+<li>
+  <%= link_to customer_path(current_customer), class:"nav-link text-light" do %>
+    <span><i class="fas fa-user-circle"></i> My page</span>
+  <% end %>
+</li>
+<li>
+  <%= link_to destroy_customer_session_path, method: :delete, class:"nav-link text-light" do %>
+    <span><i class="fas fa-sign-out-alt"></i> Log out</span>
+  <% end %>
+</li>

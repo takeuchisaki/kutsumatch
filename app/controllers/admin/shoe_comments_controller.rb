@@ -1,4 +1,6 @@
 class Admin::ShoeCommentsController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     if params[:shoe_id].present?
       @shoe = Shoe.find(params[:shoe_id])
@@ -22,4 +24,5 @@ class Admin::ShoeCommentsController < ApplicationController
     shoe_comment.destroy
     redirect_to admin_shoe_comments_path
   end
+  
 end

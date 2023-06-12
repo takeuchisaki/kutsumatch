@@ -1,4 +1,5 @@
 class Public::ShoeCommentsController < ApplicationController
+  before_action :authenticate_customer!
 
   def create
     shoe = Shoe.find(params[:shoe_id])

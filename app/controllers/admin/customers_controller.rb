@@ -1,4 +1,6 @@
 class Admin::CustomersController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     @customers = Customer.all
   end
@@ -14,6 +16,7 @@ class Admin::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
+      flash[:notice] = "登録情報を更新しました。"
       redirect_to admin_customer_path(@customer)
     else
       render :edit
@@ -25,4 +28,5 @@ class Admin::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:foot_size, :foot_width, :foot_types, :gender, :introduction, :is_deleted)
   end
+  
 end

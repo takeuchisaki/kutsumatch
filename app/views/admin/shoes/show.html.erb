@@ -33,7 +33,7 @@
         </tbody>
       </table>
       <div>
-        <%= link_to '削除', admin_shoe_path(@shoe), method: :delete %>
+        <%= link_to '削除', admin_shoe_path(@shoe), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       </div>
       <div>
         <%= link_to admin_shoe_comments_path(shoe_id: @shoe.id) do %>

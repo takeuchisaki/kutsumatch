@@ -1,0 +1,20 @@
+<li>
+  <%= link_to admin_root_path, class:"nav-link text-light" do %>
+    <span><i class="fas fa-home"></i> Home</span>
+  <% end %>
+</li>
+<li>
+  <%= link_to admin_customers_path, class:"nav-link text-light" do %>
+    <span><i class="fas fa-users"></i> Users</span>
+  <% end %>
+</li>
+<li>
+  <%= link_to admin_shoe_comments_path, class:"nav-link text-light" do %>
+    <span><i class="fas fa-users"></i> Comments</span>
+  <% end %>
+</li>
+<li>
+  <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text-light" do %>
+    <span><i class="fas fa-sign-out-alt"></i> Log out</span>
+  <% end %>
+</li>

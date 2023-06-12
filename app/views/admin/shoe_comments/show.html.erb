@@ -10,7 +10,7 @@
         <%= @shoe_comment.comment %>
       </div>
       <div>
-        <%= link_to '削除', admin_shoe_comment_path(@shoe_comment), method: :delete %>
+        <%= link_to '削除', admin_shoe_comment_path(@shoe_comment), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       </div>
       <h1>靴</h1>
       <table class="table">

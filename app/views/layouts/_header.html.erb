@@ -9,78 +9,11 @@
     <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
       <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
-          <li>
-            <%= link_to shoes_path, class:"nav-link text-light" do %>
-              <span><i class="fas fa-home"></i> Home</span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to search_path, class:"nav-link text-light" do %>
-              <i class="fas fa-search"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_shoe_path, class:"nav-link text-light" do %>
-              <span><i class="far fa-plus-square"></i> </span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to customers_path, class:"nav-link text-light" do %>
-              <span><i class="fas fa-users"></i> Users</span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to customer_path(current_customer), class:"nav-link text-light" do %>
-              <span><i class="fas fa-user-circle"></i> My page</span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_customer_session_path, method: :delete, class:"nav-link text-light" do %>
-              <span><i class="fas fa-sign-out-alt"></i> Log out</span>
-            <% end %>
-          </li>
+          <%= render 'layouts/customer_head' %>
         <% elsif admin_signed_in? %>
-          <li>
-            <%= link_to admin_root_path, class:"nav-link text-light" do %>
-              <span><i class="fas fa-home"></i> Home</span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to admin_customers_path, class:"nav-link text-light" do %>
-              <span><i class="fas fa-users"></i> Users</span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to admin_shoe_comments_path, class:"nav-link text-light" do %>
-              <span><i class="fas fa-users"></i> Comments</span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text-light" do %>
-              <span><i class="fas fa-sign-out-alt"></i> Log out</span>
-            <% end %>
-          </li>
+          <%= render 'layouts/admin_head' %>
         <% else %>
-          <li>
-            <%= link_to root_path, class:"nav-link text-light" do %>
-              <span><i class="fas fa-home"></i> Home</span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to about_path, class:"nav-link text-light" do %>
-              <span><i class="fas fa-shoe-prints"></i></i> About</span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_customer_registration_path, class:"nav-link text-light" do %>
-              <span><i class="fas fa-user-plus"></i> Sign up</span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_customer_session_path, class:"nav-link text-light" do %>
-              <span><i class="fas fa-sign-in-alt"></i> Log in</span>
-            <% end %>
-          </li>
+          <%= render 'layouts/root_head' %>
         <% end %>
       </ul>
     </div>
