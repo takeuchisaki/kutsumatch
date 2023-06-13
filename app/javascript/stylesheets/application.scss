@@ -1,2 +1,17 @@
 @use '~bootstrap/scss/bootstrap';
 @use '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* カードを均等に配置 */
+}
+
+.customer-card {
+  flex: 0 0 calc(33% - 10px); /* カードの幅と余白を調整 */
+  margin-bottom: 20px; /* カード間の垂直方向の余白を調整 */
+}
+
+.shoe-ch {
+  background-color: #F0FFF0;
+}

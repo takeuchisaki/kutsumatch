@@ -1,9 +1,22 @@
 <% shoes.each do |shoe| %>
-  <%= shoe.customer.name %>
-  <%= link_to shoe_path(shoe) do %>
-    <%= image_tag shoe.get_shoe_image(50,50) %>
+  <%= link_to customer_path(shoe.customer) do %>
+    <div class="card-header shoe-ch">
+      <%= image_tag shoe.customer.get_profile_image(35,35), class: "rounded-circle" %>
+      <%= shoe.customer.name %>
+    </div>
   <% end %>
-  <%= shoe.name %>
-  <%= shoe.shoe_size %>
-  <%= shoe.match_rate %>
+  <div class="card d-flex flex-row mb-3">
+    <%= link_to shoe_path(shoe) do %>
+      <div class="card-img-top">
+        <%= image_tag shoe.get_shoe_image(150,150), class: "card-img-top" %>
+      </div>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= shoe.name %>
+      </h5>
+      <div><%= shoe.shoe_size %> cm</div>
+      <div><span><i class="fa-solid fa-heart"></i> <%= shoe.match_rate %> %</span></div>
+    </div>
+  </div>
 <% end %>

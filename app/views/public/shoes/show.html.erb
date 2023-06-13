@@ -4,23 +4,23 @@
       <%= render 'public/customers/info', customer: @customer %>
     </div>
     <div class="col-md-8 offset-md-1">
-      <h1>靴</h1>
+      <h1><%= @shoe.name %></h1>
       <table class="table">
         <tbody>
-          <tr><%= image_tag @shoe.get_shoe_image(100,100) %></tr>
-          <th><%= @shoe.name %></th>
+          <tr>
+            <%= image_tag @shoe.get_shoe_image(200,200) %>
           </tr>
           <tr>
-            <th>introduction</th>
+            <th>感想</th>
             <th><%= @shoe.body %></th>
           </tr>
           <tr>
-            <th>足サイズ</th>
-            <th><%= @shoe.shoe_size %></th>
+            <th>靴サイズ</th>
+            <th><%= @shoe.shoe_size %> cm</th>
           </tr>
           <tr>
-            <th>フット感</th>
-            <th><%= @shoe.match_rate %></th>
+            <th>フット感 <i class="fa-solid fa-heart"></i></th>
+            <th><%= @shoe.match_rate %> %</th>
           </tr>
           <tr>
             <th>タグ付け</th>
