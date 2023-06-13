@@ -42,18 +42,14 @@
           <%= link_to '削除', shoe_path(@shoe), method: :delete, "data-confirm" => "本当に削除しますか？" %>
         </div>
       <% end %>
-      <div>
-        <% unless current_customer.name == "guestcustomer" %>
-          <%= render 'keep', shoe: @shoe %>
-        <% end %>
+      <div id="keep-btn_<%= @shoe.id %>">
+        <%= render 'public/keeps/keep', shoe: @shoe %>
       </div>
-      <div>
+      <div class="comments-index">
         <%= render 'public/shoe_comments/index_comment', shoe: @shoe %>
       </div>
       <div>
-        <% unless current_customer.name == "guestcustomer" %>
-          <%= render 'public/shoe_comments/new_comment', shoe: @shoe, shoe_comment: @shoe_comment %>
-        <% end %>
+        <%= render 'public/shoe_comments/new_comment', shoe: @shoe, shoe_comment: @shoe_comment %>
       </div>
     </div>
   </div>

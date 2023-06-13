@@ -1,7 +1,6 @@
 class Public::ShoesController < ApplicationController
   before_action :authenticate_customer!
   before_action :is_matching_login_customer, only: [:edit, :update, :destory]
-  # before_action :ensure_guest_customer,      only: [:new, :create]
 
   def new
     @shoe = Shoe.new
@@ -65,13 +64,5 @@ class Public::ShoesController < ApplicationController
       redirect_to shoes_path
     end
   end
-
-  # def ensure_guest_customer
-  #   customer = current_customer
-  #   if customer.name == "guestcustomer"
-  #     flash[:notice] = "投稿にはログインが必要です。"
-  #     redirect_to root_path
-  #   end
-  # end
 
 end

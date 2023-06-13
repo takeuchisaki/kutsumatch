@@ -53,7 +53,7 @@
     <% end %>
   </div>
 <% else %>
-  <div>
+  <div class="follow-btn_<%= customer.id %>">
     <%= render 'public/relationships/follow_btn', customer: customer %>
   </div>
 <% end %>

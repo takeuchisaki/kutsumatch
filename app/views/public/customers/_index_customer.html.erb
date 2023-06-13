@@ -21,10 +21,8 @@
         <td>
           <%= customer.foot_size %>
         </td>
-        <td>
-          <!--< unless customer == current_customer || current_customer.name == "guestcustomer" %>-->
-            <%= render 'public/relationships/follow_btn', customer: customer %>
-          <!--< end %>-->
+        <td class="follow-btn_<%= customer.id %>">
+          <%= render 'public/relationships/follow_btn', customer: customer %>
         </td>
       </tr>
     <% end %>
