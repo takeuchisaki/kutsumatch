@@ -9,18 +9,26 @@
         <%= f.text_field :word, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.radio_button :range, "Shoe", checked: false %>
-        <%= f.label :range_shoe do %>
-          <i class="fas fa-shoe-prints"></i>
-        <% end %>
-        <%= f.radio_button :range, "Tag" %>
-        <%= f.label :range_tag do %>
-          <i class="fas fa-hashtag"></i>
-        <% end %>
-        <%= f.radio_button :range, "Customer" %>
-        <%= f.label :range_customer do %>
-          <i class="far fa-user"></i>
-        <% end %>
+        <div class="btn" data-toggle="buttons">
+          <button type="button" class="btn btn-outline-primary">
+            <%= f.radio_button :range, "Shoe", checked: false, class: "d-none" %>
+            <%= f.label :range_shoe do %>
+              <i class="fas fa-shoe-prints"></i>
+            <% end %>
+          </button>
+          <button type="button" class="btn btn-outline-primary">
+            <%= f.radio_button :range, "Tag", class: "d-none" %>
+            <%= f.label :range_tag do %>
+              <i class="fas fa-hashtag"></i>
+            <% end %>
+          </button>
+          <button type="button" class="btn btn-outline-primary">
+            <%= f.radio_button :range, "Customer", class: "d-none" %>
+            <%= f.label :range_customer do %>
+              <i class="far fa-user"></i>
+            <% end %>
+          </button>
+        </div>
       </div>
       <div class="form-group">
         <%= f.submit "検索" %>

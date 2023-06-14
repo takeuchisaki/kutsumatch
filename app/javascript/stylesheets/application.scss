@@ -15,3 +15,88 @@
 .shoe-ch {
   background-color: #F0FFF0;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #5fb1a3;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #4d4c86;
+  z-index: 999;
+}
+
+main {
+  padding-top: 60px; /* ヘッダーの高さに応じて適切な値に調整してください */
+}
+
+// .navigation {
+//   // position: relative;
+//   // height: 100vh;
+//   min-height: 100vh;
+//   overflow-y: auto;
+//   width: 70px;
+//   background-color: #4d4c86;
+//   box-shadow: 10px 0 0 #c77946;
+// }
+
+.navigation {
+  position: fixed;
+  top: 55px; /* ヘッダーの高さに応じて適切な値に調整してください */
+  left: 0;
+  height: calc(100vh - 55px); /* ヘッダーの高さに応じて適切な値に調整してください */
+  width: 70px;
+  background-color: #4d4c86;
+  box-shadow: 10px 0 0 #c77946;
+  overflow-y: auto;
+}
+
+// .navigation {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   height: 100vh;
+//   width: 70px;
+//   background-color: #4d4c86;
+//   box-shadow: 10px 0 0 #c77946;
+//   overflow-y: auto;
+// }
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.navigation ul li {
+  list-style: none;
+  width: 100%;
+  border-radius: 15px;
+  color: white;
+  display: flex;
+}
+
+.navigation ul li:hover {
+  background-color: #20272c5e;
+  width: 75px; 
+}
+
+.navigation ul li .icon {
+  display: block;
+  min-width: 45px;
+  line-height: 70px;
+  text-align: center;
+}

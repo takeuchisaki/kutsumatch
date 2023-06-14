@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
   has_many :followings,               through: :relationships,            source: :followed
   has_many :followers,                through: :reverse_of_relationships, source: :follower
 
- 
+
   validates :name,          uniqueness: true,       length: { in: 2..20 }
   validates :foot_size,     presence: true
   validates :introduction,  length: { maximum: 50 }
@@ -57,7 +57,7 @@ class Customer < ApplicationRecord
 # 検索・素掘り込みについて
   # ワードによる検索条件
   def self.search(word)
-    where("name LIKE ?", "%#{word}%")
+    where("name LIKE ? OR foot_size LIKE ? OR foot_width LIKE ? OR foot_type LIKE ?", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%")
   end
 
   # 足のサイズによる絞り込み条件

@@ -16,8 +16,17 @@
       <%= render 'layouts/header' %>
     </header>
     <main>
-      <p id="notice"><%= notice %></p>
-      <%= yield %>
+      <div class="row">
+        <div class="col-sm-1">
+          <% if customer_signed_in? %>
+            <%= render 'layouts/side_bar' %>
+          <% end %>
+        </div>
+        <div class="col-sm-11">
+          <p id="notice"><%= notice %></p>
+          <%= yield %>
+        </div>
+      </div>
     </main>
     <footer></footer>
   </body>

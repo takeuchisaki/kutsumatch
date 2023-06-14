@@ -7,12 +7,12 @@ class Shoe < ApplicationRecord
   has_many   :shoe_comments,  dependent: :destroy
   has_many   :shoe_tags,      dependent: :destroy
   has_many   :tags,           through: :shoe_tags
-  
+
   validates :name,        presence: true
   validates :body,        length: { in:1..200 }
   validates :shoe_size,   presence: true
   validates :match_rate,  presence: true
-  
+
   # 靴の画像について
   def get_shoe_image(width, height)
     unless shoe_image.attached?
@@ -51,7 +51,8 @@ class Shoe < ApplicationRecord
 # 検索・素掘り込みについて
   # ワードによる検索条件
   def self.search(word)
-    where("name LIKE ? OR body LIKE ? OR tag_name LIKE ?" , "%#{word}%", "%#{word}%", "%#{word}%")
+    where("name LIKE ? OR body LIKE ? OR tag_name LIKE ? OR shoe_size LIKE? OR match_rate LIKE?",
+          "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%")
   end
 
   # 靴のサイズによる絞り込み条件

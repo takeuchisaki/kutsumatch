@@ -1,58 +1,81 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :ユーザー名 %><br />
+    <%= f.label :name %> <i class="fa-solid fa-asterisk"></i><br>
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %> <i class="fa-solid fa-asterisk"></i><br>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="form-group">
-    <label for="foot_size">足のサイズ</label><br>
+    <label for="foot_size">足のサイズ</label> <i class="fa-solid fa-asterisk"></i><br>
     <%= f.text_field :foot_size, autofocus: true %> cm
   </div>
 
   <div class="form-group">
     <label for="foot_width">足幅</label><br>
-    <%= f.radio_button :foot_width, Customer.foot_widths.key(0), checked: false %>
-    <%= f.label :foot_width_narrow, Customer.foot_widths_i18n[:narrow] %>
-    <%= f.radio_button :foot_width, Customer.foot_widths.key(1) %>
-    <%= f.label :foot_width_standard, Customer.foot_widths_i18n[:standard] %>
-    <%= f.radio_button :foot_width, Customer.foot_widths.key(2) %>
-    <%= f.label :foot_width_wide, Customer.foot_widths_i18n[:wide] %>
-    <%= f.radio_button :foot_width, Customer.foot_widths.key(3) %>
-    <%= f.label :foot_width_not_clear, Customer.foot_widths_i18n[:not_clear] %>
+    <div class="btn" data-toggle="buttons">
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.radio_button :foot_width, Customer.foot_widths.key(0), checked: false, class: "d-none" %>
+        <%= f.label :foot_width_narrow, Customer.foot_widths_i18n[:narrow] %>
+      </button>
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.radio_button :foot_width, Customer.foot_widths.key(1), class: "d-none" %>
+        <%= f.label :foot_width_standard, Customer.foot_widths_i18n[:standard] %>
+      </button>
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.radio_button :foot_width, Customer.foot_widths.key(2), class: "d-none" %>
+        <%= f.label :foot_width_wide, Customer.foot_widths_i18n[:wide] %>
+      </button>
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.radio_button :foot_width, Customer.foot_widths.key(3), class: "d-none" %>
+        <%= f.label :foot_width_not_clear, Customer.foot_widths_i18n[:not_clear] %>
+      </button>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="foot_type">足タイプ</label>
-
     <i class="fa-solid fa-circle-question"></i><br>
-    <%= f.radio_button :foot_type, Customer.foot_types.key(0), checked: false %>
-    <%= f.label :foot_type_egypt_type, Customer.foot_types_i18n[:egypt_type] %>
-    <%= f.radio_button :foot_type, Customer.foot_types.key(1) %>
-    <%= f.label :foot_type_greek_type, Customer.foot_types_i18n[:greek_type] %>
-    <%= f.radio_button :foot_type, Customer.foot_types.key(2) %>
-    <%= f.label :foot_type_square_type, Customer.foot_types_i18n[:square_type] %>
+    <div class="btn" data-toggle="buttons">
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.radio_button :foot_type, Customer.foot_types.key(0), checked: false, class: "d-none" %>
+        <%= f.label :foot_type_egypt_type, Customer.foot_types_i18n[:egypt_type] %>
+      </button>
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.radio_button :foot_type, Customer.foot_types.key(1), class: "d-none" %>
+        <%= f.label :foot_type_greek_type, Customer.foot_types_i18n[:greek_type] %>
+      </button>
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.radio_button :foot_type, Customer.foot_types.key(2), class: "d-none" %>
+        <%= f.label :foot_type_square_type, Customer.foot_types_i18n[:square_type] %>
+      </button>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="gender">性別</label><br>
-    <%= f.radio_button :gender, Customer.genders.key(0), checked: false %>
-    <%= f.label :gender_man, Customer.genders_i18n[:man] %>
-    <%= f.radio_button :gender, Customer.genders.key(1) %>
-    <%= f.label :gender_woman, Customer.genders_i18n[:woman] %>
+    <div class="btn" data-toggle="buttons">
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.radio_button :gender, Customer.genders.key(0), checked: false, class: "d-none" %>
+        <%= f.label :gender_man, Customer.genders_i18n[:man] %>
+      </button>
+      <button type="button" class="btn btn-outline-primary">
+        <%= f.radio_button :gender, Customer.genders.key(1), class: "d-none" %>
+        <%= f.label :gender_woman, Customer.genders_i18n[:woman] %>
+      </button>
+    </div>
   </div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>

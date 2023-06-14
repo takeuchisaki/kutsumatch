@@ -24,6 +24,9 @@
         customer:
           name:       "ユーザーネーム"
           foot_size:  "足サイズ"
+          email:      "メールアドレス"
+          password:   "パスワード"
+          password_confirmation: "パスワード確認"
       errors:
         models:
           shoe:
@@ -42,4 +45,5 @@
                 blank:      "を入力してください"
               foot_size:
                 blank:      "を入力してください"
+            
 
