@@ -40,7 +40,7 @@ class Public::ShoesController < ApplicationController
     if @shoe.update(shoe_params)
       @shoe.save_tag(tag_list)
       flash[:notice] = "更新が完了しました。"
-      redirect_to shoe_path(shoe)
+      redirect_to shoe_path(@shoe)
     else
       render :edit
     end

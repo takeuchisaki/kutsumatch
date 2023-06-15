@@ -1,11 +1,9 @@
 <div class="card-container">
   <% shoes.each do |shoe| %>
-    <div class="card customer-card">
+    <div class="customer-card">
       <%= link_to shoe_path(shoe) do %>
         <div class="card-header">
-          <div class="card-img-top">
-            <%= image_tag shoe.get_shoe_image(300,300), class: "card-img-top", style: "width: 100%;" %>
-          </div>
+          <%= image_tag shoe.get_shoe_image(300,300), style: "width: 100%;" %>
         </div>
       <% end %>
       <div class="card-body">

@@ -1,21 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <%= render 'search_form' %>
-    </div>
-    <div class="col-md-8 offset-md-1">
-      <table class="table table-hover table-inverse">
-        <% if @range == "Tag" %>
-          <h2>Tags search for"<%= @word %>"</h2>
-          <%= render 'tag_index', tags: @tags %>
-        <% elsif @range == "Customer" %>
-          <h2>Customers search for"<%= @word %>"</h2>
-          <%= render 'public/customers/index_customer', customers: @customers %>
-        <% else %>
-          <h2>Users search for"<%= @word %>"</h2>
-          <%= render 'public/shoes/customer_index_shoe', shoes: @shoes %>
-        <% end %>
-      </table>
-    </div>
+<div class="row">
+  <div class="col-md-3 m-4">
+    <%= render 'search_form' %>
+  </div>
+  <div class="col-md-8">
+    <table class="table table-hover table-inverse">
+      <% if @range == "Tag" %>
+        <h2>タグ検索</h2>
+        <%= render 'tag_index', tags: @tags %>
+      <% elsif @range == "Customer" %>
+        <h2>ユーザー検索</h2>
+        <%= render 'public/customers/index_customer', customers: @customers %>
+      <% else %>
+        <h2>シューズ検索</h2>
+        <%= render 'public/shoes/customer_index_shoe', shoes: @shoes %>
+      <% end %>
+    </table>
   </div>
 </div>

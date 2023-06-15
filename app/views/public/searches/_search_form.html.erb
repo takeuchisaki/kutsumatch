@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header">
+  <div class="card-header search-ch">
     検索フォーム
   </div>
   <div class="card-body">
@@ -8,30 +8,30 @@
         <label for="word">キーワード</label><br>
         <%= f.text_field :word, class: "form-control" %>
       </div>
-      <div class="form-group">
+      <div class="form-group d-flex justify-content-center">
         <div class="btn" data-toggle="buttons">
-          <button type="button" class="btn btn-outline-primary">
+          <button type="button" class="btn search-radio m-1">
             <%= f.radio_button :range, "Shoe", checked: false, class: "d-none" %>
-            <%= f.label :range_shoe do %>
+            <%= f.label :range_shoe, class: "icon" do %>
               <i class="fas fa-shoe-prints"></i>
             <% end %>
           </button>
-          <button type="button" class="btn btn-outline-primary">
+          <button type="button" class="btn search-radio m-1">
             <%= f.radio_button :range, "Tag", class: "d-none" %>
-            <%= f.label :range_tag do %>
+            <%= f.label :range_tag, class: "icon" do %>
               <i class="fas fa-hashtag"></i>
             <% end %>
           </button>
-          <button type="button" class="btn btn-outline-primary">
+          <button type="button" class="btn search-radio m-1">
             <%= f.radio_button :range, "Customer", class: "d-none" %>
-            <%= f.label :range_customer do %>
+            <%= f.label :range_customer, class: "icon" do %>
               <i class="far fa-user"></i>
             <% end %>
           </button>
         </div>
       </div>
-      <div class="form-group">
-        <%= f.submit "検索" %>
+      <div class="form-group d-flex justify-content-center">
+        <%= f.submit "検索", class: "btn search-btn mt-4" %>
       </div>
     <% end %>
   </div>
