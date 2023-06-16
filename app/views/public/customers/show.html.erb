@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-md-3 mb-4">
+  <div class="col-md-3 m-4">
     <%= render 'info', customer: @customer %>
   </div>
-  <div class="col-md-8 ml-3">
-    <h2>User 投稿</h2>
+  <div class="col-md-8 ml-4">
+    <h2 class="mb-3">投稿（<%= @shoes.count %>）</h2>
     <%= render 'public/shoes/customer_index_shoe', shoes: @shoes %>
   </div>
 </div>

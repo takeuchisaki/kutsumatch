@@ -12,9 +12,9 @@
 header {
   position: fixed;
   top: 0;
-  left: 70px;
+  left: 0;
   width: 100%;
-  background-color: rgba(109, 118, 250, 1);
+  background-color: rgba(108, 110, 230, 1);
   z-index: 999;
 }
 
@@ -22,14 +22,14 @@ header {
   padding-top: 75px;
 }
 
-// .side-bar {
-//   padding-top: 65px;
-// }
+.side-bar {
+  padding-top: 55px;
+}
 
 body {
   height: 100vh;
-  // background-color: #9BACF1;
-  background-color: rgb(173,178,252);
+  background-color: #9BACF1;
+  // background-color: rgb(173,178,252);
 }
 
 a {
@@ -38,7 +38,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: rgba(109, 118, 250, 1);
+  color: rgba(108, 110, 230, 1);
 }
 
 .icon {
@@ -55,7 +55,7 @@ a:hover {
 }
 
 .customer-card {
-  border: 3px solid rgba(109, 118, 250, 0.4);
+  border: 3px solid rgba(108, 110, 230, 0.4);
   border-radius: 7px;
   width: 200px;
   height: 300px;
@@ -64,11 +64,11 @@ a:hover {
 }
 
 .shoe-ch {
-  background-color: rgba(109, 118, 250, 0.4);
+  background-color: rgba(108, 110, 230, 0.4);
 }
 
 .card-shoe {
-  border: 3px solid rgba(109, 118, 250, 0.4);
+  border: 3px solid rgba(108, 110, 230, 0.4);
   border-radius: 7px;
   width: 400px;
   height: 220px;
@@ -79,26 +79,26 @@ a:hover {
 
 .card {
   background-color: transparent;
-  border: 5px solid  rgba(215, 246, 525, 1);
+  border: 5px solid  rgba(173, 216, 230, 0.8);
   border-radius: 7px;
 }
 
 .search-ch {
-  background-color: rgba(215, 246, 525, 1);
+  background-color: rgba(173, 216, 230, 0.8);
 }
 
 .search-btn {
-  background-color: rgba(215, 246, 525, 1);
-  border: 3px solid rgba(215, 246, 525, 1);
+  background-color: rgba(173, 216, 230, 0.8);
+  border: 3px solid rgba(173, 216, 230, 0.8);
 }
 
 .search-radio {
-  border: 4px solid rgba(215, 246, 525, 1);
+  border: 4px solid rgba(173, 216, 230, 0.8);
   border-radius: 7px;
 }
 
 // .search-radio:hover {
-//     background: rgba(215, 246, 525, 1);
+//     background: rgba(173, 216, 230, 0.8);
 // }
 
 select {
@@ -118,14 +118,14 @@ select {
 // フィールド
 .custom-field {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 4px solid rgba(109, 118, 250, 0.6);
+  border: 4px solid rgba(108, 110, 230, 0.6);
   border-radius: 7px;
   height: 3em;
 }
 
 .custom-area {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 4px solid rgba(109, 118, 250, 0.6);
+  border: 4px solid rgba(108, 110, 230, 0.6);
   border-radius: 7px;
   height: 5em;
   width: 30em;
@@ -140,28 +140,33 @@ select {
 // ボタンbtn
 
 .followers-btn {
-  background-color: rgba(109, 118, 250, 0.1);
-  border: 3px solid rgba(109, 118, 250, 0.3);
+  background-color: rgba(108, 110, 230, 0.1);
+  border: 3px solid rgba(108, 110, 230, 0.3);
 }
 
 .followings-btn {
-  background-color: rgba(215, 246, 525, 1);
-  border: 3px solid rgba(215, 246, 525, 1);
+  background-color: rgba(173, 216, 230, 0.8);
+  border: 3px solid rgba(173, 216, 230, 0.8);
 }
 
 .go-btn {
-  background-color: rgba(215, 246, 525, 1);
-  border: 3px solid rgba(215, 246, 525, 1);
+  background-color: rgba(173, 216, 230, 0.8);
+  border: 3px solid rgba(173, 216, 230, 0.8);
 }
 
 .delete-btn {
-  background-color: rgba(215, 246, 525, 1);
-  border: 3px solid rgba(215, 246, 525, 1);
+  background-color: rgba(173, 216, 230, 0.8);
+  border: 3px solid rgba(173, 216, 230, 0.8);
 }
 
 .search-btn {
-  background-color: rgba(215, 246, 525, 1);
-  border: 3px solid rgba(215, 246, 525, 1);
+  background-color: rgba(173, 216, 230, 0.8);
+  border: 3px solid rgba(173, 216, 230, 0.8);
+}
+
+.icon-btn {
+  background-color: rgba(108, 110, 230, 0.5);
+  border: 3px solid rgba(108, 110, 230, 0.5);
 }
 
 
@@ -175,7 +180,7 @@ select {
 }
 
 // .keep-icon {
-  
+
 // }
 
 
@@ -187,13 +192,13 @@ select {
 	line-height: 1;
 	text-decoration: none;
 	color: #fff;
-	background-color: rgba(109, 118, 250, 0.3);
-	border: 3px solid rgba(109, 118, 250, 0.3);
+	background-color: rgba(108, 110, 230, 0.3);
+	border: 3px solid rgba(108, 110, 230, 0.3);
 	border-radius: 2em;
 }
 
 .tag-index a:hover {
-  background: rgba(109, 118, 250, 0.5);
+  background: rgba(108, 110, 230, 0.5);
 }
 
 // サイドバー
@@ -201,10 +206,10 @@ select {
   position: fixed;
   height: 100%;
   width: 70px;
-  background-color: rgba(109, 118, 250, 1);
+  background-color: rgba(108, 110, 230, 1);
   // box-shadow: 2px 0 0 #5fb1a3;
   // border-left: 10px solid #483D8B;
-  // border-left: 10px solid rgba(109, 118, 250, 1);
+  // border-left: 10px solid rgba(108, 110, 230, 1);
   // overflow-x: hidden;
   transition: all 0.5s;
 }
