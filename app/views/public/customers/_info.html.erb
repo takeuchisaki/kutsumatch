@@ -1,12 +1,9 @@
-<h2>User info</h2>
-<%= image_tag customer.get_profile_image(100,100) %>
+<div class="info-name">
+  <%= image_tag customer.get_profile_image(70,70), class: "rounded-circle mr-2" %>
+  <h2><%= customer.name %></h2>
+</div>
 <table class="table">
   <tbody>
-    <tr></tr>
-    <tr>
-      <th>名前</th>
-      <th><%= customer.name %></th>
-    </tr>
     <tr>
       <th>足サイズ</th>
       <th><%= customer.foot_size %> cm </th>
@@ -57,3 +54,4 @@
     <%= render 'public/relationships/follow_btn', customer: customer %>
   </div>
 <% end %>
+</div>

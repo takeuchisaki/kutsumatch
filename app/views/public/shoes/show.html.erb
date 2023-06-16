@@ -1,56 +1,54 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-3">
-      <%= render 'public/customers/info', customer: @customer %>
-    </div>
-    <div class="col-md-8 offset-md-1">
-      <h1><%= @shoe.name %></h1>
-      <table class="table">
-        <tbody>
-          <tr>
-            <%= image_tag @shoe.get_shoe_image(200,200) %>
-          </tr>
-          <tr>
-            <th>感想</th>
-            <th><%= @shoe.body %></th>
-          </tr>
-          <tr>
-            <th>靴サイズ</th>
-            <th><%= @shoe.shoe_size %> cm</th>
-          </tr>
-          <tr>
-            <th>フット感 <i class="fa-solid fa-heart"></i></th>
-            <th><%= @shoe.match_rate %> %</th>
-          </tr>
-          <tr>
-            <th>タグ付け</th>
-            <th>
-              <% @shoe_tags.each do |tag| %>
-                <%= link_to search_path(tag_id: tag.id) do %>
-                  <i class="fas fa-hashtag"></i><%= tag.name %>
-                <% end %>
+<div class="row">
+  <div class="col-md-3 m-4">
+    <%= render 'public/customers/info', customer: @customer %>
+  </div>
+  <div class="col-md-8 ml-3">
+    <h1><%= @shoe.name %></h1>
+    <table class="table">
+      <tbody>
+        <tr>
+          <%= image_tag @shoe.get_shoe_image(200,200) %>
+        </tr>
+        <tr>
+          <th>感想</th>
+          <th><%= @shoe.body %></th>
+        </tr>
+        <tr>
+          <th>靴サイズ</th>
+          <th><%= @shoe.shoe_size %> cm</th>
+        </tr>
+        <tr>
+          <th>フット感 <i class="fa-solid fa-heart"></i></th>
+          <th><%= @shoe.match_rate %> %</th>
+        </tr>
+        <tr>
+          <th>タグ付け</th>
+          <th>
+            <% @shoe_tags.each do |tag| %>
+              <%= link_to search_path(tag_id: tag.id) do %>
+                <i class="fas fa-hashtag"></i><%= tag.name %>
               <% end %>
-            </th>
-          </tr>
-        </tbody>
-      </table>
-      <% if @shoe.customer == current_customer %>
-        <div>
-          <%= link_to '編集', edit_shoe_path(@shoe) %>
-        </div>
-        <div>
-          <%= link_to '削除', shoe_path(@shoe), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        </div>
-      <% end %>
-      <div id="keep-btn_<%= @shoe.id %>">
-        <%= render 'public/keeps/keep', shoe: @shoe %>
-      </div>
-      <div class="comments-index">
-        <%= render 'public/shoe_comments/index_comment', shoe: @shoe %>
+            <% end %>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    <% if @shoe.customer == current_customer %>
+      <div>
+        <%= link_to '編集', edit_shoe_path(@shoe), class: "btn go-btn" %>
       </div>
       <div>
-        <%= render 'public/shoe_comments/new_comment', shoe: @shoe, shoe_comment: @shoe_comment %>
+        <%= link_to '削除', shoe_path(@shoe), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn delete-btn" %>
       </div>
+    <% end %>
+    <div id="keep-btn_<%= @shoe.id %>", class="keep-icon">
+      <%= render 'public/keeps/keep', shoe: @shoe %>
+    </div>
+    <div class="comments-index">
+      <%= render 'public/shoe_comments/index_comment', shoe: @shoe %>
+    </div>
+    <div>
+      <%= render 'public/shoe_comments/new_comment', shoe: @shoe, shoe_comment: @shoe_comment %>
     </div>
   </div>
 </div>

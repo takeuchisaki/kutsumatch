@@ -1,17 +1,9 @@
-<thead>
-  <tr>
-    <th></th>
-    <th>name</th>
-    <th></th>
-    <th colspan="3"></th>
-  </tr>
-</thead>
-<tbody>
+<div class="tag-index" %>
   <% tags.each do |tag| %>
-    <tr>
-      <td>
-        <%= link_to tag.name, search_path(tag_id: tag.id) %>
-      </td>
-    </tr>
+    <%= link_to search_path(tag_id: tag.id) do %>
+      <i class="fas fa-hashtag"></i>
+      <%= tag.name%>
+      (<%= tag.shoes.count %>)
+    <% end %>
   <% end %>
-</tbody>
+</div>

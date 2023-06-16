@@ -1,10 +1,12 @@
-<h2>Users</h2>
 <table class="table">
   <thead>
     <tr>
-      <th>image</th>
-      <th>name</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th>ネーム</th>
+      <th>足サイズ</th>
+      <th>足幅</th>
+      <th>足タイプ</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -12,14 +14,22 @@
       <tr>
         <td>
           <%= link_to customer_path(customer) do %>
-            <%= image_tag customer.get_profile_image(50,50) %>
+            <%= image_tag customer.get_profile_image(60,60) %>
           <% end %>
         </td>
         <td>
-          <%= customer.name %>
+          <%= link_to customer_path(customer) do %>
+            <%= customer.name %>
+          <% end %>
         </td>
         <td>
-          <%= customer.foot_size %>
+          <%= customer.foot_size %> cm
+        </td>
+        <td>
+          <%= t("enums.customer.foot_width.#{customer.foot_width}") %>
+        </td>
+        <td>
+          <%= t("enums.customer.foot_type.#{customer.foot_type}") %>
         </td>
         <td class="follow-btn_<%= customer.id %>">
           <%= render 'public/relationships/follow_btn', customer: customer %>
