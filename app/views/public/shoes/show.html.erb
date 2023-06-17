@@ -3,12 +3,12 @@
     <%= render 'public/customers/info', customer: @customer %>
   </div>
   <div class="col-md-8 ml-3">
-    <h1><%= @shoe.name %></h1>
+    <div class="d-flex align-items-center ml-4 mb-3">
+      <%= image_tag @shoe.get_shoe_image(150,150), class: "mr-5" %>
+      <h1><%= @shoe.name %></h1>
+    </div>
     <table class="table">
       <tbody>
-        <tr>
-          <%= image_tag @shoe.get_shoe_image(200,200) %>
-        </tr>
         <tr>
           <th>感想</th>
           <th><%= @shoe.body %></th>
@@ -24,31 +24,44 @@
         <tr>
           <th>タグ付け</th>
           <th>
-            <% @shoe_tags.each do |tag| %>
-              <%= link_to search_path(tag_id: tag.id) do %>
-                <i class="fas fa-hashtag"></i><%= tag.name %>
-              <% end %>
-            <% end %>
+            <div class="row">
+              <div class="col-md-9 mr-3">
+                <% @shoe_tags.each do |tag| %>
+                  <%= link_to search_path(tag_id: tag.id) do %>
+                    <i class="fas fa-hashtag"></i><%= tag.name %>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="col-md-2 mr-3">
+                <div id="keep-btn_<%= @shoe.id %>", class="keep-icon" style="float: right;">
+                  <%= render 'public/keeps/keep', shoe: @shoe %>
+                </div>
+              </div>
+            </div>
           </th>
         </tr>
       </tbody>
     </table>
-    <% if @shoe.customer == current_customer %>
-      <div>
-        <%= link_to '編集', edit_shoe_path(@shoe), class: "btn go-btn" %>
-      </div>
-      <div>
-        <%= link_to '削除', shoe_path(@shoe), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn delete-btn" %>
-      </div>
-    <% end %>
-    <div id="keep-btn_<%= @shoe.id %>", class="keep-icon">
-      <%= render 'public/keeps/keep', shoe: @shoe %>
+    <div class="d-flex align-items-center justify-content-center mt-4">
+      <% if @shoe.customer == current_customer %>
+        <div class="mr-5">
+          <%= link_to '編集', edit_shoe_path(@shoe), class: "btn go-btn" %>
+        </div>
+        <div class="ml-5">
+          <%= link_to '削除', shoe_path(@shoe), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn delete-btn" %>
+        </div>
+      <% end %>
     </div>
-    <div class="comments-index">
-      <%= render 'public/shoe_comments/index_comment', shoe: @shoe %>
-    </div>
-    <div>
-      <%= render 'public/shoe_comments/new_comment', shoe: @shoe, shoe_comment: @shoe_comment %>
+    <div class="mt-5">
+      <h4 class="ml-4">コメント(<%= @shoe.shoe_comments.count %>)</h4>
+      <table class="table">
+        <tbody class="comments-index">
+          <%= render 'public/shoe_comments/index_comment', shoe: @shoe %>
+        </tbody>
+      </table>
+      <div class="form-group d-flex justify-content-center mt-5">
+        <%= render 'public/shoe_comments/new_comment', shoe: @shoe, shoe_comment: @shoe_comment %>
+      </div>
     </div>
   </div>
 </div>

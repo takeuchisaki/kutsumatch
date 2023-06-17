@@ -10,9 +10,11 @@
     </p>
   </div>
   <div class="row justify-content-center">
-    <%= link_to '退会しない', customer_path(current_customer) %>
-  </div>
-  <div>
-    <%= link_to '退会する', customer_withdraw_path, method: :patch %>
+    <div class="mr-5">
+      <%= link_to '退会しない', customer_path(current_customer), class:"btn go-btn" %>
+    </div>
+    <div class="ml-5">
+      <%= link_to '退会する', customer_withdraw_path, method: :patch, class: "btn delete-btn"  %>
+    </div>
   </div>
 </div>

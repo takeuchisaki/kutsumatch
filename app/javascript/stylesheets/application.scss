@@ -14,7 +14,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(108, 110, 230, 1);
+  background-color: rgba(135, 160, 250, 1);
   z-index: 999;
 }
 
@@ -28,7 +28,7 @@ header {
 
 body {
   height: 100vh;
-  background-color: #9BACF1;
+  background-color: rgba(180, 195, 250, 1);
   // background-color: rgb(173,178,252);
 }
 
@@ -38,7 +38,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: rgba(108, 110, 230, 1);
+  color: rgba(135, 160, 250, 1);
 }
 
 .icon {
@@ -55,7 +55,7 @@ a:hover {
 }
 
 .customer-card {
-  border: 3px solid rgba(108, 110, 230, 0.4);
+  border: 3px solid rgba(135, 160, 250, 1);
   border-radius: 7px;
   width: 200px;
   height: 300px;
@@ -64,11 +64,11 @@ a:hover {
 }
 
 .shoe-ch {
-  background-color: rgba(108, 110, 230, 0.4);
+  background-color: rgba(135, 160, 250, 1);
 }
 
 .card-shoe {
-  border: 3px solid rgba(108, 110, 230, 0.4);
+  border: 3px solid rgba(135, 160, 250, 1);
   border-radius: 7px;
   width: 400px;
   height: 220px;
@@ -87,24 +87,22 @@ a:hover {
   background-color: rgba(173, 216, 230, 0.8);
 }
 
-.search-btn {
-  background-color: rgba(173, 216, 230, 0.8);
-  border: 3px solid rgba(173, 216, 230, 0.8);
-}
 
 .search-radio {
   border: 4px solid rgba(173, 216, 230, 0.8);
   border-radius: 7px;
 }
 
-// .search-radio:hover {
-//     background: rgba(173, 216, 230, 0.8);
-// }
+
 
 select {
   border-radius: 5px;
   height: 30px;
+  border: transparent;
+  background-color: rgba(255, 255, 255, 0.8);
 }
+
+
 
 
 
@@ -118,14 +116,15 @@ select {
 // フィールド
 .custom-field {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 4px solid rgba(108, 110, 230, 0.6);
+  border: transparent;
   border-radius: 7px;
-  height: 3em;
+  height: 2em;
+  width: 10em;
 }
 
 .custom-area {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 4px solid rgba(108, 110, 230, 0.6);
+  border: transparent;
   border-radius: 7px;
   height: 5em;
   width: 30em;
@@ -140,23 +139,23 @@ select {
 // ボタンbtn
 
 .followers-btn {
-  background-color: rgba(108, 110, 230, 0.1);
-  border: 3px solid rgba(108, 110, 230, 0.3);
+  background-color: rgba(100, 120, 235, 0.3);
+  border: 3px solid rgba(100, 120, 235, 0.3);
 }
 
 .followings-btn {
-  background-color: rgba(173, 216, 230, 0.8);
-  border: 3px solid rgba(173, 216, 230, 0.8);
+  background-color: rgba(173, 216, 230, 1);
+  border: 3px solid rgba(173, 216, 230, 1);
 }
 
 .go-btn {
-  background-color: rgba(173, 216, 230, 0.8);
-  border: 3px solid rgba(173, 216, 230, 0.8);
+  background-color: rgba(100, 120, 235, 0.5);
+  border: 3px solid rgba(100, 120, 235, 0.5);
 }
 
 .delete-btn {
-  background-color: rgba(173, 216, 230, 0.8);
-  border: 3px solid rgba(173, 216, 230, 0.8);
+  background-color: rgba(255, 120, 115, 0.5);
+  border: 3px solid rgba(255, 120, 115, 0.5);
 }
 
 .search-btn {
@@ -165,8 +164,8 @@ select {
 }
 
 .icon-btn {
-  background-color: rgba(108, 110, 230, 0.5);
-  border: 3px solid rgba(108, 110, 230, 0.5);
+  background-color: rgba(100, 120, 235, 0.4);
+  border: 3px solid rgba(100, 120, 235, 0.4);
 }
 
 
@@ -192,13 +191,13 @@ select {
 	line-height: 1;
 	text-decoration: none;
 	color: #fff;
-	background-color: rgba(108, 110, 230, 0.3);
-	border: 3px solid rgba(108, 110, 230, 0.3);
+	background-color: rgba(135, 160, 250, 0.3);
+	border: 3px solid rgba(135, 160, 250, 0.3);
 	border-radius: 2em;
 }
 
 .tag-index a:hover {
-  background: rgba(108, 110, 230, 0.5);
+  background: rgba(135, 160, 250, 0.5);
 }
 
 // サイドバー
@@ -206,10 +205,10 @@ select {
   position: fixed;
   height: 100%;
   width: 70px;
-  background-color: rgba(108, 110, 230, 1);
+  background-color: rgba(135, 160, 250, 1);
   // box-shadow: 2px 0 0 #5fb1a3;
   // border-left: 10px solid #483D8B;
-  // border-left: 10px solid rgba(108, 110, 230, 1);
+  // border-left: 10px solid rgba(135, 160, 250, 1);
   // overflow-x: hidden;
   transition: all 0.5s;
 }
@@ -240,7 +239,7 @@ select {
 }
 
 .navigation ul li.active {
-  background-color: #9BACF1;
+  background-color: rgba(180, 195, 250, 1);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -262,7 +261,7 @@ select {
   top: -30px;
   right: 0;
   border-radius: 50%;
-  box-shadow: 15px 15px 0 #9BACF1;
+  box-shadow: 15px 15px 0 rgba(180, 195, 250, 1);
 }
 
 .navigation ul li.active::after {
@@ -273,12 +272,12 @@ select {
   top: 76px;
   right: 0;
   border-radius: 50%;
-  box-shadow: 15px -15px 0 #9BACF1;
+  box-shadow: 15px -15px 0 rgba(180, 195, 250, 1);
 }
 
 .navigation ul li .icon {
   display: block;
-  // min-width: 45px;
+  color: rgba(100, 120, 235, 1);
   height: 60px;
   line-height: 60px;
   text-align: center;
