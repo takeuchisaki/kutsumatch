@@ -4,6 +4,7 @@ class Public::SearchesController < ApplicationController
   def search
     @range =  params[:range]
     @word = params[:word]
+    @current_page = "searches"
 
     # タグの検索
     if @range == "Tag"

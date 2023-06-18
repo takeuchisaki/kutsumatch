@@ -6,10 +6,12 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @shoes = @customer.shoes
+    @current_page = "cuatomer"
   end
 
   def index
     @customers = Customer.search_by_filters(params).where.not(id: current_customer.id).where.not(name: "guestcustomer")
+    @current_page = "cuatomers"
   end
 
   def edit

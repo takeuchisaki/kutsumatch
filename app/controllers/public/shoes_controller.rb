@@ -4,6 +4,7 @@ class Public::ShoesController < ApplicationController
 
   def new
     @shoe = Shoe.new
+    @current_page = "shoe_new"
   end
 
   def create
@@ -28,6 +29,7 @@ class Public::ShoesController < ApplicationController
 
   def index
     @shoes = Shoe.search_by_filters(params)
+    @current_page = "shoes"
   end
 
   def edit
