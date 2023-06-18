@@ -25,7 +25,6 @@
 
       <div class="form-group">
         <label for="foot_type">足タイプ</label>
-        <i class="fa-solid fa-circle-question"></i><br>
         <div class="ml-3">
           <%= f.radio_button :foot_type, Customer.foot_types.key(0), checked: false %>
           <%= f.label :foot_type_egypt_type, Customer.foot_types_i18n[:egypt_type] %><br>

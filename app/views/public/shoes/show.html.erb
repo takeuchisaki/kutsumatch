@@ -24,28 +24,22 @@
         <tr>
           <th>タグ付け</th>
           <th>
-            <div class="row">
-              <div class="col-md-9 mr-3">
-                <% @shoe_tags.each do |tag| %>
-                  <%= link_to search_path(tag_id: tag.id) do %>
-                    <i class="fas fa-hashtag"></i><%= tag.name %>
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="col-md-2 mr-3">
-                <div id="keep-btn_<%= @shoe.id %>", class="keep-icon" style="float: right;">
-                  <%= render 'public/keeps/keep', shoe: @shoe %>
-                </div>
-              </div>
-            </div>
+            <% @shoe_tags.each do |tag| %>
+              <%= link_to search_path(tag_id: tag.id) do %>
+                <i class="fas fa-hashtag"></i><%= tag.name %>
+              <% end %>
+            <% end %>
           </th>
         </tr>
       </tbody>
     </table>
+    <div id="keep-btn_<%= @shoe.id %>", class="keep-icon mr-5" style="float: right;">
+      <%= render 'public/keeps/keep', shoe: @shoe %>
+    </div>
     <div class="d-flex align-items-center justify-content-center mt-4">
       <% if @shoe.customer == current_customer %>
         <div class="mr-5">
-          <%= link_to '編集', edit_shoe_path(@shoe), class: "btn go-btn" %>
+          <%= link_to '編集', edit_shoe_path(@shoe), class: "btn edit-btn" %>
         </div>
         <div class="ml-5">
           <%= link_to '削除', shoe_path(@shoe), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn delete-btn" %>
