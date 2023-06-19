@@ -1,33 +1,53 @@
 <div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-8 offset-md-1">
-      <%= link_to admin_customer_path(@customer) do %>
-        <%= image_tag @customer.get_profile_image(100,100) %>
-      <% end %>
-      <th>名前</th>
-      <th><%= @customer.name %></th>
+  <div class="col-md-10">
+    <h2>コメント</h2>
+    <div class="row mt-3 ml-3 align-items-center">
       <div>
+        <%= link_to admin_customer_path(@customer) do %>
+          <div class="d-flex align-items-center m-4">
+            <%= image_tag @customer.get_profile_image(70,70), class: "rounded-circle mr-4" %>
+            <h3><%= @customer.name %></h3>
+          </div>
+        <% end %>
+      </div>
+      <div class="ml-5">
         <%= @shoe_comment.comment %>
       </div>
-      <div>
-        <%= link_to '削除', admin_shoe_comment_path(@shoe_comment), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      <div class="ml-auto mr-5">
+        <%= link_to '削除', admin_shoe_comment_path(@shoe_comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn delete-btn" %>
       </div>
-      <h1>靴</h1>
-      <table class="table">
-        <tbody>
-          <tr>
-            <%= link_to admin_shoe_path(@shoe) do %>
-              <%= image_tag @shoe.get_shoe_image(100,100) %>
-            <% end %>
-          </tr>
-          <th><%= @shoe.name %></th>
-          </tr>
-          <tr>
-            <th>フット感</th>
-            <th><%= @shoe.match_rate %></th>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
+  <div class="col-md-10 mt-5">
+    <h2>投稿内容</h2>
+    <div class="d-flex align-items-center ml-4 mb-3 mt-4">
+      <%= image_tag @shoe.get_shoe_image(100,100) %>
+      <h3 class="ml-5"><%= @shoe.name %></h3>
+    </div>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>感想</th>
+          <th><%= @shoe.body %></th>
+        </tr>
+        <tr>
+          <th>靴サイズ</th>
+          <th><%= @shoe.shoe_size %> cm</th>
+        </tr>
+        <tr>
+          <th>フット感 <i class="fa-solid fa-heart"></i></th>
+          <th><%= @shoe.match_rate %> %</th>
+        </tr>
+        <tr>
+          <th>タグ付け</th>
+          <th>
+            <% @shoe_tags.each do |tag| %>
+              <i class="fas fa-hashtag"></i><%= tag.name %>
+            <% end %>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+

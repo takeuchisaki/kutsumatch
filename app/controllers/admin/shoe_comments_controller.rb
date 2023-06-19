@@ -17,6 +17,7 @@ class Admin::ShoeCommentsController < ApplicationController
     @shoe_comment = ShoeComment.find(params[:id])
     @customer = @shoe_comment.customer
     @shoe = @shoe_comment.shoe
+    @shoe_tags = @shoe.tags
   end
 
   def destroy

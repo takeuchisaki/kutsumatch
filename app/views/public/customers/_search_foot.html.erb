@@ -25,6 +25,7 @@
 
       <div class="form-group">
         <label for="foot_type">足タイプ</label>
+        <span class="question"><i class="fa-solid fa-circle-question"></i></span><br>
         <div class="ml-3">
           <%= f.radio_button :foot_type, Customer.foot_types.key(0), checked: false %>
           <%= f.label :foot_type_egypt_type, Customer.foot_types_i18n[:egypt_type] %><br>
@@ -49,5 +50,19 @@
         <%= f.submit "検索", class: "btn search-btn" %>
       </div>
     <% end %>
+    <%= image_tag "foot_type.jpg", class: "question-image-search ml-2 mt-2" %>
   </div>
 </div>
+
+
+
+<script>
+  $(function(){
+    $('.question').on('click', function(){
+      $('.question-image-search').show();
+    });
+    $('.question-image-search').mouseout(function(){
+      $('.question-image-search').hide();
+    });
+  });
+</script>

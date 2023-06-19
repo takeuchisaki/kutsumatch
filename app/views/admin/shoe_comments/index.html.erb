@@ -1,14 +1,23 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h1>コメント一覧</h1>
-      <% @shoe_comments.each do |comment| %>
-        <%= link_to admin_customer_path(comment.customer) do %>
-          <%= image_tag comment.customer.get_profile_image(50,50) %>
-        <% end %>
-        <%= comment.customer.name %>
-        <%= link_to comment.comment, admin_shoe_comment_path(comment) %>
+  <h1>コメント一覧</h1>
+  <table class="table ml-4 mt-4">
+    <tbody class="comments-index">
+      <% @shoe_comments.each do |shoe_comment| %>
+        <tr>
+          <td>
+            <%= link_to admin_customer_path(shoe_comment.customer) do %>
+              <%= image_tag shoe_comment.customer.get_profile_image(50,50), class: "rounded-circle mr-2" %>
+              <%= shoe_comment.customer.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= shoe_comment.comment %>
+          </td>
+          <td>
+            <%= link_to '詳細', admin_shoe_comment_path(shoe_comment), class: "btn go-btn" %>
+          </td>
+        </tr>
       <% end %>
-    </div>
-  </div>
+    </tbody>
+  </table>
 </div>

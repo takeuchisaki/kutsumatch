@@ -1,60 +1,62 @@
-<div class="container my-5">
-  <div class="my-4">
-    <h5 class="d-inline ighlight">
-      <%= @customer.name %>さんの会員詳細
-    </h5>
-  </div>
-  <table class="table table-borderless">
-		<tr>
-		  <td>プロフィール画像</td>
-		  <td><%= image_tag @customer.get_profile_image(50,50) %></td>
-		</tr>
-		<tr>
-		  <td>ユーザー名</td>
-		  <td><%= @customer.name %></td>
-		</tr>
-		<tr>
-		  <td>足のサイズ</td>
-		  <td><%= @customer.foot_size %></td>
-		</tr>
-		<tr>
-		  <td>足幅</td>
-		  <td><%= t("enums.customer.foot_width.#{@customer.foot_width}") %></td>
-		</tr>
-		<tr>
-		  <td>足のタイプ</td>
-		  <td><%= t("enums.customer.foot_type.#{@customer.foot_type}") %></td>
-		</tr>
-		<tr>
-		  <td>性別</td>
-		  <td><%= t("enums.customer.gender.#{@customer.gender}") %></td>
-		</tr>
-		<tr>
-		  <td>紹介文</td>
-		  <td><%= @customer.introduction %></td>
-		</tr>
-		<tr>
-		  <td>メールアドレス</td>
-		  <td><%= @customer.email %></td>
-		</tr>
-		<tr>
-		  <td>ユーザーステイタス</td>
-		  <td>
-		    <% if @customer.is_deleted %>
-		      <span>退会</span>
-		    <% else %>
-		      <span>有効</span>
-		    <% end %>
-		  </td>
-		</tr>
-	</table>
-	<div>
-	  <%= link_to '編集', edit_admin_customer_path(@customer) %>
-	</div>
-	<div>
-	  <%= link_to '投稿一覧', admin_root_path(customer_id: @customer) %>
-	</div>
-	<div>
-	  <%= link_to 'コメント一覧', admin_shoe_comments_path(customer_id: @customer) %>
+<div class="container">
+  <h4><%= @customer.name %>さんの会員詳細</h5>
+  <div class=" row m-4">
+  	<div class="col-md-8 mr-5">
+		  <table class="table">
+				<tr>
+				  <td>プロフィール画像</td>
+				  <td><%= image_tag @customer.get_profile_image(50,50) %></td>
+				</tr>
+				<tr>
+				  <td>ユーザー名</td>
+				  <td><%= @customer.name %></td>
+				</tr>
+				<tr>
+				  <td>足のサイズ</td>
+				  <td><%= @customer.foot_size %></td>
+				</tr>
+				<tr>
+				  <td>足幅</td>
+				  <td><%= t("enums.customer.foot_width.#{@customer.foot_width}") %></td>
+				</tr>
+				<tr>
+				  <td>足のタイプ</td>
+				  <td><%= t("enums.customer.foot_type.#{@customer.foot_type}") %></td>
+				</tr>
+				<tr>
+				  <td>性別</td>
+				  <td><%= t("enums.customer.gender.#{@customer.gender}") %></td>
+				</tr>
+				<tr>
+				  <td>紹介文</td>
+				  <td><%= @customer.introduction %></td>
+				</tr>
+				<tr>
+				  <td>メールアドレス</td>
+				  <td><%= @customer.email %></td>
+				</tr>
+				<tr>
+				  <td>ユーザーステイタス</td>
+				  <td>
+				    <% if @customer.is_deleted %>
+				      <span>退会</span>
+				    <% else %>
+				      <span>有効</span>
+				    <% end %>
+				  </td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-3 my-5 d-flex flex-column justify-content-between">
+			<div>
+			  <%= link_to '投稿一覧', admin_root_path(customer_id: @customer), class: "btn go-btn" %>
+			</div>
+			<div>
+			  <%= link_to 'コメント一覧', admin_shoe_comments_path(customer_id: @customer), class: "btn go-btn" %>
+			</div>
+			<div>
+			  <%= link_to '編集', edit_admin_customer_path(@customer), class: "btn edit-btn" %>
+			</div>
+		</div>
 	</div>
 </div>
