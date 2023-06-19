@@ -1,0 +1,72 @@
+<div class="container">
+  <%= render 'layouts/error', obj: @customer %>
+  <h1>My情報</h1>
+  <%= form_with model: @customer, url: customer_path(@customer), method: :patch, local: true do |f| %>
+    <div class="form-group ml-5">
+      <label for="customer_image">プロフィール画像</label>
+      <div class="ml-4">
+        <%= f.file_field :profile_image, accept: "image/*" %>
+      </div>
+    </div>
+    <div class="form-group ml-5">
+      <label for="shoes_name">ユーザー名</label>
+      <div class="ml-4">
+        <%= f.text_field :name, autofocus: true, class: "custom-field" %>
+      </div>
+    </div>
+    <div class="form-group ml-5">
+      <label for="foot_size">足のサイズ</label>
+      <div class="ml-4">
+        <%= f.text_field :foot_size, class: "custom-field" %> cm
+      </div>
+    </div>
+    <div class="form-group ml-5">
+      <label for="foot_width">足幅</label>
+      <div class="ml-4">
+        <%= f.select :foot_width, Customer.foot_widths.keys.map { |k| [t("enums.customer.foot_width.#{k}"), k] } %>
+      </div>
+    </div>
+    <div class="form-group ml-5">
+      <label for="foot_type">足タイプ</label>
+      <span class="question"><i class="fa-solid fa-circle-question"></i></span>
+      <div class="foot-type-btn ml-4">
+        <%= f.select :foot_type, Customer.foot_types.keys.map { |k| [t("enums.customer.foot_type.#{k}"), k] } %>
+      </div>
+      <%= image_tag "foot_type.jpg", class: "question-image ml-2 mt-2" %>
+    </div>
+    <div class="form-group ml-5">
+      <label for="gender">性別</label>
+      <div class="ml-4">
+        <%= f.select :gender, Customer.genders.keys.map { |k| [t("enums.customer.gender.#{k}"), k] } %>
+      </div>
+    </div>
+    <div class="form-group ml-5">
+      <label for="foot_size">紹介文</label>
+      <div class="ml-4">
+        <%= f.text_area :introduction, class: "custom-area" %>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <div class="mr-5">
+        <%= f.submit '変更', class:"btn go-btn" %>
+      </div>
+      <div class="ml-5">
+        <%= link_to '退会する', customer_confirm_path, class: "btn delete-btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<script>
+  $(function(){
+    $('.question').on('click', function(){
+      $('.question-image').show();
+    });
+    $('.foot-type-btn').mouseout(function(){
+      $('.question-image').hide();
+    });
+  });
+</script>
+
+

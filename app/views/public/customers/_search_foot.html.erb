@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-header search-ch">
+    検索フォーム
+  </div>
+  <div class="card-body">
+    <%= form_with url: customers_path, local: true, method: :get do |f| %>
+      <div class="form-group">
+        <label for="foot_size">足のサイズ</label><br>
+        <div class="ml-3">
+          <%= f.select :foot_size, options_for_select(20..35), include_blank: true %> cm
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="foot_width">足幅</label><br>
+        <div class="ml-3">
+          <%= f.radio_button :foot_width, Customer.foot_widths.key(0), checked: false, class: "foot-radio" %>
+          <%= f.label :foot_width_narrow, Customer.foot_widths_i18n[:narrow] %>
+          <%= f.radio_button :foot_width, Customer.foot_widths.key(1), class: "foot-radio" %>
+          <%= f.label :foot_width_standard, Customer.foot_widths_i18n[:standard] %>
+          <%= f.radio_button :foot_width, Customer.foot_widths.key(2), class: "foot-radio" %>
+          <%= f.label :foot_width_wide, Customer.foot_widths_i18n[:wide] %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="foot_type">足タイプ</label>
+        <span class="question"><i class="fa-solid fa-circle-question"></i></span><br>
+        <div class="ml-3">
+          <%= f.radio_button :foot_type, Customer.foot_types.key(0), checked: false %>
+          <%= f.label :foot_type_egypt_type, Customer.foot_types_i18n[:egypt_type] %><br>
+          <%= f.radio_button :foot_type, Customer.foot_types.key(1) %>
+          <%= f.label :foot_type_greek_type, Customer.foot_types_i18n[:greek_type] %><br>
+          <%= f.radio_button :foot_type, Customer.foot_types.key(2) %>
+          <%= f.label :foot_type_square_type, Customer.foot_types_i18n[:square_type] %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">性別</label><br>
+        <div class="ml-3">
+          <%= f.radio_button :gender, Customer.genders.key(0), checked: false %>
+          <%= f.label :gender_man, Customer.genders_i18n[:man] %>
+          <%= f.radio_button :gender, Customer.genders.key(1) %>
+          <%= f.label :gender_woman, Customer.genders_i18n[:woman] %>
+        </div>
+      </div>
+
+      <div class="form-group d-flex justify-content-center">
+        <%= f.submit "検索", class: "btn search-btn" %>
+      </div>
+    <% end %>
+    <%= image_tag "foot_type.jpg", class: "question-image-search ml-2 mt-2" %>
+  </div>
+</div>
+
+
+
+<script>
+  $(function(){
+    $('.question').on('click', function(){
+      $('.question-image-search').show();
+    });
+    $('.question-image-search').mouseout(function(){
+      $('.question-image-search').hide();
+    });
+  });
+</script>

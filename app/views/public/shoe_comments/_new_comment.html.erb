@@ -1,0 +1,6 @@
+<%= form_with model: [shoe, shoe_comment], local: false do |f| %>
+  <div class="d-flex">
+    <%= f.text_area :comment, class: "custom-area" %>
+    <%= f.submit '送信する', class: "btn go-btn m-4", style: "height: 45px;" %>
+  </div>
+<% end %>

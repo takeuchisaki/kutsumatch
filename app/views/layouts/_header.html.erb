@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <%= link_to root_path, class:"navbar-brand" do %>
+      <span>靴マッチ</span>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
+      <ul class="navbar-nav ml-auto">
+        <% if customer_signed_in? %>
+          <%= render 'layouts/customer_head' %>
+        <% elsif admin_signed_in? %>
+          <%= render 'layouts/admin_head' %>
+        <% else %>
+          <%= render 'layouts/root_head' %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,29 @@
+<div class="card-container">
+  <% shoes.each do |shoe| %>
+    <div class="card-shoe mb-3">
+      <%= link_to customer_path(shoe.customer) do %>
+        <div class="card-header shoe-ch">
+          <%= image_tag shoe.customer.get_profile_image(30,30), class: "rounded-circle mr-2" %>
+          <%= shoe.customer.name %>
+        </div>
+      <% end %>
+      <%= link_to shoe_path(shoe) do %>
+        <div class="card-body d-flex align-items-center">
+          <%= image_tag shoe.get_shoe_image(120, 120), class: "mr-5" %>
+          <div>
+            <h5 class="card-title"><%= shoe.name %></h5>
+            <div class="ml-3">
+              靴サイズ：<%= shoe.shoe_size %> cm
+            </div>
+            <div class="ml-3">
+              マッチ度：<span><i class="fa-solid fa-heart"></i> <%= shoe.match_rate %> %</span>
+            </div>
+            <div class="ml-3">
+              お値段　：<%= shoe.price %> 円
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

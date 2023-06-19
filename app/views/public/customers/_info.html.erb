@@ -1,0 +1,60 @@
+<div class="d-flex align-items-center ml-2 mb-2">
+  <%= image_tag customer.get_profile_image(70,70), class: "rounded-circle mr-4" %>
+  <h3><%= customer.name %></h3>
+</div>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>足サイズ</th>
+      <th><%= customer.foot_size %> cm </th>
+    </tr>
+    <tr>
+      <th>足幅</th>
+      <th><%= t("enums.customer.foot_width.#{customer.foot_width}") %></th>
+    </tr>
+    <tr>
+      <th>足タイプ</th>
+      <th><%= t("enums.customer.foot_type.#{customer.foot_type}") %></th>
+    </tr>
+    <tr>
+      <th>自己紹介</th>
+      <th><%= customer.introduction %></th>
+    </tr>
+    <tr>
+      <th>フォロー中</th>
+      <th>
+        <%= link_to customer_followings_path(customer) do %>
+          <%= customer.followings.count %>
+        <% end %>
+      </th>
+    </tr>
+    <tr>
+      <th>フォロワー</th>
+      <th>
+        <%= link_to customer_followers_path(customer) do  %>
+          <%= customer.followers.count %>
+        <% end %>
+      </th>
+    </tr>
+  </tbody>
+</table>
+<div class="d-flex align-items-center justify-content-center mt-4">
+  <% if current_customer.name == "guestcustomer" %>
+    <div></div>
+  <% elsif  customer == current_customer %>
+    <div class="col-md-6">
+      <%= link_to edit_customer_path(customer), class:"btn btn-block icon-btn" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <%= link_to keeps_customers_path, class:"btn btn-block icon-btn" do %>
+        <i class="fas fa-bookmark"></i>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="follow-btn_<%= customer.id %>" >
+      <%= render 'public/relationships/follow_btn', customer: customer %>
+    </div>
+  <% end %>
+</div>

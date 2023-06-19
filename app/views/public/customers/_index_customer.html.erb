@@ -1,0 +1,40 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ネーム</th>
+      <th>足サイズ</th>
+      <th>足幅</th>
+      <th>足タイプ</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% customers.each do |customer| %>
+      <tr>
+        <td>
+          <%= link_to customer_path(customer) do %>
+            <%= image_tag customer.get_profile_image(60,60) %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to customer_path(customer) do %>
+            <%= customer.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= customer.foot_size %> cm
+        </td>
+        <td>
+          <%= t("enums.customer.foot_width.#{customer.foot_width}") %>
+        </td>
+        <td>
+          <%= t("enums.customer.foot_type.#{customer.foot_type}") %>
+        </td>
+        <td class="follow-btn_<%= customer.id %>">
+          <%= render 'public/relationships/follow_btn', customer: customer %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

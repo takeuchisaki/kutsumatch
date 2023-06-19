@@ -3,14 +3,31 @@
   <head>
     <title>Kutsumatch</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/2cd53d8dea.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    <main>
+      <div class="row">
+        <div class="col-sm-1 side-bar">
+          <% if customer_signed_in? %>
+            <%= render 'layouts/side_bar' %>
+          <% end %>
+        </div>
+        <div class="col-sm-11 shoe-main">
+          <p id="notice"><%= notice %></p>
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
   </body>
 </html>

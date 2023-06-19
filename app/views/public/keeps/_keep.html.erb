@@ -1,0 +1,9 @@
+<% if shoe.keeped_by?(current_customer) %>
+  <%= link_to shoe_keeps_path(shoe), method: :delete, remote: true do %>
+    <i class="fas fa-bookmark"></i>
+  <% end %>
+<% else %>
+  <%= link_to shoe_keeps_path(shoe), method: :post, remote: true do %>
+    <i class="far fa-bookmark"></i>
+  <% end %>
+<% end %>

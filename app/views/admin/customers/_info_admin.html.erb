@@ -1,0 +1,40 @@
+<div class="d-flex align-items-center ml-2 mb-2">
+  <%= image_tag customer.get_profile_image(70,70), class: "rounded-circle mr-4" %>
+  <h3><%= customer.name %></h3>
+</div>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>足サイズ</th>
+      <th><%= customer.foot_size %> cm </th>
+    </tr>
+    <tr>
+      <th>足幅</th>
+      <th><%= t("enums.customer.foot_width.#{customer.foot_width}") %></th>
+    </tr>
+    <tr>
+      <th>足タイプ</th>
+      <th><%= t("enums.customer.foot_type.#{customer.foot_type}") %></th>
+    </tr>
+    <tr>
+      <th>自己紹介</th>
+      <th><%= customer.introduction %></th>
+    </tr>
+    <tr>
+      <th>フォロー中</th>
+      <th>
+        <%= link_to customer_followings_path(customer) do %>
+          <%= customer.followings.count %>
+        <% end %>
+      </th>
+    </tr>
+    <tr>
+      <th>フォロワー</th>
+      <th>
+        <%= link_to customer_followers_path(customer) do  %>
+          <%= customer.followers.count %>
+        <% end %>
+      </th>
+    </tr>
+  </tbody>
+</table>

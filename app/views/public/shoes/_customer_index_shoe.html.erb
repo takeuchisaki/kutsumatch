@@ -1,0 +1,18 @@
+<div class="card-container">
+  <% shoes.each do |shoe| %>
+    <div class="customer-card">
+      <%= link_to shoe_path(shoe) do %>
+        <div class="card-header">
+          <%= image_tag shoe.get_shoe_image(250,250), style: "width: 100%;" %>
+        </div>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= shoe.name %></h5>
+        <div class="ml-3"><%= shoe.shoe_size %> cm</div>
+        <div class="ml-3">
+          <span><i class="fa-solid fa-heart"></i> <%= shoe.match_rate %> %</span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

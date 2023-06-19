@@ -1,0 +1,38 @@
+<div class="container">
+  <h4>会員一覧</h5>
+  <div class="ml-4 mt-4">
+    <table class="table">
+      <tr>
+        <th>会員ID</th>
+        <th>ユーザー名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+        <th></th>
+      </tr>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td>
+            <%= customer.id %>
+          </td>
+          <td>
+            <%= customer.name %>
+          </td>
+          <td>
+            <%= customer.email %>
+          </td>
+          <td>
+    		    <% if customer.is_deleted %>
+    		      <span>退会</span>
+    		    <% else %>
+    		      <span>有効</span>
+    		    <% end %>
+    		  </td>
+    		  <td>
+            <%= link_to '詳細', admin_customer_path(customer), class: "btn go-btn" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+        

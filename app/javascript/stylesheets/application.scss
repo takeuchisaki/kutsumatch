@@ -1,0 +1,298 @@
+@use '~bootstrap/scss/bootstrap';
+@use '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(255, 255, 245, 1);
+  color: rgba(160, 120, 55, 1);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(214, 198, 176, 1);
+  z-index: 999;
+}
+
+.shoe-main {
+  padding-top: 75px;
+}
+
+.side-bar {
+  padding-top: 55px;
+}
+
+a {
+  color: rgba(160, 120, 55, 1);
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgba(220, 214, 217, 1);
+}
+
+.icon {
+  color: rgba(160, 120, 55, 1);
+}
+
+// カードレイアウト
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.customer-card {
+  border: 3px solid rgba(214, 198, 176, 1);
+  border-radius: 7px;
+  width: 200px;
+  height: 300px;
+  margin-left: 2%;
+  margin-bottom: 20px;
+}
+
+.shoe-ch {
+  background-color: rgba(214, 198, 176, 1);
+}
+
+.card-shoe {
+  border: 3px solid rgba(214, 198, 176, 1);
+  border-radius: 7px;
+  width: 400px;
+  height: 220px;
+  margin-left: 3%;
+}
+
+// search関係
+
+.card {
+  background-color: transparent;
+  border: 5px solid  rgba(185, 208, 139, 1);
+  border-radius: 7px;
+}
+
+.search-ch {
+  background-color: rgba(185, 208, 139, 1);
+}
+
+
+.search-radio {
+  border: 4px solid rgba(185, 208, 139, 1);
+  border-radius: 7px;
+}
+
+
+
+select {
+  border-radius: 5px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 3px solid rgba(220, 214, 217, 1);
+}
+
+
+
+
+
+
+
+.foot-radio {
+  gap: 0px 30px;
+}
+
+
+// フィールド
+.custom-field {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 3px solid rgba(220, 214, 217, 1);
+  border-radius: 5px;
+  height: 2.5em;
+  width: 10em;
+}
+
+.custom-area {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 3px solid rgba(220, 214, 217, 1);
+  border-radius: 5px;
+  height: 5em;
+  width: 30em;
+}
+
+
+// インフォメーション
+.info-name{
+  display: inline-block;
+}
+
+// ボタンbtn
+
+.followers-btn {
+  background-color: rgba(160, 120, 55, 0.3);
+  border: 3px solid rgba(160, 120, 55, 0.3);
+  color: rgba(160, 120, 55, 1);
+}
+
+.followings-btn {
+  background-color: rgba(185, 208, 139, 1);
+  border: 3px solid rgba(185, 208, 139, 1);
+  color: rgba(160, 120, 55, 1);
+}
+
+.go-btn {
+  background-color: rgba(160, 120, 55, 0.4);
+  border: 3px solid rgba(160, 120, 55, 0.6);
+  color: rgba(160, 120, 55, 1);
+}
+
+.delete-btn {
+  background-color: rgba(255, 120, 115, 0.7);
+  border: 3px solid rgba(255, 120, 115, 0.5);
+  color: rgba(255, 255, 245, 1);
+}
+
+.search-btn {
+  background-color: rgba(185, 208, 139, 1);
+  border: 3px solid rgba(185, 208, 139, 1);
+  color: rgba(160, 120, 55, 1);
+
+}
+
+.icon-btn {
+  background-color: rgba(160, 120, 55, 0.4);
+  border: 3px solid rgba(160, 120, 55, 0.4);
+  color: rgba(160, 120, 55, 1);
+}
+
+.edit-btn {
+  background-color: rgba(185, 208, 139, 0.8);
+  border: 3px solid rgba(185, 208, 139, 0.8);
+  color: rgba(160, 120, 55, 1);
+}
+
+
+// テーブル関係
+.table th, .table td {
+  vertical-align: middle;
+  color: rgba(160, 120, 55, 1);
+  border-top: 2px solid rgba(220, 214, 217, 1);
+  border-bottom: 2px solid rgba(220, 214, 217, 1);
+}
+
+
+
+// タグ検索
+.tag-index a {
+  display: inline-block;
+	margin: 0 .1em .6em 0;
+	padding: .6em;
+	line-height: 1;
+	text-decoration: none;
+	color: rgba(160, 120, 55, 1);
+	background-color: rgba(160, 120, 55, 0.3);
+	border: 3px solid rgba(160, 120, 55, 0.5);
+	border-radius: 2em;
+}
+
+.tag-index a:hover {
+  background: rgba(160, 120, 55, 0.8);
+  color: rgba(255, 255, 245, 1);
+}
+
+// サイドバー
+.navigation {
+  position: fixed;
+  height: 100%;
+  width: 70px;
+  background-color: rgba(214, 198, 176, 1);
+  // box-shadow: 2px 0 0 #5fb1a3;
+  // border-left: 10px solid #483D8B;
+  // border-left: 10px solid rgba(135, 160, 250, 1);
+  // overflow-x: hidden;
+  transition: all 0.5s;
+}
+
+.navigation:hover {
+  width: 100px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 100px;
+  padding-left: 10px;
+}
+
+.navigation ul li {
+  list-style: none;
+  display: block;
+  position: relative;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.navigation ul li:hover {
+  background-color: #20272c5e;
+}
+
+.navigation ul li.active {
+  background-color: rgba(255, 255, 245, 1);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.navigation ul li.active::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: -30px;
+  right: 0;
+  border-radius: 50%;
+  box-shadow: 15px 15px 0 rgba(255, 255, 245, 1);
+}
+
+.navigation ul li.active::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 76px;
+  right: 0;
+  border-radius: 50%;
+  box-shadow: 15px -15px 0 rgba(255, 255, 245, 1);
+}
+
+.navigation ul li .icon {
+  display: block;
+  color: rgba(160, 120, 55, 1);
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+
+}
+
+
+
+.question-image {
+  display: none;
+  height: 200px;
+  width: 400px;
+}
+
+.question-image-search {
+  display: none;
+  height: 150px;
+  width: 100%;
+}

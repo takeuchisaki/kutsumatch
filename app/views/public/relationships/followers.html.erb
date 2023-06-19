@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>フォロワーユーザー</h2>
+  <% if @customers.empty? %>
+    <span>ユーザーはいません</span>
+  <% else %>
+    <%= render 'public/customers/index_customer', customers: @customers %>
+  <% end %>
+</div>

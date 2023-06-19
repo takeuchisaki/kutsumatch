@@ -1,0 +1,49 @@
+  ja:
+    enums:
+      customer:
+        foot_width:
+          narrow:     "狭い"
+          standard:   "標準"
+          wide:       "広い"
+          not_clear:  "わからない"
+        foot_type:
+          egypt_type:   "エジプト型"
+          greek_type:   "ギリシャ型"
+          square_type:  "スクエア型"
+        gender:
+          man:    "男性"
+          woman:  "女性"
+    activerecord:
+      attributes:
+        shoe:
+          name:       "商品名"
+          body:       "感想"
+          shoe_size:  "靴サイズ"
+          price:      "値段"
+          match_rate: "マッチ度"
+        customer:
+          name:       "ユーザーネーム"
+          foot_size:  "足サイズ"
+          email:      "メールアドレス"
+          password:   "パスワード"
+          password_confirmation: "パスワード確認"
+      errors:
+        models:
+          shoe:
+            attributes:
+              name:
+                blank:      "を入力してください"
+              body:
+                too_short:  "を入力してください"
+              shoe_size:
+                blank:      "を選択してください"
+              match_rate:
+                blank:      "を入力してください"
+          customer:
+            attributes:
+              name:
+                blank:      "を入力してください"
+              foot_size:
+                blank:      "を入力してください"
+            
+
