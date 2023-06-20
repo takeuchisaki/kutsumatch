@@ -1,12 +1,16 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
-  before_action :is_matching_login_customer, only: [:edit, :update, :withdraw]
+  before_action :is_matching_login_customer, only: [:edit, :update]
   before_action :ensure_guest_customer,      only: [:edit, :update]
 
   def show
     @customer = Customer.find(params[:id])
     @shoes = @customer.shoes
-    @current_page = "cuatomer"
+    if @customer == current_customer
+      @current_page = "cuatomer"
+    else
+      @current_page = "cuatomers"
+    end
   end
 
   def index
@@ -16,6 +20,7 @@ class Public::CustomersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
+    @current_page = "cuatomer"
   end
 
   def update
@@ -42,6 +47,7 @@ class Public::CustomersController < ApplicationController
   def keeps
     keeps = current_customer.keeps.pluck(:shoe_id)
     @keep_shoes = Shoe.find(keeps)
+    @current_page = "cuatomer"
   end
 
   private

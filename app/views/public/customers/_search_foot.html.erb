@@ -14,11 +14,11 @@
       <div class="form-group">
         <label for="foot_width">足幅</label><br>
         <div class="ml-3">
-          <%= f.radio_button :foot_width, Customer.foot_widths.key(0), checked: false, class: "foot-radio" %>
+          <%= f.radio_button :foot_width, Customer.foot_widths.key(1), checked: false, class: "foot-radio" %>
           <%= f.label :foot_width_narrow, Customer.foot_widths_i18n[:narrow] %>
-          <%= f.radio_button :foot_width, Customer.foot_widths.key(1), class: "foot-radio" %>
-          <%= f.label :foot_width_standard, Customer.foot_widths_i18n[:standard] %>
           <%= f.radio_button :foot_width, Customer.foot_widths.key(2), class: "foot-radio" %>
+          <%= f.label :foot_width_standard, Customer.foot_widths_i18n[:standard] %>
+          <%= f.radio_button :foot_width, Customer.foot_widths.key(3), class: "foot-radio" %>
           <%= f.label :foot_width_wide, Customer.foot_widths_i18n[:wide] %>
         </div>
       </div>
@@ -27,11 +27,11 @@
         <label for="foot_type">足タイプ</label>
         <span class="question"><i class="fa-solid fa-circle-question"></i></span><br>
         <div class="ml-3">
-          <%= f.radio_button :foot_type, Customer.foot_types.key(0), checked: false %>
+          <%= f.radio_button :foot_type, Customer.foot_types.key(1), checked: false %>
           <%= f.label :foot_type_egypt_type, Customer.foot_types_i18n[:egypt_type] %><br>
-          <%= f.radio_button :foot_type, Customer.foot_types.key(1) %>
-          <%= f.label :foot_type_greek_type, Customer.foot_types_i18n[:greek_type] %><br>
           <%= f.radio_button :foot_type, Customer.foot_types.key(2) %>
+          <%= f.label :foot_type_greek_type, Customer.foot_types_i18n[:greek_type] %><br>
+          <%= f.radio_button :foot_type, Customer.foot_types.key(3) %>
           <%= f.label :foot_type_square_type, Customer.foot_types_i18n[:square_type] %>
         </div>
       </div>
@@ -39,9 +39,9 @@
       <div class="form-group">
         <label for="gender">性別</label><br>
         <div class="ml-3">
-          <%= f.radio_button :gender, Customer.genders.key(0), checked: false %>
+          <%= f.radio_button :gender, Customer.genders.key(1), checked: false %>
           <%= f.label :gender_man, Customer.genders_i18n[:man] %>
-          <%= f.radio_button :gender, Customer.genders.key(1) %>
+          <%= f.radio_button :gender, Customer.genders.key(2) %>
           <%= f.label :gender_woman, Customer.genders_i18n[:woman] %>
         </div>
       </div>

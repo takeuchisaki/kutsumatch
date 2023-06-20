@@ -21,27 +21,33 @@ class Customer < ApplicationRecord
 
 
   enum foot_width: {
-    narrow:     0,
-    standard:   1,
-    wide:       2,
-    not_clear:  3
+    no_width:   0,
+    narrow:     1,
+    standard:   2,
+    wide:       3,
+    not_clear:  4
   }
 
   enum foot_type: {
-    egypt_type:   0,
-    greek_type:   1,
-    square_type:  2
+    no_type:      0,
+    egypt_type:   1,
+    greek_type:   2,
+    square_type:  3
   }
 
   enum gender: {
-    man:    0,
-    woman:  1,
+    no_gender:  0,
+    man:        1,
+    woman:      2,
   }
+
 
   # ゲストユーザーについて
   def self.guest
-    find_or_create_by!(name: 'guestcustomer', email: 'guest@example.com') do |customer|
+    find_or_create_by!(email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
+      customer.name = "guestcustomer"
+      customer.foot_size = "24"
     end
   end
 
