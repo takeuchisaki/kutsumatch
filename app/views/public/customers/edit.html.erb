@@ -1,6 +1,9 @@
 <div class="container">
   <%= render 'layouts/error', obj: @customer %>
   <h1>My情報</h1>
+  <div class="note d-flex justify-content-center mb-3">
+    <i class="fa-solid fa-asterisk"></i> 必須入力
+  </div>
   <%= form_with model: @customer, url: customer_path(@customer), method: :patch, local: true do |f| %>
     <div class="form-group ml-5">
       <label for="customer_image">プロフィール画像</label>
@@ -9,13 +12,13 @@
       </div>
     </div>
     <div class="form-group ml-5">
-      <label for="shoes_name">ユーザー名</label>
+      <label for="shoes_name">ユーザー名 <i class="fa-solid fa-asterisk"></i></label>
       <div class="ml-4">
         <%= f.text_field :name, autofocus: true, class: "custom-field" %>
       </div>
     </div>
     <div class="form-group ml-5">
-      <label for="foot_size">足のサイズ</label>
+      <label for="foot_size">足のサイズ <i class="fa-solid fa-asterisk"></i></label>
       <div class="ml-4">
         <%= f.text_field :foot_size, class: "custom-field" %> cm
       </div>
@@ -41,7 +44,7 @@
       </div>
     </div>
     <div class="form-group ml-5">
-      <label for="foot_size">紹介文</label>
+      <label for="foot_size">紹介文（50文字以下）</label>
       <div class="ml-4">
         <%= f.text_area :introduction, class: "custom-area" %>
       </div>
