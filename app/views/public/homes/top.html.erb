@@ -1,14 +1,35 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-      <div class ="row">
-        <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-      </div>
+    <div class="mx-auto mt-5 p-4 top">
       <div class="row">
-        <%= link_to 'Log in', new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+        <h4 class="top-text">
+          靴マッチへようこそ！
+        </h4>
+        <div class="ml-2 mt-2">
+          靴選びのお悩みを解決しましょう。<br>
+          靴マッチは、みなさんの靴レビューを参考にすることで、自分にぴったりの靴を選ぶお手伝いをします。<br>
+          さらに、自分の靴履歴も記録しましょう！
+        </div>
       </div>
-      <div class="row">
-        <%= link_to 'Sign up', new_customer_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+      <div class="row  d-flex justify-content-center m-4">
+        <div class="mr-5">
+          <%= link_to 'ログイン', new_customer_session_path, class: "btn sign_up-btn" %>
+        </div>
+        <div>
+          <%= link_to '新規登録', new_customer_registration_path, class: "btn sign_in-btn" %>
+        </div>
+      </div>
+      <div class ="row d-flex justify-content-center">
+        <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, class: "btn guest-btn", method: :post %>
+      </div>
+      <div class="row mt-4">
+        <%= image_tag "shoe1.jpg", class: "top-image" %>
+        <%= image_tag "shoe2.jpg", class: "top-image" %>
+        <%= image_tag "shoe3.jpg", class: "top-image" %>
+        <%= image_tag "shoe4.jpg", class: "top-image" %>
+        <%= image_tag "shoe5.jpg", class: "top-image" %>
+        <%= image_tag "shoe6.jpg", class: "top-image" %>
+        <%= image_tag "shoe7.jpg", class: "top-image" %>
       </div>
     </div>
   </div>

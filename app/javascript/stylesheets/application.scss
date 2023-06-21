@@ -47,6 +47,26 @@ a:hover {
 }
 
 
+// トップ画面
+
+.top {
+  border: 3px solid rgba(214, 198, 176, 1);
+  background-color: rgba(214, 198, 176, 1);
+  border-radius: 7px;
+  width: 630px;
+  height: auto;
+}
+
+.top-text {
+  color: rgba(255, 255, 245, 1);
+}
+
+.top-image {
+  width: 85px;
+  height: 85px;
+}
+
+
 // カードレイアウト
 
 .card-container {
@@ -71,8 +91,6 @@ a:hover {
 .card-shoe {
   border: 3px solid rgba(214, 198, 176, 1);
   border-radius: 7px;
-  width: 400px;
-  height: 220px;
   margin-left: 3%;
 }
 
@@ -185,6 +203,24 @@ select {
 
 .btn-outline-secondary {
   background-color: rgba(220, 214, 217, 0.6);
+  border: 3px solid rgba(220, 214, 217, 1);
+  color: rgba(160, 120, 55, 1);
+}
+
+.sign_up-btn {
+  background-color: rgba(185, 208, 139, 0.8);
+  border: 3px solid rgba(185, 208, 139, 0.8);
+  color: rgba(160, 120, 55, 1);
+}
+
+.sign_in-btn {
+  background-color: rgba(255, 255, 245, 1);
+  border: 3px solid rgba(255, 255, 245, 1);
+  color: rgba(160, 120, 55, 1);
+}
+
+.guest-btn {
+  background-color: rgba(220, 214, 217, 1);
   border: 3px solid rgba(220, 214, 217, 1);
   color: rgba(160, 120, 55, 1);
 }
