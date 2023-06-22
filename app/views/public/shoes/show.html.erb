@@ -10,19 +10,19 @@
     <table class="table">
       <tbody>
         <tr>
-          <th>感想</th>
+          <th style="width: 30%;">感想</th>
           <th><%= @shoe.body %></th>
         </tr>
         <tr>
-          <th>靴サイズ</th>
+          <th style="width: 30%;">靴サイズ</th>
           <th><%= @shoe.shoe_size %> cm</th>
         </tr>
         <tr>
-          <th>フット感 <i class="fa-solid fa-heart"></i></th>
+          <th style="width: 30%;">フット感 <i class="fa-solid fa-heart"></i></th>
           <th><%= @shoe.match_rate %> %</th>
         </tr>
         <tr>
-          <th>タグ付け</th>
+          <th style="width: 30%;">タグ付け</th>
           <th>
             <% @shoe_tags.each do |tag| %>
               <%= link_to search_path(tag_id: tag.id) do %>
