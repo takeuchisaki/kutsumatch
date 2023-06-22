@@ -1,5 +1,7 @@
 <div class="d-flex align-items-center ml-2 mb-2">
-  <%= image_tag customer.get_profile_image(70,70), class: "rounded-circle mr-4" %>
+  <%= link_to customer_path(customer) do %>
+    <%= image_tag customer.get_profile_image(70,70), class: "rounded-circle mr-4" %>
+  <% end %>
   <h3><%= customer.name %></h3>
 </div>
 <table class="table">

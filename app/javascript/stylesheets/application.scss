@@ -25,6 +25,15 @@ header {
   z-index: 999;
 }
 
+.logo {
+  color: rgba(255, 255, 245, 1);
+}
+
+.logo:hover {
+  color: rgba(160, 120, 55, 1);
+}
+
+
 .shoe-main {
   padding-top: 75px;
 }
@@ -39,11 +48,15 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .icon {
   color: rgba(160, 120, 55, 1);
+}
+
+.icon:hover {
+  color: rgba(255, 255, 245, 1);
 }
 
 
@@ -64,6 +77,11 @@ a:hover {
 .top-image {
   width: 85px;
   height: 85px;
+}
+
+.head-image {
+  width: 50px;
+  height: 50px;
 }
 
 
@@ -116,15 +134,14 @@ a:hover {
   color: rgba(160, 120, 55, 0.7);
 }
 
-
-
-
-
-
-
 .foot-radio {
   gap: 0px 30px;
 }
+
+.search-icon {
+  color: rgba(160, 120, 55, 1);
+}
+
 
 
 // フィールド
@@ -169,7 +186,7 @@ select {
 }
 
 .followings-btn {
-  background-color: rgba(185, 208, 139, 1);
+  background-color: rgba(185, 208, 139, 0.8);
   border: 3px solid rgba(185, 208, 139, 1);
   color: rgba(160, 120, 55, 1);
 }
@@ -187,10 +204,9 @@ select {
 }
 
 .search-btn {
-  background-color: rgba(185, 208, 139, 1);
+  background-color: rgba(185, 208, 139, 0.8);
   border: 3px solid rgba(185, 208, 139, 1);
   color: rgba(160, 120, 55, 1);
-
 }
 
 .icon-btn {
@@ -229,6 +245,26 @@ select {
   color: rgba(160, 120, 55, 1);
 }
 
+.followers-btn:hover,
+.go-btn:hover,
+.icon-btn:hover {
+  background: rgba(160, 120, 55, 0.7);
+  color: rgba(255, 255, 245, 1);
+}
+
+.search-btn:hover,
+.followings-btn:hover,
+.edit-btn:hover {
+  background-color: rgba(185, 208, 139, 1);
+  border: 3px solid rgba(185, 208, 139, 1);
+  color: rgba(255, 255, 245, 1);
+}
+
+.delete-btn:hover {
+  background-color: rgba(255, 120, 115, 0.9);
+  border: 3px solid rgba(255, 120, 115, 0.5);
+  color: rgba(255, 255, 245, 1);
+}
 
 
 // テーブル関係
@@ -242,6 +278,7 @@ select {
 
 
 // タグ検索
+
 .tag-index a {
   display: inline-block;
 	margin: 0 .1em .6em 0;
@@ -262,15 +299,13 @@ select {
 
 
 // サイドバー
+
 .navigation {
   position: fixed;
   height: 100%;
   width: 70px;
   background-color: rgba(214, 198, 176, 1);
-  // box-shadow: 2px 0 0 #5fb1a3;
-  // border-left: 10px solid #483D8B;
-  // border-left: 10px solid rgba(135, 160, 250, 1);
-  // overflow-x: hidden;
+  border-left: 10px solid rgba(214, 198, 176, 1);
   transition: all 0.5s;
 }
 
@@ -296,7 +331,7 @@ select {
 }
 
 .navigation ul li:hover {
-  background-color: #20272c5e;
+  background-color: rgba(160, 120, 55, 0.4);
 }
 
 .navigation ul li.active {
@@ -337,6 +372,7 @@ select {
 }
 
 
+// 足タイプ
 
 .question-image {
   display: none;

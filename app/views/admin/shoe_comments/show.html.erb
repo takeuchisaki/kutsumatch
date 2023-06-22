@@ -21,7 +21,9 @@
   <div class="col-md-10 mt-5">
     <h2>投稿内容</h2>
     <div class="d-flex align-items-center ml-4 mb-3 mt-4">
-      <%= image_tag @shoe.get_shoe_image(100,100) %>
+      <%= link_to admin_shoe_path(@shoe) do %>
+        <%= image_tag @shoe.get_shoe_image(100,100) %>
+      <% end %>
       <h3 class="ml-5"><%= @shoe.name %></h3>
     </div>
     <table class="table">
