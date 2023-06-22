@@ -47,7 +47,7 @@
       <% end %>
     </div>
     <div class="mt-5">
-      <h4 class="ml-4">コメント(<%= @shoe.shoe_comments.count %>)</h4>
+      <h4 class="ml-4">コメント(<span class="comment"><%= @shoe.shoe_comments.count %></span>)</h4>
       <table class="table">
         <tbody class="comments-index">
           <%= render 'public/shoe_comments/index_comment', shoe: @shoe %>

@@ -24,7 +24,7 @@
       <th>フォロー中</th>
       <th>
         <%= link_to customer_followings_path(customer) do %>
-          <%= customer.followings.count %>
+          <span class="following_count_<%= customer.id %>"><%= customer.followings.count %></span>
         <% end %>
       </th>
     </tr>
@@ -32,7 +32,7 @@
       <th>フォロワー</th>
       <th>
         <%= link_to customer_followers_path(customer) do  %>
-          <%= customer.followers.count %>
+          <span class="follower_count_<%= customer.id %>"><%= customer.followers.count %></span>
         <% end %>
       </th>
     </tr>
