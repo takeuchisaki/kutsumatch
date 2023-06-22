@@ -33,7 +33,7 @@
       <div class="form-group ml-5">
         <label for="match_rate">マッチ度 <i class="fa-solid fa-asterisk"></i></label>
         <div class="ml-4">
-          <%= f.text_field :match_rate, class: "custom-field" %> ％
+          <%= f.select :match_rate, options_for_select(1..100), include_blank: true %> ％
         </div>
       </div>
       <div class="form-group ml-5">

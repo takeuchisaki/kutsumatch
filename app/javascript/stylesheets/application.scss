@@ -35,7 +35,7 @@ header {
 
 
 .shoe-main {
-  padding-top: 75px;
+  padding-top: 100px;
 }
 
 .side-bar {
@@ -93,6 +93,7 @@ a:hover {
   justify-content: flex-start;
 }
 
+
 .customer-card {
   border: 3px solid rgba(214, 198, 176, 1);
   border-radius: 7px;
@@ -100,6 +101,12 @@ a:hover {
   height: 300px;
   margin-left: 2%;
   margin-bottom: 20px;
+}
+
+.card-body .card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .shoe-ch {
@@ -110,7 +117,9 @@ a:hover {
   border: 3px solid rgba(214, 198, 176, 1);
   border-radius: 7px;
   margin-left: 3%;
+  width: 400px;
 }
+
 
 
 // search関係

@@ -11,7 +11,7 @@
     <div class="form-group ml-5">
       <label for="shoe_name">商品名</label>
       <div class="ml-4">
-        <%= f.text_field :name, autofocus: true, class: "custom-field" %>
+        <%= f.text_field :name, autofocus: true, class: "custom-field", style: "width: 300px;" %>
       </div>
     </div>
     <div class="form-group ml-5">
@@ -29,7 +29,7 @@
     <div class="form-group ml-5">
       <label for="match_rate">マッチ度</label>
       <div class="ml-4">
-        <%= f.text_field :match_rate, class: "custom-field" %> ％
+        <%= f.select :match_rate, options_for_select((1..100), @shoe.match_rate), include_blank: true %> ％
       </div>
     </div>
     <div class="form-group ml-5">
