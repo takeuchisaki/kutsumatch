@@ -3,7 +3,7 @@
     <%= render 'info', customer: current_customer %>
   </div>
   <div class="col-md-8 ml-4">
-    <h2 class="mb-3">ブックマーク一覧</h2>
+    <h2 class="mb-3">ブックマーク一覧（<%= current_customer.keeps.count %>）</h2>
     <%= render 'public/shoes/index_shoe', shoes: @keep_shoes %>
   </div>
 </div>

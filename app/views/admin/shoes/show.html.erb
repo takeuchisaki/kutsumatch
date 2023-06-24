@@ -10,7 +10,7 @@
     <table class="table">
       <tbody>
         <tr>
-          <th>感想</th>
+          <th style="width: 30%;">感想</th>
           <th><%= @shoe.body %></th>
         </tr>
         <tr>
@@ -18,7 +18,7 @@
           <th><%= @shoe.shoe_size %> cm</th>
         </tr>
         <tr>
-          <th>フット感 <i class="fa-solid fa-heart"></i></th>
+          <th>マッチ度 <i class="fa-solid fa-heart"></i></th>
           <th><%= @shoe.match_rate %> %</th>
         </tr>
         <tr>
@@ -28,6 +28,10 @@
               <i class="fas fa-hashtag"></i><%= tag.name %>
             <% end %>
           </th>
+        </tr>
+        <tr>
+          <th>お値段</th>
+          <th><%= @shoe.price %> 円</th>
         </tr>
       </tbody>
     </table>

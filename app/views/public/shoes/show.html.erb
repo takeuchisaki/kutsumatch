@@ -18,11 +18,11 @@
           <th><%= @shoe.shoe_size %> cm</th>
         </tr>
         <tr>
-          <th style="width: 30%;">フット感 <i class="fa-solid fa-heart"></i></th>
+          <th>マッチ度 <i class="fa-solid fa-heart"></i></th>
           <th><%= @shoe.match_rate %> %</th>
         </tr>
         <tr>
-          <th style="width: 30%;">タグ付け</th>
+          <th>タグ付け</th>
           <th>
             <% @shoe_tags.each do |tag| %>
               <%= link_to search_path(tag_id: tag.id) do %>
@@ -30,6 +30,10 @@
               <% end %>
             <% end %>
           </th>
+        </tr>
+        <tr>
+          <th>お値段</th>
+          <th><%= @shoe.price %> 円</th>
         </tr>
       </tbody>
     </table>
