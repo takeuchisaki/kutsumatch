@@ -18,13 +18,13 @@
       <% end %>
     </li>
   
-    <li class="list <%= 'active' if @current_page == "cuatomers" %>">
+    <li class="list <%= 'active' if @current_page == "customers" %>">
       <%= link_to customers_path, class:"nav-link text-light" do %>
         <span class="icon"><i class="fas fa-users"></i></span>
       <% end %>
     </li>
   
-    <li class="list <%= 'active' if @current_page == "cuatomer" %>">
+    <li class="list <%= 'active' if @current_page == "customer" %>">
       <%= link_to customer_path(current_customer), class:"nav-link text-light" do %>
         <span class="icon"><i class="fas fa-user-circle"></i></span>
       <% end %>

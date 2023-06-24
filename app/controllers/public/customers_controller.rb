@@ -5,22 +5,22 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @shoes = @customer.shoes
+    @shoes = @customer.shoes.page(params[:page])
     if @customer == current_customer
-      @current_page = "cuatomer"
+      @current_page = "customer"
     else
-      @current_page = "cuatomers"
+      @current_page = "customers"
     end
   end
 
   def index
-    @customers = Customer.search_by_filters(params).where.not(id: current_customer.id).where.not(name: "guestcustomer")
-    @current_page = "cuatomers"
+    @customers = Customer.search_by_filters(params).where.not(id: current_customer.id).where.not(name: "guestcustomer").page(params[:page])
+    @current_page = "customers"
   end
 
   def edit
     @customer = Customer.find(params[:id])
-    @current_page = "cuatomer"
+    @current_page = "customer"
   end
 
   def update
@@ -47,7 +47,7 @@ class Public::CustomersController < ApplicationController
   def keeps
     keeps = current_customer.keeps.pluck(:shoe_id)
     @keep_shoes = Shoe.find(keeps)
-    @current_page = "cuatomer"
+    @current_page = "customer"
   end
 
   private

@@ -1,9 +1,5 @@
 class Admin::ShoesController < ApplicationController
   before_action :authenticate_admin!
-  
-  def index
-    @shoes = Shoe.all
-  end
 
   def show
     @shoe = Shoe.find(params[:id])

@@ -394,3 +394,34 @@ select {
   height: 150px;
   width: 100%;
 }
+
+
+
+
+
+.pagination .page.current {
+  margin: 5px 10px;
+  border-bottom: 2px solid rgba(220, 214, 217, 1);
+}
+
+.pagination a {
+  display: inline-block;
+  color: rgba(160, 120, 55, 0.6);
+  margin: 5px;
+}
+
+.pagination .first a::before {
+  content: " << ";
+}
+
+.pagination .prev a::before {
+  content: " < ";
+}
+
+.pagination .next a::after {
+  content: " >";
+}
+
+.pagination .last a::after {
+  content: " >>";
+}
