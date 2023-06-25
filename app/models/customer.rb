@@ -15,7 +15,7 @@ class Customer < ApplicationRecord
   has_many :followers,                through: :reverse_of_relationships, source: :follower
 
 
-  validates :name,          uniqueness: true,       length: { in: 2..20 }
+  validates :name,          presence: true,         length: { in: 2..15 }
   validates :foot_size,     presence: true
   validates :introduction,  length: { maximum: 50 }
 
@@ -43,12 +43,18 @@ class Customer < ApplicationRecord
 
 
   # ゲストユーザーについて
+  GUEST_USER_EMAIL = "guest@example.com"
+
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |customer|
+    find_or_create_by!(email: GUEST_USER_EMAIL) do |customer|
       customer.password = SecureRandom.urlsafe_base64
-      customer.name = "guestcustomer"
+      customer.name = "ゲスト"
       customer.foot_size = "-"
     end
+  end
+
+  def guest_customer?
+    email == GUEST_USER_EMAIL
   end
 
   # ユーザーの画像について

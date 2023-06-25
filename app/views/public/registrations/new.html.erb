@@ -7,8 +7,8 @@
     <%= render "public/shared/error_messages", resource: resource %>
 
     <div class="form-group">
-      <%= f.label :name %> <i class="fa-solid fa-asterisk"></i><br>
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "custom-field ml-3" %>
+      <%= f.label :name %> <i class="fa-solid fa-asterisk"></i>（2文字以上15文字以内）<br>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "custom-field ml-3", style: "width: 250px;" %>
     </div>
 
     <div class="form-group">

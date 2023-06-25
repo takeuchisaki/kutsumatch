@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.search_by_filters(params).where.not(id: current_customer.id).where.not(name: "guestcustomer").page(params[:page])
+    @customers = Customer.search_by_filters(params).where.not(id: current_customer.id).where.not(email: "guest@example.com").page(params[:page])
     @current_page = "customers"
   end
 
@@ -53,7 +53,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :foot_size, :foot_width, :foot_type, :gender, :introduction, :is_deleted, :profile_image)
+    params.require(:customer).permit(:name, :email, :foot_size, :foot_width, :foot_type, :gender, :introduction, :is_deleted, :profile_image)
   end
 
   def is_matching_login_customer
@@ -65,7 +65,7 @@ class Public::CustomersController < ApplicationController
 
   def ensure_guest_customer
     customer = Customer.find(params[:id])
-    if customer.name == "guestcustomer"
+    if customer.guest_customer?
       flash[:notice] = "ゲストユーザーはプロフィール編集画面へ遷移できません。"
       redirect_to customer_path(current_customer)
     end
