@@ -6,7 +6,7 @@ class CreateShoes < ActiveRecord::Migration[6.1]
       t.string  :name,        null: false
       t.text    :body,        null: false
       t.string  :shoe_size,   null: false
-      t.integer :price
+      t.string  :price
       t.integer :match_rate,  null: false
       t.string  :tag_name
 
