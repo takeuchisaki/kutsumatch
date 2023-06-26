@@ -41,15 +41,11 @@
   </tbody>
 </table>
 <div class="d-flex align-items-center justify-content-center mt-4">
-  <!--< if current_customer.guest_customer? %>-->
-  <!--  <div></div>-->
   <% if  customer == current_customer %>
     <div class="col-md-6">
-      <!--< unless current_customer.guest_customer? %>-->
-        <%= link_to edit_customer_path(customer), class:"btn btn-block icon-btn" do %>
-          <i class="fas fa-user-cog"></i>
-        <% end %>
-      <!--< end %>-->
+      <%= link_to edit_customer_path(customer), class:"btn btn-block icon-btn" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
     </div>
     <div class="col-md-6">
       <%= link_to keeps_customers_path, class:"btn btn-block icon-btn" do %>

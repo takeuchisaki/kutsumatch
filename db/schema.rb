@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2023_06_07_070255) do
     t.string "name", null: false
     t.text "body", null: false
     t.string "shoe_size", null: false
-    t.string "price"
+    t.integer "price"
     t.integer "match_rate", null: false
     t.string "tag_name"
     t.datetime "created_at", precision: 6, null: false

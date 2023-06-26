@@ -11,30 +11,35 @@
         <%= f.file_field :profile_image, accept: "image/*" %>
       </div>
     </div>
+    
     <div class="form-group ml-5">
       <label for="customer_name">ユーザー名 <i class="fa-solid fa-asterisk"></i>（2文字以上15文字以内）</label>
       <div class="ml-4">
         <%= f.text_field :name, autofocus: true, class: "custom-field", style: "width: 250px;" %>
       </div>
     </div>
+    
     <div class="form-group ml-5">
       <label for="email">メールアドレス <i class="fa-solid fa-asterisk"></i></label>
       <div class="ml-4">
         <%= f.text_field :email, class: "custom-field", style: "width: 250px;" %>
       </div>
     </div>
+    
     <div class="form-group ml-5">
       <label for="foot_size">足のサイズ <i class="fa-solid fa-asterisk"></i></label>
       <div class="ml-4">
         <%= f.text_field :foot_size, class: "custom-field" %> cm
       </div>
     </div>
+    
     <div class="form-group ml-5">
       <label for="foot_width">足幅</label>
       <div class="ml-4">
         <%= f.select :foot_width, Customer.foot_widths.keys.map { |k| [t("enums.customer.foot_width.#{k}"), k] } %>
       </div>
     </div>
+    
     <div class="form-group ml-5">
       <label for="foot_type">足タイプ</label>
       <span class="question"><i class="fa-solid fa-circle-question"></i></span>
@@ -43,18 +48,21 @@
       </div>
       <%= image_tag "foot_type.jpg", class: "question-image ml-2 mt-2" %>
     </div>
+    
     <div class="form-group ml-5">
       <label for="gender">性別</label>
       <div class="ml-4">
         <%= f.select :gender, Customer.genders.keys.map { |k| [t("enums.customer.gender.#{k}"), k] } %>
       </div>
     </div>
+    
     <div class="form-group ml-5">
       <label for="foot_size">紹介文（50文字以下）</label>
       <div class="ml-4">
         <%= f.text_area :introduction, class: "custom-area" %>
       </div>
     </div>
+    
     <div class="row justify-content-center mt-4">
       <div class="mr-5">
         <%= f.submit '変更', class:"btn go-btn" %>

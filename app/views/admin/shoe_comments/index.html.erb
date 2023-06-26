@@ -7,7 +7,7 @@
       <tbody class="comments-index">
         <% @shoe_comments.each do |shoe_comment| %>
           <tr>
-            <td>
+            <td style="width: 30%;">
               <%= link_to admin_customer_path(shoe_comment.customer) do %>
                 <%= image_tag shoe_comment.customer.get_profile_image(50,50), class: "rounded-circle mr-2" %>
                 <%= shoe_comment.customer.name %>
@@ -16,12 +16,15 @@
             <td>
               <%= shoe_comment.comment %>
             </td>
-            <td>
-              <%= link_to '詳細', admin_shoe_comment_path(shoe_comment), class: "btn go-btn" %>
+            <td style="text-align: right;">
+              <%= link_to '詳細', admin_shoe_comment_path(shoe_comment), class: "btn go-btn mr-5" %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   <% end %>
+  <div class="d-flex justify-content-center">
+    <%= paginate @shoe_comments %>
+  </div>
 </div>
