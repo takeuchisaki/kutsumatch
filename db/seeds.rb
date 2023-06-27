@@ -8,9 +8,9 @@
 
 Admin.create(email: "fa@f.com", password: "123456")
 
-Customer.create( name: "りく", email: "riku@example.com", password: "123456", foot_size: "27.4", foot_width: 1, foot_type: 1, gender: 1, is_deleted: false )
-Customer.create( name: "はる", email: "haru@example.com", password: "123456", foot_size: "23.4", foot_width: 2, foot_type: 3, gender: 2, is_deleted: false )
-Customer.create( name: "さく", email: "saku@example.com", password: "123456", foot_size: "26.5", foot_width: 3, foot_type: 2, gender: 1, is_deleted: false )
+Customer.create( id: 1, name: "りく", email: "riku@example.com", password: "123456", foot_size: "27.4", foot_width: 1, foot_type: 1, gender: 1, is_deleted: false )
+Customer.create( id: 2, name: "はる", email: "haru@example.com", password: "123456", foot_size: "23.4", foot_width: 2, foot_type: 3, gender: 2, is_deleted: false )
+Customer.create( id: 3, name: "さく", email: "saku@example.com", password: "123456", foot_size: "26.5", foot_width: 3, foot_type: 2, gender: 1, is_deleted: false )
 
 Shoe.create( name: 'インスタポンプ フューリー OG', body: '靴のサイズはちょうどいい。足首の前のところが当たるため、長時間履くなら長めの靴下の方がいい。', shoe_size: '24', price: '10000', match_rate: '90', tag_name: 'リーボック、スニーカー、黒', customer_id: 2 )
 Shoe.create( name: 'カイリー７', body: 'とても履き心地が良い。プレー中も痛いところがなく、とてもいい。', shoe_size: '28.5', price: '16000', match_rate: '85', tag_name: 'バスケ、ナイキ、カイリー、ブラック、ハイカット', customer_id: 1 )
