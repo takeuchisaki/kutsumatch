@@ -2,8 +2,8 @@
   <% shoes.each do |shoe| %>
     <div class="customer-card">
       <%= link_to shoe_path(shoe) do %>
-        <div class="card-header">
-          <%= image_tag shoe.get_shoe_image(250,250), style: "width: 100%;" %>
+        <div class="card-header d-flex align-items-center", style="height: 180px;">
+          <%= image_tag shoe.get_shoe_image(155,155), style: "width: 100%;" %>
         </div>
       <% end %>
       <div class="card-body">

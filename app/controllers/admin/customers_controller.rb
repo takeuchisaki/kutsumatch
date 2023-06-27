@@ -2,7 +2,7 @@ class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @customers = Customer.all
+    @customers = Customer.page(params[:page])
   end
 
   def show
@@ -26,7 +26,7 @@ class Admin::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:foot_size, :foot_width, :foot_type, :gender, :introduction, :is_deleted)
+    params.require(:customer).permit(:name, :email, :foot_size, :foot_width, :foot_type, :gender, :introduction, :is_deleted, :profile_image)
   end
 
 end

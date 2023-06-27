@@ -41,9 +41,7 @@
   </tbody>
 </table>
 <div class="d-flex align-items-center justify-content-center mt-4">
-  <% if current_customer.name == "guestcustomer" %>
-    <div></div>
-  <% elsif  customer == current_customer %>
+  <% if  customer == current_customer %>
     <div class="col-md-6">
       <%= link_to edit_customer_path(customer), class:"btn btn-block icon-btn" do %>
         <i class="fas fa-user-cog"></i>
