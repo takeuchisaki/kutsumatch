@@ -21,8 +21,8 @@
       <div class="form-group">
         <label for="match_rate">マッチ度</label>
         <div class="ml-3">
-          <%= f.select :min_match, options_for_select(1..100), include_blank: true %> ~
-          <%= f.select :max_match, options_for_select(1..100), include_blank: true %> %
+          <%= f.select :min_match, options_for_select((1..100).to_a.reverse), include_blank: true %> ~
+          <%= f.select :max_match, options_for_select((1..100).to_a.reverse), include_blank: true %> %
         </div>
       </div>
 

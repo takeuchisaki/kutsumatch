@@ -28,7 +28,7 @@ class Public::ShoesController < ApplicationController
   end
 
   def index
-    @shoes = Shoe.search_by_filters(params).page(params[:page])
+    @shoes = Shoe.search_by_filters(params).order(created_at: :desc).page(params[:page])
     @current_page = "shoes"
   end
 

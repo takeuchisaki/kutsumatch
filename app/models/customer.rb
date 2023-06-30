@@ -16,7 +16,7 @@ class Customer < ApplicationRecord
 
 
   validates :name,          presence: true,         length: { in: 2..15 }
-  validates :foot_size,     presence: true
+  validates :foot_size,     numericality: { greater_than_or_equal_to: 20, less_than_or_equal_to: 35 }
   validates :introduction,  length: { maximum: 50 }
 
 
@@ -49,7 +49,7 @@ class Customer < ApplicationRecord
     find_or_create_by!(email: GUEST_USER_EMAIL) do |customer|
       customer.password = SecureRandom.urlsafe_base64
       customer.name = "ゲスト"
-      customer.foot_size = "-"
+      customer.foot_size = "20"
     end
   end
 

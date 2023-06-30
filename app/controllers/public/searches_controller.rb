@@ -16,10 +16,10 @@ class Public::SearchesController < ApplicationController
       # タグのIDが指定されている場合
       if params[:tag_id].present?
         @tag = Tag.find(params[:tag_id])
-        @shoes = @tag.shoes.page(params[:page])
+        @shoes = @tag.shoes.order(created_at: :desc).page(params[:page])
       else
         # ワードで投稿を検索
-        @shoes = Shoe.search(@word).page(params[:page])
+        @shoes = Shoe.search(@word).order(created_at: :desc).page(params[:page])
       end
     end
     render "public/searches/search"
