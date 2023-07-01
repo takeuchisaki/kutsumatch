@@ -10,6 +10,8 @@ class Public::ShoesController < ApplicationController
   def create
     @shoe = Shoe.new(shoe_params)
     @shoe.customer_id = current_customer.id
+    @shoe_score = Language.get_data(shoe_params[:body])
+    @shoe.score = Language.get_percentage(@shoe_score)
     tag_list = params[:shoe][:tag_name].split("、")
     if @shoe.save
       @shoe.save_tag(tag_list)
@@ -57,7 +59,7 @@ class Public::ShoesController < ApplicationController
   private
 
   def shoe_params
-    params.require(:shoe).permit(:name, :body, :shoe_size, :price, :match_rate, :shoe_image, :tag_name)
+    params.require(:shoe).permit(:name, :body, :shoe_size, :price, :match_rate, :shoe_image, :tag_name, :score)
   end
 
   def is_matching_login_customer
