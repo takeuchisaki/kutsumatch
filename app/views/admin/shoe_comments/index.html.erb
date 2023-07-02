@@ -16,8 +16,11 @@
             <td>
               <%= shoe_comment.comment %>
             </td>
-            <td style="text-align: right;">
-              <%= link_to '詳細', admin_shoe_comment_path(shoe_comment), class: "btn go-btn mr-5" %>
+            <td>
+              <div class="d-flex justify-content-end">
+                <%= link_to '詳細', admin_shoe_comment_path(shoe_comment), class: "btn go-btn mr-5" %>
+                <%= link_to '削除', admin_shoe_comment_path(shoe_comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn delete-btn mr-5" %>
+              </div>
             </td>
           </tr>
         <% end %>

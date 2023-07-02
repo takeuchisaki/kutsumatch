@@ -26,30 +26,7 @@
       <% end %>
       <h3 class="ml-5"><%= @shoe.name %></h3>
     </div>
-    <table class="table">
-      <tbody>
-        <tr>
-          <th>感想</th>
-          <th><%= @shoe.body %></th>
-        </tr>
-        <tr>
-          <th>靴サイズ</th>
-          <th><%= @shoe.shoe_size %> cm</th>
-        </tr>
-        <tr>
-          <th>フット感 <i class="fa-solid fa-heart"></i></th>
-          <th><%= @shoe.match_rate %> %</th>
-        </tr>
-        <tr>
-          <th>タグ付け</th>
-          <th>
-            <% @shoe_tags.each do |tag| %>
-              <i class="fas fa-hashtag"></i><%= tag.name %>
-            <% end %>
-          </th>
-        </tr>
-      </tbody>
-    </table>
+    <%= render 'admin/shoes/shoe', shoe: @shoe, shoe_tags: @shoe_tags %>
   </div>
 </div>
 
