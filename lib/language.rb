@@ -33,7 +33,7 @@ module Language
     # APIレスポンス出力さらたscoreを％に変換
     def get_percentage(score)
       scaled_score = (score + 1) / 2
-      percentage = (scaled_score * 100).round.to_i
+      percentage = (scaled_score * 100).round
       percentage
     end
 

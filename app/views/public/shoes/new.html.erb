@@ -35,13 +35,6 @@
       </div>
       
       <div class="form-group ml-5">
-        <label for="match_rate">マッチ度 <i class="fa-solid fa-asterisk"></i></label>
-        <div class="ml-4">
-          <%= f.select :match_rate, options_for_select((1..100).to_a.reverse), include_blank: true %> ％
-        </div>
-      </div>
-      
-      <div class="form-group ml-5">
         <label for="tag_name">タグ付け（タグ名を「、」で区切って入力してください）</label>
         <div class="ml-4">
           <%= f.text_area :tag_name, class: "custom-area" %>

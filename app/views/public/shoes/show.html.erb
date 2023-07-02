@@ -20,8 +20,10 @@
         </tr>
         <tr>
           <th>マッチ度 <i class="fa-solid fa-heart"></i></th>
-          <th><%= @shoe.match_rate %> %</th>
-          <th><%= @shoe.score %></th>
+          <th>
+            <%= @shoe.match_rate %> %
+            <span class="score ml-5">※ 感想に基づくスコア</span>
+          </th>
         </tr>
         <tr>
           <th>タグ付け</th>
