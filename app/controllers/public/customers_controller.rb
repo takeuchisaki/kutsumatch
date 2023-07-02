@@ -5,7 +5,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @shoes = @customer.shoes.page(params[:page])
+    @shoes = @customer.shoes.order(created_at: :desc).page(params[:page])
     if @customer == current_customer
       @current_page = "customer"
     else

@@ -7,34 +7,7 @@
       <%= image_tag @shoe.get_shoe_image(150,150), class: "mr-5" %>
       <h1><%= @shoe.name %></h1>
     </div>
-    <table class="table">
-      <tbody>
-        <tr>
-          <th style="width: 30%;">感想</th>
-          <th><%= @shoe.body %></th>
-        </tr>
-        <tr>
-          <th>靴サイズ</th>
-          <th><%= @shoe.shoe_size %> cm</th>
-        </tr>
-        <tr>
-          <th>マッチ度 <i class="fa-solid fa-heart"></i></th>
-          <th><%= @shoe.match_rate %> %</th>
-        </tr>
-        <tr>
-          <th>タグ付け</th>
-          <th>
-            <% @shoe_tags.each do |tag| %>
-              <i class="fas fa-hashtag"></i><%= tag.name %>
-            <% end %>
-          </th>
-        </tr>
-        <tr>
-          <th>お値段</th>
-          <th><%= @shoe.price %> 円</th>
-        </tr>
-      </tbody>
-    </table>
+    <%= render 'shoe', shoe: @shoe, shoe_tags: @shoe_tags %>
     <div class="d-flex justify-content-between mt-4">
       <div class="ml-5">
         <%= link_to admin_shoe_comments_path(shoe_id: @shoe.id), class: "btn go-btn" do %>

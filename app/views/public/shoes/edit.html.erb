@@ -11,49 +11,42 @@
         <%= f.file_field :shoe_image, accept: "image/*" %>
       </div>
     </div>
-    
+
     <div class="form-group ml-5">
-      <label for="shoe_name">商品名</label>
+      <label for="shoe_name">商品名 <i class="fa-solid fa-asterisk"></i></label>
       <div class="ml-4">
         <%= f.text_field :name, autofocus: true, class: "custom-field", style: "width: 300px;" %>
       </div>
     </div>
-    
+
     <div class="form-group ml-5">
-      <label for="shoe_opinion">感想</label>
+      <label for="shoe_opinion">感想 <i class="fa-solid fa-asterisk"></i></label>
       <div class="ml-4">
         <%= f.text_area :body, class: "custom-area" %>
       </div>
     </div>
-    
+
     <div class="form-group ml-5">
-      <label for="shoe_size">靴サイズ</label>
+      <label for="shoe_size">靴サイズ <i class="fa-solid fa-asterisk"></i></label>
       <div class="ml-4">
         <%= f.select :shoe_size, options_for_select((20..35).step(0.5), @shoe.shoe_size), include_blank: true %>cm
       </div>
     </div>
-    
-    <div class="form-group ml-5">
-      <label for="match_rate">マッチ度</label>
-      <div class="ml-4">
-        <%= f.select :match_rate, options_for_select((1..100), @shoe.match_rate), include_blank: true %> ％
-      </div>
-    </div>
-    
+
     <div class="form-group ml-5">
       <label for="tag_name">タグ付け</label>
       <div class="ml-4">
         <%= f.text_area :tag_name, class: "custom-area" %>
       </div>
     </div>
-    
+
     <div class="form-group ml-5">
       <label for="price">値段（半角数字）</label>
       <div class="ml-4">
         <%= f.text_field :price, class: "custom-field" %> 円
       </div>
     </div>
-    
+
     <div class="form-group d-flex justify-content-center">
       <%= f.submit '変更', class: "btn go-btn" %>
     </div>

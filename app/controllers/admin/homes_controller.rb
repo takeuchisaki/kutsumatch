@@ -3,9 +3,9 @@ class Admin::HomesController < ApplicationController
   def top
     if params[:customer_id].present?
       @customer = Customer.find(params[:customer_id])
-      @shoes = @customer.shoes.page(params[:page])
+      @shoes = @customer.shoes.order(created_at: :desc).page(params[:page])
     else
-      @shoes = Shoe.page(params[:page])
+      @shoes = Shoe.order(created_at: :desc).page(params[:page])
     end
   end
   

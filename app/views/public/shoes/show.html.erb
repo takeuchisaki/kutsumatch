@@ -7,7 +7,7 @@
       <%= image_tag @shoe.get_shoe_image(220,165), class: "mr-5" %>
       <h1><%= @shoe.name %></h1>
     </div>
-    
+
     <table class="table">
       <tbody>
         <tr>
@@ -20,7 +20,10 @@
         </tr>
         <tr>
           <th>マッチ度 <i class="fa-solid fa-heart"></i></th>
-          <th><%= @shoe.match_rate %> %</th>
+          <th>
+            <%= @shoe.match_rate %> %
+            <span class="score ml-5">※ 感想に基づくスコア</span>
+          </th>
         </tr>
         <tr>
           <th>タグ付け</th>

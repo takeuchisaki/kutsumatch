@@ -12,5 +12,5 @@ class Admin::ShoesController < ApplicationController
     shoe.destroy
     redirect_to admin_root_path
   end
-  
+
 end

@@ -51,12 +51,12 @@
               name:
                 blank:        "を入力してください"
                 too_short:    "は短すぎます"
-              foot_size:
-                blank:        "を入力してください"
               password:
                 blank:        "を入力してください"
                 too_short:    "は短すぎます"
               password_confirmation:
                 confirmation: "が一致しません"
-
+              foot_size:
+                not_a_number: "数値を入力してください"
+                greater_than_or_equal_to: "20〜35cmの範囲内で指定してください"
 

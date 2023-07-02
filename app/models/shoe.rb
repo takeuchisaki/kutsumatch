@@ -11,7 +11,7 @@ class Shoe < ApplicationRecord
   validates :name,        presence: true
   validates :body,        length: { in:1..200 }
   validates :shoe_size,   presence: true
-  validates :match_rate,  presence: true
+  # validates :match_rate,  presence: true
   
   # 靴の画像について
   def get_shoe_image(width, height)
