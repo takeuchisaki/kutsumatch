@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     patch 'customers/withdraw'  => 'customers#withdraw',  as: 'customer_withdraw'
     resources :customers, only: [:new, :create, :show, :index, :edit, :update] do
       get :keeps, on: :collection
+      get :shoe_comments, on: :collection
       resource :relationships, only: [:create, :destroy]
       get "followings" => "relationships#followings", as: "followings"
       get "followers"  => "relationships#followers",  as: "followers"

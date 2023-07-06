@@ -42,14 +42,19 @@
 </table>
 <div class="d-flex align-items-center justify-content-center mt-4">
   <% if  customer == current_customer %>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <%= link_to edit_customer_path(customer), class:"btn btn-block icon-btn" do %>
         <i class="fas fa-user-cog"></i>
       <% end %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <%= link_to keeps_customers_path, class:"btn btn-block icon-btn" do %>
         <i class="fas fa-bookmark"></i>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to shoe_comments_customers_path, class:"btn btn-block icon-btn" do %>
+        <i class="fas fa-comment"></i>
       <% end %>
     </div>
   <% else %>

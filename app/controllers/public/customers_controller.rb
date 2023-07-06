@@ -49,6 +49,12 @@ class Public::CustomersController < ApplicationController
     @keep_shoes = Shoe.find(keeps)
     @current_page = "customer"
   end
+  
+  def shoe_comments
+    @shoe_comments = current_customer.shoe_comments
+    @current_page = "customer"
+  end
+    
 
   private
 
