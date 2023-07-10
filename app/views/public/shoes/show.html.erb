@@ -9,10 +9,15 @@
   <!--投稿情報-->
   <div class="col-md-8 ml-3">
     
-    <!--靴画像・商品名-->
-    <div class="d-flex align-items-center ml-4 mb-3">
-      <%= image_tag @shoe.get_shoe_image(220,165), class: "mr-5" %>
-      <h1><%= @shoe.name %></h1>
+    <!--靴画像・商品名・日付-->
+    <div>
+      <div class="d-flex align-items-center ml-4">
+        <%= image_tag @shoe.get_shoe_image(220,165), class: "mr-5" %>
+        <h1><%= @shoe.name %></h1>
+      </div>
+      <div class="mr-3" style="float: right;">
+        <%= @shoe.created_at.strftime('%Y/%m/%d') %>
+      </div>
     </div>
     <!--end-->
     
