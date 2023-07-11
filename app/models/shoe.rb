@@ -115,5 +115,10 @@ class Shoe < ApplicationRecord
     end
     shoes
   end
+  
+  # 投稿日絞り込み
+  def self.looks(search)
+    
+  end
 
 end
