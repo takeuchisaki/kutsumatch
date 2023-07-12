@@ -68,17 +68,17 @@ class Customer < ApplicationRecord
 
 # 検索・素掘り込みについて
   # ワードによる検索条件
-  def self.search(word)
-    where("name LIKE ? OR foot_size LIKE ? OR foot_width LIKE ? OR foot_type LIKE ?", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%")
-  end
+  scope :customer_search, -> (word) {
+    where("customer.name LIKE ? OR foot_size LIKE ? OR foot_width LIKE ? OR foot_type LIKE ?", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%")
+  }
 
   # 足のサイズによる絞り込み条件
-  def self.search_by_foot_size(foot_size)
+  scope :search_by_foot_size, -> (foot_size){
     where("foot_size LIKE ?", "%#{foot_size}%")
-  end
+  }
 
   # 絞り込み結果をもとにしたユーザー
-  def self.search_by_filters(params)
+  scope :search_by_customer_filters, -> (params) {
     customers = all
     # 足サイズによる絞り込み
     if params[:foot_size].present?
@@ -97,7 +97,7 @@ class Customer < ApplicationRecord
       customers = customers.where(gender: params[:gender])
     end
     customers
-  end
+  }
 
 # フォロー・フォロワーについて
   # フォローする際

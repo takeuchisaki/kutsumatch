@@ -50,13 +50,13 @@ class Shoe < ApplicationRecord
 
 # 検索・素掘り込みについて
   # ワードによる検索条件
-  def self.search(word)
-    where("name LIKE ? OR body LIKE ? OR tag_name LIKE ? OR shoe_size LIKE? OR match_rate LIKE?",
+  scope :shoe_search, -> (word) {
+    where("shoes.name LIKE ? OR body LIKE ? OR tag_name LIKE ? OR shoe_size LIKE? OR match_rate LIKE?",
           "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%")
-  end
+  }
 
   # 靴のサイズによる絞り込み条件
-  def self.search_by_shoe_size(min_shoe_size, max_shoe_size)
+  scope :search_by_shoe_size, -> (min_shoe_size, max_shoe_size) {
     if min_shoe_size.present? && max_shoe_size.present?
       where("shoe_size >= ? AND shoe_size <= ?", min_shoe_size, max_shoe_size)
     elsif min_shoe_size.present?
@@ -66,10 +66,10 @@ class Shoe < ApplicationRecord
     else
       all
     end
-  end
+  }
 
   # マッチ度による絞り込み条件
-  def self.search_by_match(min_match, max_match)
+  scope :search_by_match, -> (min_match, max_match) {
     if min_match.present? && max_match.present?
       where("match_rate >= ? AND match_rate <= ?", min_match, max_match)
     elsif min_match.present?
@@ -79,10 +79,10 @@ class Shoe < ApplicationRecord
     else
       all
     end
-  end
+  }
 
   # 価格による絞り込み条件
-  def self.search_by_price(min_price, max_price)
+  scope :search_by_price, -> (min_price, max_price){
     if min_price.present? && max_price.present?
       where("price >= ? AND price <= ?", min_price, max_price)
     elsif min_price.present?
@@ -92,33 +92,53 @@ class Shoe < ApplicationRecord
     else
       all
     end
-  end
+  }
 
   # 検索・絞り込み結果をもとにしたshoe投稿
-  def self.search_by_filters(params)
-    shoes = all
-    # ワードによる絞り込み
-    if params[:word].present?
-      shoes = shoes.search(params[:word])
-    end
-    # 靴のサイズによる絞り込み
-    if params[:min_shoe_size].present? || params[:max_shoe_size].present?
-      shoes = shoes.search_by_shoe_size(params[:min_shoe_size], params[:max_shoe_size])
-    end
-    # マッチ度による絞り込み
-    if params[:min_match].present? || params[:max_match].present?
-      shoes = shoes.search_by_match(params[:min_match], params[:max_match])
-    end
-    # 価格による絞り込み
-    if params[:min_price].present? || params[:max_price].present?
-      shoes = shoes.search_by_price(params[:min_price], params[:max_price])
-    end
-    shoes
-  end
+    scope :search_by_shoe_filters, -> (params){
+      shoes = all
+      # ワードによる絞り込み
+      if params[:word].present?
+        shoes = shoes.shoe_search(params[:word])
+      end
+      # 靴のサイズによる絞り込み
+      if params[:min_shoe_size].present? || params[:max_shoe_size].present?
+        shoes = shoes.search_by_shoe_size(params[:min_shoe_size], params[:max_shoe_size])
+      end
+      # マッチ度による絞り込み
+      if params[:min_match].present? || params[:max_match].present?
+        shoes = shoes.search_by_match(params[:min_match], params[:max_match])
+      end
+      # 価格による絞り込み
+      if params[:min_price].present? || params[:max_price].present?
+        shoes = shoes.search_by_price(params[:min_price], params[:max_price])
+      end
+      shoes
+    }
+    
+    scope :search_by_customer_filters, -> (params) {
+      shoes = joins(:customer)
+      # 足サイズによる絞り込み
+      if params[:foot_size].present?
+        shoes = shoes.merge(Customer.search_by_foot_size(params[:foot_size]))
+      end
+      # 足幅による絞り込み
+      if params[:foot_width].present?
+        shoes = shoes.merge(Customer.where(foot_width: params[:foot_width]))
+      end
+      # 足タイプによる絞り込み
+      if params[:foot_type].present?
+        shoes = shoes.merge(Customer.where(foot_type: params[:foot_type]))
+      end
+      # 性別による絞り込み
+      if params[:gender].present?
+        shoes = shoes.merge(Customer.where(gender: params[:gender]))
+      end
+      shoes
+    }
+  
   
   # 投稿日絞り込み
-  def self.looks(search)
-    
-  end
+  scope :today, -> 
 
 end

@@ -5,7 +5,9 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @shoes = @customer.shoes.order(created_at: :desc).page(params[:page])
+    @shoes = @customer.shoes
+                      .order(created_at: :desc)
+                      .page(params[:page])
     if @customer == current_customer
       @current_page = "customer"
     else
@@ -14,7 +16,10 @@ class Public::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.search_by_filters(params).where.not(id: current_customer.id).where.not(email: "guest@example.com").page(params[:page])
+    @customers = Customer.search_by_customer_filters(params)
+                         .where.not(id: current_customer.id)
+                         .where.not(email: "guest@example.com")
+                         .page(params[:page])
     @current_page = "customers"
   end
 
