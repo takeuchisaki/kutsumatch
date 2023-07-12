@@ -4,35 +4,55 @@
   </div>
   <div class="card-body">
     <%= form_with url: search_path, local: true, method: :get do |f| %>
+    
+      <!--キーワード-->
       <div class="form-group">
         <label for="word">キーワード</label><br>
         <%= f.text_field :word, class: "custom-field", style: "width: 100%;" %>
       </div>
+      <!--end-->
+      
+      <!--選択ボタン-->
       <div class="form-group d-flex justify-content-center">
         <div class="btn" data-toggle="buttons">
+          
+          <!--靴ボタン-->
           <button type="button" class="btn search-radio m-1">
             <%= f.radio_button :range, "Shoe", checked: false, class: "d-none" %>
             <%= f.label :range_shoe, class: "search-icon" do %>
               <i class="fas fa-shoe-prints"></i>
             <% end %>
           </button>
+          <!--end-->
+          
+          <!--タグボタン-->
           <button type="button" class="btn search-radio m-1">
             <%= f.radio_button :range, "Tag", class: "d-none" %>
             <%= f.label :range_tag, class: "search-icon" do %>
               <i class="fas fa-hashtag"></i>
             <% end %>
           </button>
+          <!--end-->
+          
+          <!--ユーザーボタン-->
           <button type="button" class="btn search-radio m-1">
             <%= f.radio_button :range, "Customer", class: "d-none" %>
             <%= f.label :range_customer, class: "search-icon" do %>
               <i class="far fa-user"></i>
             <% end %>
           </button>
+          <!--end-->
+          
         </div>
       </div>
+      <!--end-->
+      
+      <!--検索ボタン-->
       <div class="form-group d-flex justify-content-center">
         <%= f.submit "検索", class: "btn search-btn mt-4" %>
       </div>
+      <!--end-->
+      
     <% end %>
   </div>
   <div class="note d-flex justify-content-center m-3">
