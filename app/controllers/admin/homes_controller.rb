@@ -7,10 +7,10 @@ class Admin::HomesController < ApplicationController
                         .order(created_at: :desc)
                         .page(params[:page])
     else
-      @shoes = Shoe.created_at_filters(@filter)
-                  .order(created_at: :desc)
-                  .page(params[:page])
+      @filter = params[:filter]
+      @shoes = Shoe.shoe_created_at_filters(@filter)
+                   .order(created_at: :desc)
+                   .page(params[:page])
     end
   end
-  
 end

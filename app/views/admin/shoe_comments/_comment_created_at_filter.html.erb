@@ -1,0 +1,21 @@
+<div class="row">
+  <div>
+    <%= link_to '本日', admin_shoe_comments_path(filter: "Today") %>
+    <span class="ml-1 mr-2">|</span>
+  </div>
+  <div>
+    <%= link_to '3日間', admin_shoe_comments_path(filter: "ThreeDay") %>
+    <span class="ml-1 mr-2">|</span>
+  </div>
+  <div>
+    <%= link_to '1週間', admin_shoe_comments_path(filter: "OneWeek") %>
+    <span class="ml-1 mr-2">|</span>
+  </div>
+  <div>
+    <%= link_to '1ヶ月間', admin_shoe_comments_path(filter: "OneMonth") %>
+    <span class="ml-1 mr-2">|</span>
+  </div>
+  <div>
+    <%= link_to '1年間', admin_shoe_comments_path(filter: "OneYear") %>
+  </div>
+</div>

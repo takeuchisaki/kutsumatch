@@ -1,33 +1,38 @@
-<div class="container">
-  <h1>コメント一覧</h1>
-  <% if @shoe_comments.empty? %>
-    <span class="m-3">コメントはありません</span>
-  <% else %>
-    <table class="table ml-4 mt-4">
-      <tbody class="comments-index">
-        <% @shoe_comments.each do |shoe_comment| %>
-          <tr>
-            <td style="width: 30%;">
-              <%= link_to admin_customer_path(shoe_comment.customer) do %>
-                <%= image_tag shoe_comment.customer.get_profile_image(50,50), class: "rounded-circle mr-2" %>
-                <%= shoe_comment.customer.name %>
-              <% end %>
-            </td>
-            <td>
-              <%= shoe_comment.comment %>
-            </td>
-            <td>
-              <div class="d-flex justify-content-end">
-                <%= link_to '詳細', admin_shoe_comment_path(shoe_comment), class: "btn go-btn mr-5" %>
-                <%= link_to '削除', admin_shoe_comment_path(shoe_comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn delete-btn mr-5" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-  <div class="d-flex justify-content-center">
-    <%= paginate @shoe_comments %>
+<div>
+  <div class="d-flex justify-content-center mb-4">
+    <%= render 'comment_created_at_filter' %>
+  </div>
+  <div class="container">
+    <h2>コメント一覧</h2>
+    <% if @shoe_comments.empty? %>
+      <span class="m-3">コメントはありません</span>
+    <% else %>
+      <table class="table ml-4 mt-4">
+        <tbody class="comments-index">
+          <% @shoe_comments.each do |shoe_comment| %>
+            <tr>
+              <td style="width: 30%;">
+                <%= link_to admin_customer_path(shoe_comment.customer) do %>
+                  <%= image_tag shoe_comment.customer.get_profile_image(50,50), class: "rounded-circle mr-2" %>
+                  <%= shoe_comment.customer.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= shoe_comment.comment %>
+              </td>
+              <td>
+                <div class="d-flex justify-content-end">
+                  <%= link_to '詳細', admin_shoe_comment_path(shoe_comment), class: "btn go-btn mr-5" %>
+                  <%= link_to '削除', admin_shoe_comment_path(shoe_comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn delete-btn mr-5" %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+    <div class="d-flex justify-content-center">
+      <%= paginate @shoe_comments %>
+    </div>
   </div>
 </div>

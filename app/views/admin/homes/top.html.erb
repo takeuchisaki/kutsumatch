@@ -1,6 +1,9 @@
 <div>
-  <%= render 'created_at_filter' %>
-  <div class="card-container">
+  <div class="d-flex justify-content-center mb-4">
+    <%= render 'shoe_created_at_filter' %>
+  </div>
+  <h2>投稿一覧</h2>
+  <div class="card-container mt-4">
     <% if @shoes.empty? %>
       <span class="m-3">投稿はありません</span>
     <% else %>

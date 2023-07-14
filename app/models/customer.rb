@@ -73,7 +73,7 @@ class Customer < ApplicationRecord
   }
 
   # 足のサイズによる絞り込み条件
-  scope :search_by_foot_size, -> (foot_size){
+  scope :search_by_foot_size, -> (foot_size) {
     where("foot_size LIKE ?", "%#{foot_size}%")
   }
 

@@ -82,7 +82,7 @@ class Shoe < ApplicationRecord
   }
 
   # 価格による絞り込み条件
-  scope :search_by_price, -> (min_price, max_price){
+  scope :search_by_price, -> (min_price, max_price) {
     if min_price.present? && max_price.present?
       where("price >= ? AND price <= ?", min_price, max_price)
     elsif min_price.present?
@@ -95,7 +95,7 @@ class Shoe < ApplicationRecord
   }
 
   # 検索・絞り込み結果をもとにしたshoe投稿
-    scope :search_by_shoe_filters, -> (params){
+    scope :search_by_shoe_filters, -> (params) {
       shoes = all
       # ワードによる絞り込み
       if params[:word].present?
@@ -137,9 +137,8 @@ class Shoe < ApplicationRecord
       shoes
     }
   
-  
   # 投稿日絞り込み
-  scope :created_at_filters, -> (filter) {
+  scope :shoe_created_at_filters, -> (filter) {
     # 当日
     if filter == "Today"
       where("created_at >= ?", Date.today.beginning_of_day)

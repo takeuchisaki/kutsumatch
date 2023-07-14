@@ -4,12 +4,19 @@ class Admin::ShoeCommentsController < ApplicationController
   def index
     if params[:shoe_id].present?
       @shoe = Shoe.find(params[:shoe_id])
-      @shoe_comments = @shoe.shoe_comments.order(created_at: :desc).page(params[:page])
+      @shoe_comments = @shoe.shoe_comments
+                            .order(created_at: :desc)
+                            .page(params[:page])
     elsif params[:customer_id].present?
       @customer = Customer.find(params[:customer_id])
-      @shoe_comments = @customer.shoe_comments.order(created_at: :desc).page(params[:page])
+      @shoe_comments = @customer.shoe_comments
+                                .order(created_at: :desc)
+                                .page(params[:page])
     else
-      @shoe_comments = ShoeComment.order(created_at: :desc).page(params[:page])
+      @filter = params[:filter]
+      @shoe_comments = ShoeComment.comment_cocreated_at_filters(@filter)
+                                  .order(created_at: :desc)
+                                  .page(params[:page])
     end
   end
 

@@ -8,7 +8,7 @@ class Public::SearchesController < ApplicationController
 
     # タグの検索
     if @range == "Tag"
-      @tags = Tag.search(@word)
+      @tags = Tag.tag_search(@word)
     # ユーザーの検索
     elsif @range == "Customer"
       @customers = Customer.customer_search(@word)
