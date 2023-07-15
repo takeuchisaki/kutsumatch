@@ -13,7 +13,7 @@ class Public::SearchesController < ApplicationController
     elsif @range == "Customer"
       @customers = Customer.customer_search(@word)
                            .where.not(id: current_customer.id)
-                           .where.not(name: "guestcustomer")
+                           .where.not(email: "guest@example.com")
                            .page(params[:page])
     else
       # タグのIDが指定されている場合
