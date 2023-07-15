@@ -1,9 +1,20 @@
 <div class="row">
+  
+  <!--ユーザーインフォ-->
   <div class="col-md-3 m-4">
     <%= render 'info', customer: current_customer %>
   </div>
+  <!--end-->
+  
+  <!--ブックマーク一覧-->
   <div class="col-md-8 ml-4">
     <h2 class="mb-3">ブックマーク一覧（<%= current_customer.keeps.count %>）</h2>
-    <%= render 'public/shoes/index_shoe', shoes: @keep_shoes %>
+    <% if @keep_shoes.empty? %>
+      <span class="m-3">該当の投稿はありません</span>
+    <% else %>
+      <%= render 'public/shoes/index_shoe', shoes: @keep_shoes %>
+    <% end %>
   </div>
+  <!--end-->
+  
 </div>

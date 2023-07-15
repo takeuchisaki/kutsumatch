@@ -69,7 +69,7 @@ class Customer < ApplicationRecord
 # 検索・素掘り込みについて
   # ワードによる検索条件
   scope :customer_search, -> (word) {
-    where("customer.name LIKE ? OR foot_size LIKE ? OR foot_width LIKE ? OR foot_type LIKE ?", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%")
+    where("customers.name LIKE ? OR foot_size LIKE ? OR foot_width LIKE ? OR foot_type LIKE ?", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%")
   }
 
   # 足のサイズによる絞り込み条件
