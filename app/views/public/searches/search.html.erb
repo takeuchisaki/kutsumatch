@@ -16,7 +16,11 @@
       <%= render 'public/customers/index_customer', customers: @customers %>
     <% else %>
       <h2 class="mb-3">シューズ検索</h2>
-      <%= render 'public/shoes/customer_index_shoe', shoes: @shoes %>
+      <% if @shoes.empty? %>
+        <span class="m-3">該当の投稿はありません</span>
+      <% else %>
+        <%= render 'public/shoes/customer_index_shoe', shoes: @shoes %>
+      <% end %>
     <% end %>
   </div>
   <!--end-->

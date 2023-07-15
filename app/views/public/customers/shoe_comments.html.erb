@@ -9,37 +9,34 @@
   <!--ユーザーコメント一覧-->
   <div class="col-md-8 ml-4">
     <h2 class="mb-3">コメント一覧（<%= current_customer.shoe_comments.count %>）</h2>
-    <% if @shoe_comments.empty? %>
-      <span class="m-3">コメントはありません</span>
-    <% else %>
-      <table class="table ml-4 mt-4">
-        <tbody class="comments-index">
-          <% @shoe_comments.each do |shoe_comment| %>
-            <tr>
-              <!--コメント-->
-              <td style="width: 70%;">
-                <%= shoe_comment.comment %>
-              </td>
-              
-              <!--コメントに対する投稿-->
-              <td class="ml-5 mr-3">
-                <%= link_to shoe_path(shoe_comment.shoe) do %>
-                <div class="d-flex align-items-center ml-2 mb-2">
-                  <div class="mr-3">
-                    <%= image_tag shoe_comment.shoe.get_shoe_image(50,50) %>
-                  </div>
-                  <div>
-                    <%= shoe_comment.shoe.name %>
-                  </div>
+    <table class="table ml-4 mt-4">
+      <tbody class="comments-index">
+        <% @shoe_comments.each do |shoe_comment| %>
+          <tr>
+            
+            <!--コメント-->
+            <td style="width: 70%;">
+              <%= shoe_comment.comment %>
+            </td>
+            
+            <!--コメントに対する投稿-->
+            <td class="ml-5 mr-3">
+              <%= link_to shoe_path(shoe_comment.shoe) do %>
+              <div class="d-flex align-items-center ml-2 mb-2">
+                <div class="mr-3">
+                  <%= image_tag shoe_comment.shoe.get_shoe_image(50,50) %>
                 </div>
-                <% end %>
-              </td>
-              
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
+                <div>
+                  <%= shoe_comment.shoe.name %>
+                </div>
+              </div>
+              <% end %>
+            </td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
   <!--end-->
   
