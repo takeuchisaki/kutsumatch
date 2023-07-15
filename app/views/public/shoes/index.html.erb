@@ -1,11 +1,22 @@
 <div class="row">
+  
+  <!--靴検索フォーム-->
   <div class="col-md-3 m-4">
     <%= render 'shoe_search_form' %>
   </div>
+  <!--end-->
+  
+  <!--投稿一覧-->
   <div class="col-md-8 ml-3">
+    
     <%= render 'index_shoe', shoes: @shoes %>
+    
+    <!--ページネーション-->
     <div class="d-flex justify-content-center">
       <%= paginate @shoes %>
     </div>
+    
   </div>
+  <!--end-->
+  
 </div>

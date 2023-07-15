@@ -10,7 +10,6 @@
         <label for="word">キーワード</label><br>
         <%= f.text_field :word, class: "custom-field", style: "width: 100%;" %>
       </div>
-      <!--end-->
       
       <!--選択ボタン-->
       <div class="form-group d-flex justify-content-center">
@@ -23,7 +22,6 @@
               <i class="fas fa-shoe-prints"></i>
             <% end %>
           </button>
-          <!--end-->
           
           <!--タグボタン-->
           <button type="button" class="btn search-radio m-1">
@@ -32,7 +30,6 @@
               <i class="fas fa-hashtag"></i>
             <% end %>
           </button>
-          <!--end-->
           
           <!--ユーザーボタン-->
           <button type="button" class="btn search-radio m-1">
@@ -41,17 +38,14 @@
               <i class="far fa-user"></i>
             <% end %>
           </button>
-          <!--end-->
           
         </div>
       </div>
-      <!--end-->
       
       <!--検索ボタン-->
       <div class="form-group d-flex justify-content-center">
         <%= f.submit "検索", class: "btn search-btn mt-4" %>
       </div>
-      <!--end-->
       
     <% end %>
   </div>

@@ -12,7 +12,6 @@
           <%= f.select :foot_size, options_for_select(20..35), include_blank: true %> cm
         </div>
       </div>
-      <!--end-->
       
       <!--足幅-->
       <div class="form-group">
@@ -26,7 +25,6 @@
           <%= f.label :foot_width_wide, Customer.foot_widths_i18n[:wide] %>
         </div>
       </div>
-      <!--end-->
       
       <!--足タイプ-->
       <div class="form-group">
@@ -41,7 +39,6 @@
           <%= f.label :foot_type_square_type, Customer.foot_types_i18n[:square_type] %>
         </div>
       </div>
-      <!--end-->
       
       <!--性別-->
       <div class="form-group">
@@ -53,20 +50,19 @@
           <%= f.label :gender_woman, Customer.genders_i18n[:woman] %>
         </div>
       </div>
-      <!--end-->
       
       <!--検索ボタン-->
       <div class="form-group d-flex justify-content-center">
         <%= f.submit "検索", class: "btn search-btn" %>
       </div>
-      <!--end-->
       
     <% end %>
 
     <div class="note d-flex justify-content-center mb-3">
       ※ 絞りたい項目のみ入力してください。
     </div>
-
+    
+    <!--足タイプ参考画像-->
     <%= image_tag "foot_type.jpg", class: "question-image-search ml-2 mt-2" %>
   </div>
 </div>

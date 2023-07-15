@@ -1,9 +1,13 @@
+<!--プロフィール画像・ユーザー名-->
 <div class="d-flex align-items-center ml-2 mb-2">
   <%= link_to customer_path(customer) do %>
     <%= image_tag customer.get_profile_image(70,70), class: "rounded-circle mr-4" %>
   <% end %>
   <h3><%= customer.name %></h3>
 </div>
+<!--end-->
+
+<!--ユーザー詳細-->
 <table class="table">
   <tbody>
     <tr>
@@ -40,26 +44,40 @@
     </tr>
   </tbody>
 </table>
+<!--end-->
+
+<!--編集・ブックマーク・コメントボタン or フォロー・フォロワーボタン-->
 <div class="d-flex align-items-center justify-content-center mt-4">
   <% if  customer == current_customer %>
+  
+    <!--編集ボタン-->
     <div class="col-md-4">
       <%= link_to edit_customer_path(customer), class:"btn btn-block icon-btn" do %>
         <i class="fas fa-user-cog"></i>
       <% end %>
     </div>
+    
+    <!--ブックマーク一覧ボタン-->
     <div class="col-md-4">
       <%= link_to keeps_customers_path, class:"btn btn-block icon-btn" do %>
         <i class="fas fa-bookmark"></i>
       <% end %>
     </div>
+    
+    <!--コメント一覧ボタン-->
     <div class="col-md-4">
       <%= link_to shoe_comments_customers_path, class:"btn btn-block icon-btn" do %>
         <i class="fas fa-comment"></i>
       <% end %>
     </div>
+    
   <% else %>
+    
+    <!--フォロー・フォロワーボタン-->
     <div class="follow-btn_<%= customer.id %>" >
       <%= render 'public/relationships/follow_btn', customer: customer %>
     </div>
+    
   <% end %>
 </div>
+<!--end-->

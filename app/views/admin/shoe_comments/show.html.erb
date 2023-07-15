@@ -1,4 +1,6 @@
 <div class="container px-5 px-sm-0">
+  
+  <!--コメント内容-->
   <div class="col-md-10">
     <h2>コメント</h2>
     <div class="row mt-3 ml-3 align-items-center">
@@ -18,6 +20,9 @@
       </div>
     </div>
   </div>
+  <!--end-->
+  
+  <!--コメントに対する投稿-->
   <div class="col-md-10 mt-5">
     <h2>投稿内容</h2>
     <div class="d-flex align-items-center ml-4 mb-3 mt-4">
@@ -28,5 +33,7 @@
     </div>
     <%= render 'admin/shoes/shoe', shoe: @shoe, shoe_tags: @shoe_tags %>
   </div>
+  <!--end-->
+  
 </div>
 

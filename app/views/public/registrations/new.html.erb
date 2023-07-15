@@ -6,21 +6,25 @@
   <%= form_with model: @customer, url: customer_registration_path do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
 
+    <!--ユーザー名-->
     <div class="form-group">
       <%= f.label :name %> <i class="fa-solid fa-asterisk"></i>（2文字以上15文字以内）<br>
       <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "custom-field ml-3", style: "width: 250px;" %>
     </div>
 
+    <!--メールアドレス-->
     <div class="form-group">
       <%= f.label :email %> <i class="fa-solid fa-asterisk"></i><br>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "custom-field ml-3", style: "width: 250px;" %>
     </div>
 
+    <!--足サイズ-->
     <div class="form-group">
       <label for="foot_size">足のサイズ</label> <i class="fa-solid fa-asterisk"></i><br>
       <%= f.text_field :foot_size, autofocus: true, class: "custom-field ml-3" %> cm
     </div>
 
+    <!--足幅-->
     <div class="form-group">
       <label for="foot_width">足幅</label><br>
       <div class="btn" data-toggle="buttons">
@@ -42,7 +46,8 @@
         </button>
       </div>
     </div>
-
+    
+    <!--足タイプ-->
     <div class="form-group">
       <label for="foot_type">足タイプ</label>
       <span class="question"><i class="fa-solid fa-circle-question"></i></span><br>
@@ -62,7 +67,8 @@
       </div>
       <%= image_tag "foot_type.jpg", class: "question-image ml-2 mt-2" %>
     </div>
-
+    
+    <!--性別-->
     <div class="form-group">
       <label for="gender">性別</label><br>
       <div class="btn" data-toggle="buttons">
@@ -77,6 +83,7 @@
       </div>
     </div>
 
+    <!--パスワード-->
     <div class="form-group">
       <%= f.label :password %>
       <% if @minimum_password_length %>
@@ -85,14 +92,17 @@
       <%= f.password_field :password, autocomplete: "new-password", class: "custom-field ml-3" %>
     </div>
 
+    <!--パスワード確認-->
     <div class="form-group">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "custom-field ml-3" %>
     </div>
 
+    <!--登録ボタン-->
     <div class="form-group mt-5 ml-3">
       <%= f.submit "登録", class: "btn go-btn" %>
     </div>
+    
   <% end %>
   
   <div class="form-group ml-3">

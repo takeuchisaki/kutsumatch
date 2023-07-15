@@ -1,49 +1,64 @@
 <div class="container">
   <h1>My情報</h1>
   <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch, local: true do |f| %>
+  
+    <!--プロフィール画像-->
     <div class="form-group ml-5">
       <label for="customer_image">プロフィール画像</label>
       <div class="ml-4">
         <%= f.file_field :profile_image, accept: "image/*" %>
       </div>
     </div>
+    
+    <!--ユーザー名-->
     <div class="form-group ml-5">
       <label for="customer_name">ユーザー名</label>
       <div class="ml-4">
         <%= f.text_field :name, autofocus: true, class: "custom-field" %>
       </div>
     </div>
+    
+    <!--足サイズ-->
     <div class="form-group ml-5">
       <label for="foot_size">足のサイズ</label>
       <div class="ml-4">
         <%= f.text_field :foot_size, class: "custom-field" %> cm
       </div>
     </div>
+    
+    <!--足幅-->
     <div class="form-group ml-5">
       <label for="foot_width">足幅</label>
       <div class="ml-4">
         <%= f.select :foot_width, Customer.foot_widths.keys.map { |k| [t("enums.customer.foot_width.#{k}"), k] } %>
       </div>
     </div>
+    
+    <!--足タイプ-->
     <div class="form-group ml-5">
       <label for="foot_type">足タイプ</label>
       <div class="foot-type-btn ml-4">
         <%= f.select :foot_type, Customer.foot_types.keys.map { |k| [t("enums.customer.foot_type.#{k}"), k] } %>
       </div>
-      <%= image_tag "foot_type.jpg", class: "question-image ml-2 mt-2" %>
     </div>
+    
+    <!--性別-->
     <div class="form-group ml-5">
       <label for="gender">性別</label>
       <div class="ml-4">
         <%= f.select :gender, Customer.genders.keys.map { |k| [t("enums.customer.gender.#{k}"), k] } %>
       </div>
     </div>
+    
+    <!--紹介文-->
     <div class="form-group ml-5">
       <label for="foot_size">紹介文</label>
       <div class="ml-4">
         <%= f.text_area :introduction, class: "custom-area" %>
       </div>
     </div>
+    
+    <!--ユーザーステータス-->
     <div class="form-group ml-5">
       <label for="foot_size">ユーザーステータス</label>
       <div class="row ml-4">
@@ -57,8 +72,11 @@
         </div>
       </div>
     </div>
+    
+    <!--変更ボタン-->
     <div class="form-group d-flex justify-content-center">
       <%= f.submit '変更',class:'btn edit-btn' %>
     </div>
+    
   <% end %>
 </div>

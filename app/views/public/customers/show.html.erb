@@ -1,9 +1,16 @@
 <div class="row">
+  
+  <!--ユーザーインフォ-->
   <div class="col-md-3 m-4">
     <%= render 'info', customer: @customer %>
   </div>
+  <!--end-->
+  
+  <!--ユーザー投稿一覧-->
   <div class="col-md-8 ml-4">
     <h2 class="mb-3">投稿（<%= @customer.shoes.count %>）</h2>
     <%= render 'public/shoes/customer_index_shoe', shoes: @shoes %>
   </div>
+  <!--end-->
+  
 </div>

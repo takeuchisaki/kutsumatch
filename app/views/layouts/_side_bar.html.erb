@@ -1,33 +1,39 @@
 <div class="navigation">
   <ul>
+    <!--投稿一覧(ホーム)画面へ-->
     <li class="list <%= 'active' if @current_page == "shoes" %>">
       <%= link_to shoes_path, class:"nav-link text-light" do %>
         <span class="icon"><i class="fas fa-home"></i></span>
       <% end %>
     </li>
 
+    <!--検索画面へ-->
     <li class="list <%= 'active' if @current_page == "searches" %>">
       <%= link_to search_path, class:"nav-link text-light" do %>
         <span class="icon"><i class="fas fa-search"></i></span>
       <% end %>
     </li>
   
+    <!--新規投稿画面へ-->
     <li class="list <%= 'active' if @current_page == "shoe_new" %>">
       <%= link_to new_shoe_path, class:"nav-link text-light" do %>
         <span class="icon"><i class="far fa-plus-square"></i></span>
       <% end %>
     </li>
   
+    <!--ユーザー一覧画面へ-->
     <li class="list <%= 'active' if @current_page == "customers" %>">
       <%= link_to customers_path, class:"nav-link text-light" do %>
         <span class="icon"><i class="fas fa-users"></i></span>
       <% end %>
     </li>
   
+    <!--マイページ画面へ-->
     <li class="list <%= 'active' if @current_page == "customer" %>">
       <%= link_to customer_path(current_customer), class:"nav-link text-light" do %>
         <span class="icon"><i class="fas fa-user-circle"></i></span>
       <% end %>
     </li>
+    
   </ul>
 </div>

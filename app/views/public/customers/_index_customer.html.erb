@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th></th>
-      <th>ネーム</th>
+      <th>ユーザー名</th>
       <th>足サイズ</th>
       <th>足幅</th>
       <th>足タイプ</th>
@@ -12,25 +12,31 @@
   <tbody>
     <% customers.each do |customer| %>
       <tr>
+        <!--プロフィール画像-->
         <td>
           <%= link_to customer_path(customer) do %>
             <%= image_tag customer.get_profile_image(60,60) %>
           <% end %>
         </td>
+        <!--ユーザー名-->
         <td>
           <%= link_to customer_path(customer) do %>
             <%= customer.name %>
           <% end %>
         </td>
+        <!--足サイズ-->
         <td>
           <%= customer.foot_size %> cm
         </td>
+        <!--足幅-->
         <td>
           <%= t("enums.customer.foot_width.#{customer.foot_width}") %>
         </td>
+        <!--足タイプ-->
         <td>
           <%= t("enums.customer.foot_type.#{customer.foot_type}") %>
         </td>
+        <!--フォロー・フォロワーボタン-->
         <td class="follow-btn_<%= customer.id %>">
           <%= render 'public/relationships/follow_btn', customer: customer %>
         </td>
@@ -38,6 +44,9 @@
     <% end %>
   </tbody>
 </table>
+
+<!--ページネーション-->
 <div class="d-flex justify-content-center">
   <%= paginate customers %>
 </div>
+<!--end-->

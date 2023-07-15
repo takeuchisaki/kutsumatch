@@ -1,5 +1,5 @@
 <div class="container">
-  <h4>会員一覧</h5>
+  <h2>会員一覧</h2>
   <div class="ml-4 mt-4">
     <table class="table">
       <tr>
@@ -34,8 +34,12 @@
       <% end %>
     </table>
   </div>
+  
+  <!--ページネーション-->
   <div class="d-flex justify-content-center">
     <%= paginate @customers %>
   </div>
+  <!--end-->
+  
 </div>
         

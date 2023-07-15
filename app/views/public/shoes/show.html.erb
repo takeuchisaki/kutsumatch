@@ -19,7 +19,6 @@
         <%= @shoe.created_at.strftime('%Y/%m/%d') %>
       </div>
     </div>
-    <!--end-->
     
     <!--靴詳細情報-->
     <table class="table">
@@ -55,13 +54,11 @@
         </tr>
       </tbody>
     </table>
-    <!--end-->
     
     <!--ブックマーク-->
     <div id="keep-btn_<%= @shoe.id %>", class="keep-icon mr-5" style="float: right;">
       <%= render 'public/keeps/keep', shoe: @shoe %>
     </div>
-    <!--end-->
     
     <!--編集・削除ボタン-->
     <div class="d-flex align-items-center justify-content-center mt-4">
@@ -74,7 +71,6 @@
         </div>
       <% end %>
     </div>
-    <!--end-->
     
     <!--コメント機能-->
     <div class="mt-5">
@@ -88,7 +84,6 @@
         <%= render 'public/shoe_comments/new_comment', shoe: @shoe, shoe_comment: @shoe_comment %>
       </div>
     </div>
-    <!--end-->
     
   </div>
   <!--end-->
