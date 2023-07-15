@@ -1,19 +1,23 @@
 <div class="card-container">
-  <% shoes.each do |shoe| %>
-    <div class="customer-card">
-      <%= link_to shoe_path(shoe) do %>
-        <div class="card-header d-flex align-items-center", style="height: 180px;">
-          <%= image_tag shoe.get_shoe_image(155,155), style: "width: 100%;" %>
-        </div>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= shoe.name %></h5>
-        <div class="ml-3"><%= shoe.shoe_size %> cm</div>
-        <div class="ml-3">
-          <span><i class="fa-solid fa-heart"></i> <%= shoe.match_rate %> %</span>
+  <% if shoes.empty? %>
+    <span class="m-3">該当の投稿はありません</span>
+  <% else %>
+    <% shoes.each do |shoe| %>
+      <div class="customer-card">
+        <%= link_to shoe_path(shoe) do %>
+          <div class="card-header d-flex align-items-center", style="height: 180px;">
+            <%= image_tag shoe.get_shoe_image(155,155), style: "width: 100%;" %>
+          </div>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= shoe.name %></h5>
+          <div class="ml-3"><%= shoe.shoe_size %> cm</div>
+          <div class="ml-3">
+            <span><i class="fa-solid fa-heart"></i> <%= shoe.match_rate %> %</span>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 

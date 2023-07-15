@@ -1,9 +1,13 @@
 <div class="tag-index" %>
-  <% tags.each do |tag| %>
-    <%= link_to search_path(tag_id: tag.id) do %>
-      <i class="fas fa-hashtag"></i>
-      <%= tag.name%>
-      (<%= tag.shoes.count %>)
+  <% if tags.empty? %>
+    <span class="m-3">該当のタグはありません</span>
+  <% else %>
+    <% tags.each do |tag| %>
+      <%= link_to search_path(tag_id: tag.id) do %>
+        <i class="fas fa-hashtag"></i>
+        <%= tag.name%>
+        (<%= tag.shoes.count %>)
+      <% end %>
     <% end %>
   <% end %>
 </div>

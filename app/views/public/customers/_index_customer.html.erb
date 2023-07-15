@@ -10,37 +10,41 @@
     </tr>
   </thead>
   <tbody>
-    <% customers.each do |customer| %>
-      <tr>
-        <!--プロフィール画像-->
-        <td>
-          <%= link_to customer_path(customer) do %>
-            <%= image_tag customer.get_profile_image(60,60) %>
-          <% end %>
-        </td>
-        <!--ユーザー名-->
-        <td>
-          <%= link_to customer_path(customer) do %>
-            <%= customer.name %>
-          <% end %>
-        </td>
-        <!--足サイズ-->
-        <td>
-          <%= customer.foot_size %> cm
-        </td>
-        <!--足幅-->
-        <td>
-          <%= t("enums.customer.foot_width.#{customer.foot_width}") %>
-        </td>
-        <!--足タイプ-->
-        <td>
-          <%= t("enums.customer.foot_type.#{customer.foot_type}") %>
-        </td>
-        <!--フォロー・フォロワーボタン-->
-        <td class="follow-btn_<%= customer.id %>">
-          <%= render 'public/relationships/follow_btn', customer: customer %>
-        </td>
-      </tr>
+    <% if customers.empty? %>
+      <span class="m-3">該当のユーザーはいません</span>
+    <% else %>
+      <% customers.each do |customer| %>
+        <tr>
+          <!--プロフィール画像-->
+          <td>
+            <%= link_to customer_path(customer) do %>
+              <%= image_tag customer.get_profile_image(60,60) %>
+            <% end %>
+          </td>
+          <!--ユーザー名-->
+          <td>
+            <%= link_to customer_path(customer) do %>
+              <%= customer.name %>
+            <% end %>
+          </td>
+          <!--足サイズ-->
+          <td>
+            <%= customer.foot_size %> cm
+          </td>
+          <!--足幅-->
+          <td>
+            <%= t("enums.customer.foot_width.#{customer.foot_width}") %>
+          </td>
+          <!--足タイプ-->
+          <td>
+            <%= t("enums.customer.foot_type.#{customer.foot_type}") %>
+          </td>
+          <!--フォロー・フォロワーボタン-->
+          <td class="follow-btn_<%= customer.id %>">
+            <%= render 'public/relationships/follow_btn', customer: customer %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
